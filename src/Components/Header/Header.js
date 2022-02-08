@@ -31,12 +31,12 @@ const Styles = {
         display: 'flex',
         alignItems: 'center',
         margin: '0px 20px',
-        padding: '15px',
         '&:hover': {
             color: '#0D2A62'
         },
     }
 }
+
 
 
 const Header = () => {
@@ -105,7 +105,7 @@ const Header = () => {
                             >
                                 <Link sx={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link>
                                 <Link sx={Styles.navLink}>Regulated Courses</Link>
-                                <Badge badgeContent="New" color="error">
+                                <Badge badgeContent={4} color="secondary">
                                     <Link sx={Styles.navLink}>Today's Deal</Link>
                                 </Badge>
                             </Menu>
@@ -147,21 +147,24 @@ const Header = () => {
                                 anchorEl={anchorElUser}
                                 anchorOrigin={{
                                     vertical: 'top',
-                                    horizontal: 'right',
+                                    horizontal: 'left',
                                 }}
                                 keepMounted
                                 transformOrigin={{
                                     vertical: 'top',
-                                    horizontal: 'right',
+                                    horizontal: 'left',
                                 }}
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                <Link sx={Styles.navLink}>Courses</Link>
-                                <Link sx={Styles.navLink}>Regulated Courses</Link>
-                                <Badge badgeContent="New" color="error">
+                                <MenuItem ><Link sx={Styles.navLink}>Courses</Link></MenuItem>
+                                <MenuItem ><Link sx={Styles.navLink}>Regulated Courses</Link></MenuItem>
+                                <MenuItem ><Badge badgeContent="New" color="error">
                                     <Link sx={Styles.navLink}>Today's Deal</Link>
-                                </Badge>
+                                </Badge></MenuItem>
+
+
+
                             </Menu>
                         </Box>
                     </Toolbar>
