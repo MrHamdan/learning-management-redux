@@ -103,11 +103,11 @@ const Header = () => {
                                     display: { xs: 'block', md: 'none', fontFamily: 'Inter' },
                                 }}
                             >
-                                <Link sx={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link>
-                                <Link sx={Styles.navLink}>Regulated Courses</Link>
-                                <Badge badgeContent={4} color="secondary">
+                                <MenuItem ><Link sx={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link></MenuItem>
+                                <MenuItem ><Link sx={Styles.navLink}>Regulated Courses</Link></MenuItem>
+                                <MenuItem ><Badge badgeContent="New" color="error">
                                     <Link sx={Styles.navLink}>Today's Deal</Link>
-                                </Badge>
+                                </Badge></MenuItem>
                             </Menu>
                         </Box>
                         <Typography
@@ -158,12 +158,6 @@ const Header = () => {
                                 onClose={handleCloseUserMenu}
                             >
                                 <MenuItem ><Link sx={Styles.navLink}>Courses</Link></MenuItem>
-                                <MenuItem ><Link sx={Styles.navLink}>Regulated Courses</Link></MenuItem>
-                                <MenuItem ><Badge badgeContent="New" color="error">
-                                    <Link sx={Styles.navLink}>Today's Deal</Link>
-                                </Badge></MenuItem>
-
-
 
                             </Menu>
                         </Box>
