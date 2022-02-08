@@ -15,7 +15,8 @@ import MenuItem from '@mui/material/MenuItem';
 import logo from '../../Images/Logo.png'
 import Link from '@mui/material/Link';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { Badge } from '@mui/material';
+import { Badge, InputAdornment, TextField } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
 
 const pages = ['Browse', 'Related Courses', 'Todays Deals'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -124,6 +125,15 @@ const Header = () => {
                                 <Link sx={Styles.navLink}>Today's Deal</Link>
                             </Badge>
                         </Box>
+                        <TextField id="outlined-basic" placeholder="Search" variant="outlined" sx={{ marginRight: '50px', width: '300px', display: { xs: 'none', md: 'flex' } }} InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <IconButton>
+                                        <SearchIcon />
+                                    </IconButton>
+                                </InputAdornment>
+                            )
+                        }}></TextField>
                         <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none' }}>Sign In</Button>
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
@@ -157,7 +167,7 @@ const Header = () => {
                     </Toolbar>
                 </Container>
             </AppBar>
-        </div>
+        </div >
     );
 };
 
