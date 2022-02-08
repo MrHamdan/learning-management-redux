@@ -6,7 +6,7 @@ import bannerImage from '../../Images/Banner.png';
 const Banner = () => {
 
     const Styles = {
-        banner: {
+        bannerImage: {
             backgroundImage: `url(${bannerImage})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -15,36 +15,36 @@ const Banner = () => {
             width: '100%',
             position: 'relative',
             display: 'flex',
-            alignItems: 'center',
             justifyContent: 'center',
-            color: 'white',
-            fontFamily: 'Inter',
-            fontSize: '14px',
-            fontWeight: '900',
+            alignItems: 'center',
+            flexDirection: 'column',
+            zIndex: '1',
             '&:before': {
                 content: '""',
                 position: 'absolute',
-                top: 0,
-                left: 0,
+                top: '0',
+                left: '0',
                 width: '100%',
                 height: '100%',
-                backgroundColor: 'rgba(0,0,0,0.5)',
-            },
+                backgroundColor: '#009FE3',
+                opacity: '0.6',
+                zIndex: '-1',
+            }
         }
     }
 
     return (
-        <div style={Styles.banner}>
+        <Box sx={Styles.bannerImage}>
             <Container>
-                <Box><Typography sx={{ fontSize: '80px', fontWeight: '900', color: 'white', marginBottom: '20px' }}>
+                <Box><Typography sx={{ fontSize: { xs: '20px', md: '50px', xl: '64px' }, fontWeight: '900', color: 'white', marginBottom: '20px' }}>
                     ENTER THE ERA OF <br /> APPX LEARNING
                 </Typography>
-                    <Typography variant="h6" sx={{ fontSize: '28px', fontWeight: '400', color: 'white' }}>
+                    <Typography variant="h6" sx={{ fontSize: { xs: '16px', md: '30px', xl: '30px' }, fontWeight: '400', color: 'white' }}>
                         Learn Wherever and When you Want Without Limits
                     </Typography></Box>
                 <Box sx={{ textAlign: 'center', marginTop: '30px' }}><Button variant="contained" sx={{ padding: '10px 40px', backgroundColor: '#0D2A62 !important' }} >Start Learning</Button></Box>
             </Container>
-        </div>
+        </Box>
     );
 };
 

@@ -61,7 +61,7 @@ const Header = () => {
 
 
     return (
-        <div>
+        <Box>
             <AppBar position="static" sx={{ backgroundColor: 'white', padding: '15px', boxShadow: '0' }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
@@ -167,7 +167,7 @@ const Header = () => {
                     </Toolbar>
                 </Container>
             </AppBar>
-        </div >
+        </Box>
     );
 };
 
