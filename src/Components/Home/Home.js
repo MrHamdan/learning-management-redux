@@ -2,6 +2,7 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import Form from '../Form/Form';
 import Header from '../Header/Header';
+import Courses from '../Courses/Courses';
 
 const Home = () => {
     const [open, setOpen] = React.useState(false);
@@ -12,6 +13,7 @@ const Home = () => {
             <Header handleOpen={handleOpen} />
             <Banner />
             <Form open={open} handleClose={handleClose} />
+            <Courses />
         </div>
     );
 };
