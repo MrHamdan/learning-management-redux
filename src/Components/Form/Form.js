@@ -130,7 +130,7 @@ const Form = ({ open, handleClose }) => {
                             <Box>
                                 <Box>
                                     <form onSubmit={handleRegistration}>
-                                        <Typography sx={{fontSize:'30px', marginBottom: '30px'}}>{isLogin ? 'Log In' : 'Sign Up'}</Typography>
+                                        <Typography sx={{fontSize:'30px', marginBottom: '30px', fontWeight:'bold'}}>{isLogin ? 'Log In' : 'Sign Up'}</Typography>
                                         {!isLogin && <Box >
                                             <Box >
                                                 <input style={{ width: '300px', height: '30px', marginBottom: '20px' }} placeholder="Name" type="text" onBlur={handleNameChange} id="inputName" required />
