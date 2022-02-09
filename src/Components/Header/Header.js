@@ -32,14 +32,15 @@ const Styles = {
         alignItems: 'center',
         margin: '0px 20px',
         '&:hover': {
-            color: '#0D2A62'
+            color: '#0D2A62',
+            cursor: 'pointer'
         },
     }
 }
 
 
 
-const Header = () => {
+const Header = ({ handleOpen }) => {
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -61,7 +62,7 @@ const Header = () => {
 
 
     return (
-        <Box>
+        <div>
             <AppBar position="static" sx={{ backgroundColor: 'white', padding: '15px', boxShadow: '0' }}>
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
@@ -134,7 +135,7 @@ const Header = () => {
                                 </InputAdornment>
                             )
                         }}></TextField>
-                        <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none' }}>Sign In</Button>
+                        <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none' }} onClick={handleOpen}>Sign In</Button>
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenBrowseMenu} sx={{ p: 0 }}>
@@ -164,7 +165,7 @@ const Header = () => {
                     </Toolbar>
                 </Container>
             </AppBar>
-        </Box>
+        </div>
     );
 };
 
