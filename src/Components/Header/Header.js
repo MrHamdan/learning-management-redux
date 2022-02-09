@@ -17,6 +17,7 @@ import Link from '@mui/material/Link';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Badge, InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import useAuth from '../../Hooks/useAuth';
 
 const pages = ['Browse', 'Related Courses', 'Todays Deals'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -41,6 +42,7 @@ const Styles = {
 
 
 const Header = ({ handleOpen }) => {
+    const { user, logOut } = useAuth();
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -135,8 +137,12 @@ const Header = ({ handleOpen }) => {
                                 </InputAdornment>
                             )
                         }}></TextField>
-                        <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none' }} onClick={handleOpen}>Sign In</Button>
-                        <Box sx={{ flexGrow: 0 }}>
+                        {user?.email ? <Button variant="contained" onClick={logOut} sx={{backgroundColor:'#009FE3 !important    '}}>SignOut</Button>
+
+                            :
+                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none' }} onClick={handleOpen}>Sign In</Button>}
+                        <Box sx={{ flexGrow: 0, display:'flex', alignItems:'center' }}>
+                            <Typography sx={{color:'#009FE3', marginLeft:'20px', fontWeight:'bold'}}>{user.email}</Typography>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenBrowseMenu} sx={{ p: 0 }}>
                                     {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}

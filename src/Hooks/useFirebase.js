@@ -1,6 +1,7 @@
 import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
-import initializeAuthentication from "../Pages/Login/Firebase/firebase.init";
+import initializeAuthentication from "../Components/Firebase/firebase.init";
+
 
 
 initializeAuthentication();
@@ -41,54 +42,6 @@ const useFirebase = () => {
         setPassword(e.target.value)
     }
 
-    const handleRegistration = e => {
-        e.preventDefault();
-
-        if (password.length < 6) {
-            setError('Password Must be at least 6 characters long.')
-            return;
-        }
-        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setError('Password Must contain 2 upper case letter');
-            return;
-        }
-
-        if (isLogin) {
-            processLogin(email, password);
-        }
-        else {
-            registerNewUser(email, password);
-        }
-
-    }
-
-    const processLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                setUser(user);
-                setError('');
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-
-    }
-
-    const registerNewUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                setUser(user);
-                setError('');
-                verifyEmail();
-                setUserName();
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-
-    }
 
     //observe user state change
     useEffect(() => {
@@ -132,20 +85,30 @@ const useFirebase = () => {
             .then(() => { })
             .finally(() => setIsLoading(false));
     }
+
+
     return {
+        auth,
         user,
         name,
         error,
+        email,
         isLogin,
+        password,
         isLoading,
+        setUser,
+        setName,
+        setError,
         toggleLogin,
-        processLogin,
-        handleGoogleSignIn,
-        handleEmailChange,
+        verifyEmail,
+        setUserName,
         handleNameChange,
-        handlePasswordChange,
-        handleRegistration,
+        handleEmailChange,
+        handleGoogleSignIn,
         handleResetPassword,
+        handlePasswordChange,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         logOut
     }
 }
