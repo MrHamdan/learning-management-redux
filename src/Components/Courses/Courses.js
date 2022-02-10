@@ -15,7 +15,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import './Courses.css';
 
-const Styles = {
+const buttonStyles = {
     next: {
         background: '#EEEEEE',
         borderRadius: '6px',
@@ -110,8 +110,8 @@ const Courses = () => {
                 <Box>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>
                         <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md:'40px', xl:'50px' }, fontWeight: 'bold' }}>Find What Fascinates You</Typography>
-                        <Box><ArrowBackIcon sx={{ ...Styles.prev, mr: '20px' }} onClick={() => sliderRef?.current?.slickPrev()} />
-                            <ArrowForwardIcon sx={Styles.next} onClick={() => sliderRef?.current?.slickNext()} /></Box>
+                        <Box><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px' }} onClick={() => sliderRef?.current?.slickPrev()} />
+                            <ArrowForwardIcon sx={buttonStyles.next} onClick={() => sliderRef?.current?.slickNext()} /></Box>
                     </Box>
                 </Box>
                 <Box sx={{ marginTop: '50px', display: 'flex', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>

@@ -1,8 +1,10 @@
-import { Card, Container, Typography } from '@mui/material';
+import { Button, Card, Container, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import stunningBackground from '../../Images/stunningbackground.png';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 const Styles = {
@@ -19,6 +21,29 @@ const Styles = {
         alignItems: 'center',
         flexDirection: 'column',
         zIndex: '1',
+    }
+}
+
+const buttonStyles = {
+    next: {
+        background: '#EEEEEE',
+        borderRadius: '6px',
+        padding: '20px',
+        color: 'black',
+        '&:hover': {
+            color: 'white',
+            background: '#0D2A62',
+        }
+    },
+    prev: {
+        background: '#EEEEEE',
+        borderRadius: '6px',
+        padding: '20px',
+        color: 'black',
+        '&:hover': {
+            color: 'white',
+            background: '#0D2A62',
+        }
     }
 }
 
@@ -75,21 +100,24 @@ const Stunning = () => {
     return (
         <Box sx={{ ...Styles.stunningBg, marginTop: '50px' }}>
             <Container>
-            <Slider ref={sliderRef} {...settings}>
-                {stunnings.map(stunning => (
-                    <Box key={stunning.id} stunning={stunning}>
-                        <Box>
-                            <Box>
-                            <Typography sx={{color:'white', fontSize:'30px'}}>{stunning.title}</Typography>
-                        <Typography sx={{color:'white', fontSize:'20px'}}>{stunning.description}</Typography>
-                            </Box>
-                            <Box>
-                                <img src={stunning.image} alt="" />
+                <Box><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px', position: 'relative', left: {xl:'-200px', md:'-100px', xs:'0px'}, top: {xl:'250px',md:'100px',xs:'-30px'} }} onClick={() => sliderRef?.current?.slickPrev()} />
+                    <ArrowForwardIcon sx={{ ...buttonStyles.next, position: 'relative', left: {xl:'1200px',md:'100px',xs:'0px'}, top: {xl:'250px',md:'100px',xs:'-30px'} }} onClick={() => sliderRef?.current?.slickNext()} /></Box>
+                <Slider ref={sliderRef} {...settings}>
+                    {stunnings.map(stunning => (
+                        <Box key={stunning.id} stunning={stunning}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',marginBottom: '40px'}}>
+                                <Box>
+                                    <Typography sx={{ color: 'white', fontSize: '30px' }}>Take Stunning Photos <br/> for Instagram</Typography>
+                                    <Typography sx={{ color: 'white', fontSize: '16px', marginTop: '20px' }}>Create thoughtful and personal images in this workshop,<br /> kicking off on June 28th.</Typography>
+                                    <Button variant='contained' sx={{ backgroundColor: '#0D2A62', marginTop: '20px' }}>Join Today</Button>
+                                </Box>
+                                <Box>
+                                    <img style={{ width: '100%' }} src={stunning.image} alt="" />
+                                </Box>
                             </Box>
                         </Box>
-                    </Box>
-                ))}
-            </Slider>
+                    ))}
+                </Slider>
             </Container>
         </Box>
     );
