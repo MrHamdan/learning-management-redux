@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "title": "Take Stunning Photos for Instagram",
+        "description":"Create thoughtful and personal images in this workshop, kicking off on June 28th.",
+        "image": "../src/Images/photo.png"
+    },
+    {
+        "id": "2",
+        "title": "Take Stunning Photos for Instagram",
+        "description":"Create thoughtful and personal images in this workshop, kicking off on June 28th.",
+        "image": "../src/Images/photo.png"
+    },
+    {
+        "id": "3",
+        "title": "Take Stunning Photos for Instagram",
+        "description":"Create thoughtful and personal images in this workshop, kicking off on June 28th.",
+        "image": "../src/Images/photo.png"
+    },
+    {
+        "id": "4",
+        "title": "Take Stunning Photos for Instagram",
+        "description":"Create thoughtful and personal images in this workshop, kicking off on June 28th.",
+        "image": "../src/Images/photo.png"
+    }
+]
