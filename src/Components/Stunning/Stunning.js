@@ -107,8 +107,8 @@ const Stunning = () => {
                         <Box key={stunning.id} stunning={stunning}>
                             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',marginBottom: '40px'}}>
                                 <Box>
-                                    <Typography sx={{ color: 'white', fontSize: '30px' }}>Take Stunning Photos <br/> for Instagram</Typography>
-                                    <Typography sx={{ color: 'white', fontSize: '16px', marginTop: '20px' }}>Create thoughtful and personal images in this workshop,<br /> kicking off on June 28th.</Typography>
+                                    <Typography sx={{ color: 'white', fontSize: '48px',fontWeight:'800' }}>Take Stunning Photos <br/> for Instagram</Typography>
+                                    <Typography sx={{ color: 'white', fontSize: '16px', marginTop: '20px',fontFamily:'Inter' }}>Create thoughtful and personal images in this workshop,<br /> kicking off on June 28th.</Typography>
                                     <Button variant='contained' sx={{ backgroundColor: '#0D2A62', marginTop: '20px' }}>Join Today</Button>
                                 </Box>
                                 <Box>
