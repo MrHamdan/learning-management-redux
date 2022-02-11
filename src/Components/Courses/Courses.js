@@ -43,8 +43,8 @@ const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
         {
@@ -106,7 +106,7 @@ const Courses = () => {
 
     return (
         <div>
-            <Container sx={{ marginTop: '120px' }}>
+            <Container maxWidth='xl' sx={{ marginTop: '120px' }}>
                 <Box>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>
                         <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md:'40px', xl:'50px' }, fontWeight: 'bold' }}>Find What Fascinates You</Typography>

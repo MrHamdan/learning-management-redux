@@ -5,6 +5,7 @@ import Slider from 'react-slick';
 import stunningBackground from '../../Images/stunningbackground.png';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import './Stunning.css';
 
 
 const Styles = {
@@ -99,16 +100,16 @@ const Stunning = () => {
 
     return (
         <Box sx={{ ...Styles.stunningBg, marginTop: '50px' }}>
-            <Container>
-                <Box><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px', position: 'relative', left: {xl:'-200px', md:'-100px', xs:'0px'}, top: {xl:'250px',md:'100px',xs:'-30px'} }} onClick={() => sliderRef?.current?.slickPrev()} />
-                    <ArrowForwardIcon sx={{ ...buttonStyles.next, position: 'relative', left: {xl:'1200px',md:'100px',xs:'0px'}, top: {xl:'250px',md:'100px',xs:'-30px'} }} onClick={() => sliderRef?.current?.slickNext()} /></Box>
+            <Container maxWidth='xl'>
+                <Box><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px', position: 'relative', left: {xl:'-70px', md:'-100px', xs:'0px'}, top: {xl:'250px',md:'100px',xs:'-30px'} }} onClick={() => sliderRef?.current?.slickPrev()} />
+                    <ArrowForwardIcon sx={{ ...buttonStyles.next, position: 'relative', left: {xl:'1400px',md:'100px',xs:'0px'}, top: {xl:'250px',md:'100px',xs:'-30px'} }} onClick={() => sliderRef?.current?.slickNext()} /></Box>
                 <Slider ref={sliderRef} {...settings}>
                     {stunnings.map(stunning => (
                         <Box key={stunning.id} stunning={stunning}>
-                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',marginBottom: '40px'}}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around',marginBottom: '40px'}}>
                                 <Box>
-                                    <Typography sx={{ color: 'white', fontSize: '48px',fontWeight:'800' }}>Take Stunning Photos <br/> for Instagram</Typography>
-                                    <Typography sx={{ color: 'white', fontSize: '16px', marginTop: '20px',fontFamily:'Inter' }}>Create thoughtful and personal images in this workshop,<br /> kicking off on June 28th.</Typography>
+                                    <Typography sx={{ color: 'white', fontSize: {xl:'48px',md:'24px',xs:'18px'},fontWeight:'800' }}>Take Stunning Photos <br/> for Instagram</Typography>
+                                    <Typography sx={{ color: 'white', fontSize: {xl:'16px',xs:'10px'}, marginTop: '20px',fontFamily:'Inter' }}>Create thoughtful and personal images in this workshop,<br /> kicking off on June 28th.</Typography>
                                     <Button variant='contained' sx={{ backgroundColor: '#0D2A62', marginTop: '20px' }}>Join Today</Button>
                                 </Box>
                                 <Box>

@@ -11,7 +11,7 @@ import CloseIcon from '@mui/icons-material/Close';
 const style = {
     position: 'absolute',
     textAlign: 'center',
-    top: { xs: '30%', md: '60%', xl: '46%' },
+    top: { xs: '330px', md: '60%', xl: '46%' },
     left: { xs: '45%', md: '48%', xl: '74%' },
     transform: 'translate(-50%, -50%)',
     width: { xs: 300, md: 400, xl: 400 },
@@ -130,7 +130,7 @@ const Form = ({ open, handleClose }) => {
                             <Box>
                                 <Box>
                                     <form onSubmit={handleRegistration}>
-                                        <Typography sx={{fontSize:'30px', marginBottom: '30px', fontWeight:'bold'}}>{isLogin ? 'Log In' : 'Sign Up'}</Typography>
+                                        <Typography sx={{ fontSize: '30px', marginBottom: '30px', fontWeight: 'bold' }}>{isLogin ? 'Log In' : 'Sign Up'}</Typography>
                                         {!isLogin && <Box >
                                             <Box >
                                                 <input style={{ width: '300px', height: '30px', marginBottom: '20px' }} placeholder="Name" type="text" onBlur={handleNameChange} id="inputName" required />
