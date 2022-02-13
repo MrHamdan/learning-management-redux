@@ -39,8 +39,9 @@ const buttonStyles = {
 }
 
 
-const settings = {
+const settingsOne = {
     dots: true,
+    dotsClass: 'slick-dots-one',
     infinite: true,
     speed: 500,
     slidesToShow: 4,
@@ -75,6 +76,24 @@ const settings = {
 };
 
 
+const Style = {
+    Link: {
+        color: 'black',
+        textDecoration: 'none',
+        fontSize: '15px',
+        fontWeight: 'bold',
+        marginTop: '20px',
+        marginBottom: '20px',
+        marginRight: '20px',
+        '&:hover': {
+            color: '#009FE3',
+            borderBottom: '2px solid #009FE3',
+        }
+
+    }
+}
+
+
 
 const Courses = () => {
     const [courseData, setCourseData] = useContext(DataContext);
@@ -87,29 +106,14 @@ const Courses = () => {
 
     const sliderRef = React.useRef(null);
 
-    const Style = {
-        Link: {
-            color: 'black',
-            textDecoration: 'none',
-            fontSize: '15px',
-            fontWeight: 'bold',
-            marginTop: '20px',
-            marginBottom: '20px',
-            marginRight: '20px',
-            '&:hover': {
-                color: '#009FE3',
-                borderBottom: '2px solid #009FE3',
-            }
-
-        }
-    }
+    
 
     return (
         <div>
             <Container maxWidth='xl' sx={{ marginTop: '120px' }}>
                 <Box>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>
-                        <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md:'40px', xl:'50px' }, fontWeight: 'bold' }}>Find What Fascinates You</Typography>
+                        <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '50px' }, fontWeight: 'bold' }}>Find What Fascinates You</Typography>
                         <Box><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px' }} onClick={() => sliderRef?.current?.slickPrev()} />
                             <ArrowForwardIcon sx={buttonStyles.next} onClick={() => sliderRef?.current?.slickNext()} /></Box>
                     </Box>
@@ -127,7 +131,7 @@ const Courses = () => {
                 </Box>
 
                 <Box sx={{ marginTop: '62px' }}>
-                    <Slider ref={sliderRef} {...settings}>
+                    <Slider ref={sliderRef} {...settingsOne}>
                         {courseData.map(course => (
                             <Box key={course.id} course={course}>
                                 <Card sx={{ maxWidth: 345, margin: '0px 10px', boxShadow: 3, position: 'relative' }}>
