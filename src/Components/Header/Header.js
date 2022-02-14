@@ -66,7 +66,7 @@ const Header = ({ handleOpen }) => {
     return (
         <div>
             <AppBar position="static" sx={{ backgroundColor: 'white', padding: '15px', boxShadow: '0' }}>
-                <Container maxWidth="xl">
+                <Container >
                     <Toolbar disableGutters>
                         <Typography
                             variant="h6"

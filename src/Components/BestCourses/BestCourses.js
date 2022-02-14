@@ -175,32 +175,32 @@ const BestCourses = () => {
                                 <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '10px', xl: '50px' }, fontWeight: 'bold', fontFamily: 'Inter', marginTop: '30px',textAlign: 'center',marginBottom:'28px'}}>Quality Assured By</Typography>
                             </Grid>
                             <Grid sx={{ display: 'flex', alignItems: 'center', gap:4, flexDirection:{xs: 'column',xl:'row'}}}>
-                                <Grid item xs={12} xl={12} >
+                                <Grid item xs={12} xl={2} >
                                     <Paper sx={{ width: '159px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}}}>
                                         <img style={{ width: '100%' }} src={cpd} alt="" />
                                     </Paper>
                                 </Grid>
-                                <Grid item xs={12} xl={12}>
+                                <Grid item xs={12} xl={2}>
                                     <Paper sx={{ width: '208px', height: '111.6px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'} }}>
                                         <img style={{ width: '100%' }} src={nsc} alt="" />
                                     </Paper>
                                 </Grid>
-                                <Grid item xs={12} xl={12}>
+                                <Grid item xs={12} xl={2}>
                                     <Paper sx={{ width: '237px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'} }}>
                                         <img style={{ width: '100%' }} src={focus} alt="" />
                                     </Paper>
                                 </Grid>
-                                <Grid item xs={12} xl={12}>
+                                <Grid item xs={12} xl={2}>
                                     <Paper sx={{ width: '181px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'} }}>
                                         <img style={{ width: '100%' }} src={training} alt="" />
                                     </Paper>
                                 </Grid>
-                                <Grid item xs={12} xl={12}>
+                                <Grid item xs={12} xl={2}>
                                     <Paper sx={{ width: '236px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'} }}>
                                         <img style={{ width: '100%' }} src={ukrlp} alt="" />
                                     </Paper>
                                 </Grid>
-                                <Grid item xs={12} xl={12}>
+                                <Grid item xs={12} xl={2}>
                                     <Paper sx={{ width: '129px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'} }}>
                                         <img style={{ width: '100%' }} src={iao} alt="" />
                                     </Paper>

@@ -88,6 +88,7 @@ const Style = {
         '&:hover': {
             color: '#009FE3',
             borderBottom: '2px solid #009FE3',
+            cursor:'pointer'
         }
 
     }
@@ -148,11 +149,11 @@ const Courses = () => {
                                     </CardContent>
                                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px' }}>
                                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                            <del style={{ color: 'gray', fontSize: '12px', marginRight: '8px' }}>{course.regularPrice}</del>
-                                            <Typography sx={{ color: '#009FE3', fontSize: '23px', fontWeight: 'bold' }}>{course.discountPrice}</Typography>
+                                            <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter'}}>{course.regularPrice}</del>
+                                            <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter',}}>{course.discountPrice}</Typography>
                                         </Box>
                                         <Box>
-                                            <Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3' }}>Buy Now</Button>
+                                            <Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3',width:'123px',height:'40px',borderRadius:'4px',fontFamily: 'Inter'}}>Buy Now</Button>
                                         </Box>
                                     </Box>
                                 </Card>
