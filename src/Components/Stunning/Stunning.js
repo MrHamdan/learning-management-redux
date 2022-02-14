@@ -50,7 +50,7 @@ const buttonStyles = {
 
 const settingsTwo = {
     dots: true,
-    dotsClass:'slick-dots-two',
+    dotsClass: 'slick-dots-two',
     infinite: true,
     speed: 500,
     slidesToShow: 1,
@@ -101,16 +101,16 @@ const Stunning = () => {
     return (
         <Box sx={{ ...Styles.stunningBg, marginTop: '50px' }}>
             <Container>
-                <Box><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px', position: 'relative', left: {xl:'-200px', md:'30px', xs:'0px'}, top: {xl:'250px',md:'0px',xs:'-30px'} }} onClick={() => sliderRef?.current?.slickPrev()} />
-                    <ArrowForwardIcon sx={{ ...buttonStyles.next, position: 'relative', left: {xl:'1200px',md:'50px',xs:'0px'}, top: {xl:'250px',md:'0px',xs:'-30px'} }} onClick={() => sliderRef?.current?.slickNext()} /></Box>
+                <Box><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px', position: 'relative', left: { xl: '-200px', md: '30px', xs: '0px' }, top: { xl: '250px', md: '0px', xs: '-30px' } }} onClick={() => sliderRef?.current?.slickPrev()} />
+                    <ArrowForwardIcon sx={{ ...buttonStyles.next, position: 'relative', left: { xl: '1200px', md: '50px', xs: '0px' }, top: { xl: '250px', md: '0px', xs: '-30px' } }} onClick={() => sliderRef?.current?.slickNext()} /></Box>
                 <Slider ref={sliderRef} {...settingsTwo}>
                     {stunnings.map(stunning => (
                         <Box key={stunning.id} stunning={stunning}>
-                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between',marginBottom: '40px'}}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '40px' }}>
                                 <Box>
-                                    <Typography sx={{ color: 'white', fontSize: {xl:'48px', md:'20px'},fontWeight:'800' }}>Take Stunning Photos <br/> for Instagram</Typography>
-                                    <Typography sx={{ color: 'white', fontSize: '16px', marginTop: '20px',fontFamily:'Inter' }}>Create thoughtful and personal images in this workshop,<br /> kicking off on June 28th.</Typography>
-                                    <Button variant='contained' sx={{ backgroundColor: '#0D2A62', marginTop: '20px',textTransform: 'none', width:'155px', height:'51px', fontWeight:'bold', fontFamily: 'Inter', fontSize:'14px'}}>Join Today</Button>
+                                    <Typography sx={{ color: 'white', fontSize: { xl: '48px', md: '20px' }, fontWeight: '800', fontFamily: 'Inter'}}>Take Stunning Photos <br /> for Instagram</Typography>
+                                    <Typography sx={{ color: 'white', fontSize: '16px', marginTop: '20px', fontFamily: 'Inter' }}>Create thoughtful and personal images in this workshop,<br /> kicking off on June 28th.</Typography>
+                                    <Button variant='contained' sx={{ backgroundColor: '#0D2A62', marginTop: '20px', textTransform: 'none', width: '155px', height: '51px', fontWeight: 'bold', fontFamily: 'Inter', fontSize: '14px' }}>Join Today</Button>
                                 </Box>
                                 <Box>
                                     <img style={{ width: '100%' }} src={stunning.image} alt="" />

@@ -81,10 +81,11 @@ const Style = {
         color: 'black',
         textDecoration: 'none',
         fontSize: '15px',
-        fontWeight: 'bold',
+        fontWeight: '600',
         marginTop: '20px',
         marginBottom: '20px',
-        marginRight: '20px',
+        marginRight: '50px',
+        fontFamily:'Inter',
         '&:hover': {
             color: '#009FE3',
             borderBottom: '2px solid #009FE3',
@@ -114,7 +115,7 @@ const Courses = () => {
             <Container maxWidth='xl' sx={{ marginTop: '120px' }}>
                 <Box>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>
-                        <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '50px' }, fontWeight: 'bold' }}>Find What Fascinates You</Typography>
+                        <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '50px' }, fontWeight: '800', fontFamily: 'Inter'}}>Find What Fascinates You</Typography>
                         <Box><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px' }} onClick={() => sliderRef?.current?.slickPrev()} />
                             <ArrowForwardIcon sx={buttonStyles.next} onClick={() => sliderRef?.current?.slickNext()} /></Box>
                     </Box>

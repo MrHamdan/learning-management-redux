@@ -60,6 +60,8 @@
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    z-index: 1;
 }
 .vertical-dots li.slick-active button:before
 {

@@ -25,8 +25,8 @@ const Styles = {
     navLink: {
         color: 'black',
         fontFamily: 'Inter',
-        fontSize: '14px',
-        fontWeight: '900',
+        fontSize: '16px',
+        fontWeight: '600',
         textDecoration: 'none',
         display: 'flex',
         alignItems: 'center',
@@ -65,7 +65,7 @@ const Header = ({ handleOpen }) => {
     return (
         <div>
             <AppBar position="static" sx={{ backgroundColor: 'white', padding: '15px', boxShadow: '0' }}>
-                <Container >
+                <Container maxWidth='xl'>
                     <Toolbar disableGutters>
                         <Typography
                             variant="h6"

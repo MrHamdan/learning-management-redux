@@ -101,7 +101,7 @@ const StudentSaying = () => {
     <Box sx={Styles.Student}>
       <Container >
         <Box sx={{ textAlign: 'center' }}>
-          <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '50px' }, fontWeight: 'bold', fontFamily: 'Inter', marginTop: '30px' }}>
+          <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '48px' }, fontWeight: '800', fontFamily: 'Inter', marginTop: '30px' }}>
             What Student Saying <br /> About US
           </Typography>
         </Box>

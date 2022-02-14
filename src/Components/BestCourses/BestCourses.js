@@ -109,7 +109,7 @@ const BestCourses = () => {
                 <Box>
                     <Box sx={{ height: { xl: '697px', xs: '770px' }, backgroundColor: 'white', padding: { xl: '78px 98px', xs: '20px 20px' }, borderRadius: '10px',position: 'relative' , top:'120px'}}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>
-                            <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '50px' }, fontWeight: 'bold', fontFamily: 'Inter', marginTop: '30px' }}>Best Selling Courses</Typography>
+                            <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '48px' }, fontWeight: '800', fontFamily: 'Inter', marginTop: '30px' }}>Best Selling Courses</Typography>
                             <Box sx={{ mt: '42px' }}>
                                 <ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px' }} onClick={() => sliderRef?.current?.slickPrev()} />
                                 <ArrowForwardIcon sx={buttonStyles.next} onClick={() => sliderRef?.current?.slickNext()} />
@@ -151,7 +151,7 @@ const BestCourses = () => {
                     <Box sx={{ height: { xl: '442px', xs: '770px' }, backgroundColor: 'white', padding: { xl: '78px 98px', xs: '20px 20px' }, borderRadius: '10px' }}>
                         <Grid container spacing={2} sx={{ display: 'flex', flexDirection: { xs: 'column', xl: 'row' } }}>
                             <Grid item xs={12} xl={6}>
-                                <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '10px', xl: '50px' }, fontWeight: 'bold', fontFamily: 'Inter', marginTop: '30px' }}>
+                                <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '10px', xl: '48px' }, fontWeight: '800', fontFamily: 'Inter', marginTop: '30px' }}>
                                     Why Learners Choose <br /> Apex Learning
                                 </Typography>
                                 <Typography sx={{ color: '#4E4848', fontSize: { xs: '10px', md: '10px', xl: '14px' }, fontWeight: 'bold', fontFamily: 'Inter', marginTop: '30px', lineHeight: '28px', marginBottom: '34px' }}>
@@ -172,7 +172,7 @@ const BestCourses = () => {
                     <Box sx={{ height: { xl: '321px', xs: '900px' }, backgroundColor: 'white', padding: { xl: '78px 98px', xs: '20px 20px' }, borderRadius: '10px' }}>
                         <Grid container spacing={2} sx={{display:'flex', justifyContent: 'center'}}>
                             <Grid item xs={12} xl={12}>
-                                <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '10px', xl: '50px' }, fontWeight: 'bold', fontFamily: 'Inter', marginTop: '30px',textAlign: 'center',marginBottom:'28px'}}>Quality Assured By</Typography>
+                                <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '10px', xl: '48px' }, fontWeight: '800', fontFamily: 'Inter', marginTop: '30px',textAlign: 'center',marginBottom:'28px'}}>Quality Assured By</Typography>
                             </Grid>
                             <Grid sx={{ display: 'flex', alignItems: 'center', gap:4, flexDirection:{xs: 'column',xl:'row'}}}>
                                 <Grid item xs={12} xl={2} >
