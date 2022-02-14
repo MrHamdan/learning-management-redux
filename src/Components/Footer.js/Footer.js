@@ -24,7 +24,7 @@ const Styles = {
     footerBg: {
         backgroundColor: '#F6F9FF',
         white: '100%',
-        height: {xl:'517px',xs:'1250px'},
+        height: {xl:'450px',xs:'1250px'},
         paddingTop: '389px',
     }
 }

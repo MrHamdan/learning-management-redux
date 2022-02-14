@@ -13,11 +13,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../../Images/Logo.png'
-import Link from '@mui/material/Link';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Badge, InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import useAuth from '../../Hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 
 
@@ -105,11 +105,11 @@ const Header = ({ handleOpen }) => {
                                     display: { xs: 'block', md: 'none', fontFamily: 'Inter' },
                                 }}
                             >
-                                <MenuItem ><Link sx={Styles.navLink}>Home</Link></MenuItem>
-                                <MenuItem ><Link sx={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link></MenuItem>
-                                <MenuItem ><Link sx={Styles.navLink}>Regulated Courses</Link></MenuItem>
+                                <MenuItem ><Link to='/home' style={Styles.navLink}>Home</Link></MenuItem>
+                                <MenuItem ><Link to='' style={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link></MenuItem>
+                                <MenuItem ><Link to='' style={Styles.navLink}>Regulated Courses</Link></MenuItem>
                                 <MenuItem ><Badge badgeContent="New" color="error">
-                                    <Link sx={Styles.navLink}>Today's Deal</Link>
+                                    <Link to='' style={Styles.navLink}>Today's Deal</Link>
                                 </Badge></MenuItem>
                             </Menu>
                         </Box>
@@ -122,11 +122,11 @@ const Header = ({ handleOpen }) => {
                             <img src={logo} alt="" />
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center' } }}>
-                            <Link sx={Styles.navLink}>Home</Link>
-                            <Link sx={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link>
-                            <Link sx={Styles.navLink}>Regulated Courses</Link>
+                            <Link to='/home' style={Styles.navLink}>Home</Link>
+                            <Link to='' style={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link>
+                            <Link to='' style={Styles.navLink}>Regulated Courses</Link>
                             <Badge badgeContent="New" color="error">
-                                <Link sx={Styles.navLink}>Today's Deal</Link>
+                                <Link to='' style={Styles.navLink}>Today's Deal</Link>
                             </Badge>
                         </Box>
                         <TextField id="outlined-basic" placeholder="Search" variant="outlined" sx={{ marginRight: '50px', width: '300px', display: { xs: 'none', md: 'flex' } }} InputProps={{
@@ -164,7 +164,7 @@ const Header = ({ handleOpen }) => {
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                <MenuItem ><Link sx={Styles.navLink}>Courses</Link></MenuItem>
+                                <MenuItem ><Link to='' style={Styles.navLink}>Courses</Link></MenuItem>
 
                             </Menu>
                         </Box>

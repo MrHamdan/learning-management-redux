@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Card, CardHeader, Container, Link, Typography } from '@mui/material';
+import { Avatar, Box, Button, Card, CardHeader, Container, Typography } from '@mui/material';
 import React, { useContext, useEffect } from 'react';
 import { DataContext } from '../../Contexts/DataProvider';
 import Slider from "react-slick";
@@ -14,6 +14,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
 import './Courses.css';
+import { Link } from 'react-router-dom';
 
 const buttonStyles = {
     next: {
@@ -85,11 +86,11 @@ const Style = {
         marginTop: '20px',
         marginBottom: '20px',
         marginRight: '50px',
-        fontFamily:'Inter',
+        fontFamily: 'Inter',
         '&:hover': {
             color: '#009FE3',
             borderBottom: '2px solid #009FE3',
-            cursor:'pointer'
+            cursor: 'pointer'
         }
 
     }
@@ -108,28 +109,28 @@ const Courses = () => {
 
     const sliderRef = React.useRef(null);
 
-    
+
 
     return (
         <div>
             <Container maxWidth='xl' sx={{ marginTop: '120px' }}>
                 <Box>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>
-                        <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '50px' }, fontWeight: '800', fontFamily: 'Inter'}}>Find What Fascinates You</Typography>
+                        <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '50px' }, fontWeight: '800', fontFamily: 'Inter' }}>Find What Fascinates You</Typography>
                         <Box><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px' }} onClick={() => sliderRef?.current?.slickPrev()} />
                             <ArrowForwardIcon sx={buttonStyles.next} onClick={() => sliderRef?.current?.slickNext()} /></Box>
                     </Box>
                 </Box>
                 <Box sx={{ marginTop: '50px', display: 'flex', flexDirection: { xs: 'column', md: 'column', xl: 'row' } }}>
-                    <Link sx={Style.Link}>All Categories</Link>
-                    <Link sx={Style.Link}>Business</Link>
-                    <Link sx={Style.Link}>Accounting</Link>
-                    <Link sx={Style.Link}>Health & Fitness</Link>
-                    <Link sx={Style.Link}>Employability</Link>
-                    <Link sx={Style.Link}>Management</Link>
-                    <Link sx={Style.Link}>Marketing</Link>
-                    <Link sx={Style.Link}>Microsoft Office</Link>
-                    <Link sx={Style.Link}>Personal Development</Link>
+                    <Link to='' style={{ textDecoration: 'none' }}> <Typography sx={Style.Link}>All Projects</Typography> </Link>
+                    <Link to='' style={{ textDecoration: 'none' }}><Typography sx={Style.Link}>Business</Typography></Link>
+                    <Link to='' style={{ textDecoration: 'none' }}><Typography sx={Style.Link}>Accounting</Typography></Link>
+                    <Link to='' style={{ textDecoration: 'none' }}><Typography sx={Style.Link}>Health & Fitness</Typography></Link>
+                    <Link to='' style={{ textDecoration: 'none' }}><Typography sx={Style.Link}>Employability</Typography></Link>
+                    <Link to='' style={{ textDecoration: 'none' }}><Typography sx={Style.Link}>Management</Typography></Link>
+                    <Link to='' style={{ textDecoration: 'none' }}><Typography sx={Style.Link}>Marketing</Typography></Link>
+                    <Link to='' style={{ textDecoration: 'none' }}><Typography sx={Style.Link}>Microsoft Office</Typography></Link>
+                    <Link to='' style={{ textDecoration: 'none' }}><Typography sx={Style.Link}>Personal Development</Typography></Link>
                 </Box>
 
                 <Box sx={{ marginTop: '62px' }}>
@@ -150,11 +151,11 @@ const Courses = () => {
                                     </CardContent>
                                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px' }}>
                                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                            <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter'}}>{course.regularPrice}</del>
-                                            <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter',}}>{course.discountPrice}</Typography>
+                                            <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter' }}>{course.regularPrice}</del>
+                                            <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter', }}>{course.discountPrice}</Typography>
                                         </Box>
                                         <Box>
-                                            <Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3',width:'123px',height:'40px',borderRadius:'4px',fontFamily: 'Inter', textTransform: 'none'}}>Buy Now</Button>
+                                            <Link to="/coursedetail/id" style={{ textDecoration: 'none' }}><Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button></Link>
                                         </Box>
                                     </Box>
                                 </Card>

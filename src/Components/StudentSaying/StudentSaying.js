@@ -102,8 +102,9 @@ const StudentSaying = () => {
       <Container >
         <Box sx={{ textAlign: 'center' }}>
           <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '48px' }, fontWeight: '800', fontFamily: 'Inter', marginTop: '30px' }}>
-            What Student Saying <br /> About US
+            What Student Saying
           </Typography>
+          <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '48px' }, fontWeight: '800', fontFamily: 'Inter', marginRight:{xl:'290px'}}}>About US</Typography>
         </Box>
         <Box sx={{ flexGrow: 1, marginTop: '50px' }}>
           <Grid container spacing={2}>
@@ -121,7 +122,7 @@ const StudentSaying = () => {
                     <Box key={review.id} review={review} >
                       <Box sx={{ textAlign: 'left' }}>
                         <Typography>{review.review}</Typography>
-                        <Typography sx={{fontSize:'18px', fontWeight:'bold',color:'black'}}>{review.name}</Typography>
+                        <Typography sx={{ fontSize: '18px', fontWeight: 'bold', color: 'black' }}>{review.name}</Typography>
                         <Rating
                           className="fs-4"
                           initialRating={review.ratings}

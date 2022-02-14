@@ -6,20 +6,21 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import AuthProvider from './Contexts/AuthProvider';
 import DataProvider from './Contexts/DataProvider';
+import CourseDetail from './Components/CourseDetail/CourseDetail';
 
 function App() {
   return (
-    <div>
+    <BrowserRouter>
       <AuthProvider>
         <DataProvider>
-        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path= "/coursedetail/id" element={<CourseDetail />} />
           </Routes>
-        </BrowserRouter>
         </DataProvider>
       </AuthProvider>
-    </div>
+    </BrowserRouter>
   );
 }
 
