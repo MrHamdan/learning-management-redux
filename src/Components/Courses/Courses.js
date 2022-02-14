@@ -153,7 +153,7 @@ const Courses = () => {
                                             <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter',}}>{course.discountPrice}</Typography>
                                         </Box>
                                         <Box>
-                                            <Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3',width:'123px',height:'40px',borderRadius:'4px',fontFamily: 'Inter'}}>Buy Now</Button>
+                                            <Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3',width:'123px',height:'40px',borderRadius:'4px',fontFamily: 'Inter', textTransform: 'none'}}>Buy Now</Button>
                                         </Box>
                                     </Box>
                                 </Card>

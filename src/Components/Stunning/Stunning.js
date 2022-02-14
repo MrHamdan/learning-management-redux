@@ -110,7 +110,7 @@ const Stunning = () => {
                                 <Box>
                                     <Typography sx={{ color: 'white', fontSize: {xl:'48px', md:'20px'},fontWeight:'800' }}>Take Stunning Photos <br/> for Instagram</Typography>
                                     <Typography sx={{ color: 'white', fontSize: '16px', marginTop: '20px',fontFamily:'Inter' }}>Create thoughtful and personal images in this workshop,<br /> kicking off on June 28th.</Typography>
-                                    <Button variant='contained' sx={{ backgroundColor: '#0D2A62', marginTop: '20px' }}>Join Today</Button>
+                                    <Button variant='contained' sx={{ backgroundColor: '#0D2A62', marginTop: '20px',textTransform: 'none', width:'155px', height:'51px', fontWeight:'bold', fontFamily: 'Inter', fontSize:'14px'}}>Join Today</Button>
                                 </Box>
                                 <Box>
                                     <img style={{ width: '100%' }} src={stunning.image} alt="" />

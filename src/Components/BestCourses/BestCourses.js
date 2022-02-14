@@ -119,7 +119,7 @@ const BestCourses = () => {
                             <Slider ref={sliderRef} {...settingsThree}>
                                 {bestCourses.map(bestCourse => (
                                     <Box key={bestCourse.id} bestCourse={bestCourse} >
-                                        <Card sx={{ height: '425px', margin: '0px 10px', boxShadow: 3, position: 'relative', marginTop: '70px', marginBottom: '40px' }}>
+                                        <Card sx={{ height: '400px', margin: '0px 10px', boxShadow: 3, position: 'relative', marginTop: '70px', marginBottom: '40px' }}>
                                             <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold' }}>Most Popular</Typography>
                                             <CardMedia
                                                 component="img"
@@ -133,11 +133,11 @@ const BestCourses = () => {
                                             </CardContent>
                                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px' }}>
                                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                                    <del style={{ color: 'gray', fontSize: '12px', marginRight: '8px' }}>{bestCourse.regularPrice}</del>
-                                                    <Typography sx={{ color: '#009FE3', fontSize: '23px', fontWeight: 'bold' }}>{bestCourse.discountPrice}</Typography>
+                                                    <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter'}}>{bestCourse.regularPrice}</del>
+                                                    <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter',}}>{bestCourse.discountPrice}</Typography>
                                                 </Box>
                                                 <Box>
-                                                    <Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3' }}>Buy Now</Button>
+                                                    <Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3',width:'123px',height:'40px',borderRadius:'4px',fontFamily: 'Inter', textTransform: 'none'}}>Buy Now</Button>
                                                 </Box>
                                             </Box>
                                         </Card>
@@ -176,32 +176,32 @@ const BestCourses = () => {
                             </Grid>
                             <Grid sx={{ display: 'flex', alignItems: 'center', gap:4, flexDirection:{xs: 'column',xl:'row'}}}>
                                 <Grid item xs={12} xl={2} >
-                                    <Paper sx={{ width: '159px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}}}>
+                                    <Paper sx={{ width: '159px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px'}}>
                                         <img style={{ width: '100%' }} src={cpd} alt="" />
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} xl={2}>
-                                    <Paper sx={{ width: '208px', height: '111.6px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'} }}>
+                                    <Paper sx={{ width: '208px', height: '111.6px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px' }}>
                                         <img style={{ width: '100%' }} src={nsc} alt="" />
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} xl={2}>
-                                    <Paper sx={{ width: '237px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'} }}>
+                                    <Paper sx={{ width: '237px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px' }}>
                                         <img style={{ width: '100%' }} src={focus} alt="" />
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} xl={2}>
-                                    <Paper sx={{ width: '181px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'} }}>
+                                    <Paper sx={{ width: '181px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px' }}>
                                         <img style={{ width: '100%' }} src={training} alt="" />
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} xl={2}>
-                                    <Paper sx={{ width: '236px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'} }}>
+                                    <Paper sx={{ width: '236px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px' }}>
                                         <img style={{ width: '100%' }} src={ukrlp} alt="" />
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} xl={2}>
-                                    <Paper sx={{ width: '129px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'} }}>
+                                    <Paper sx={{ width: '129px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px' }}>
                                         <img style={{ width: '100%' }} src={iao} alt="" />
                                     </Paper>
                                 </Grid>
