@@ -5,13 +5,13 @@ export const DataContext = createContext();
 
 const DataProvider = ({ children }) => {
 
-    const [courseData, setCourseData] = useState([]);
+    const [courses, setCourses] = useState([]);
     return (
         <div>
             <DataContext.Provider
                 value={[
-                    courseData,
-                    setCourseData
+                    courses,
+                    setCourses
                 ]}
             >
                 {children}

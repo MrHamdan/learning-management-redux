@@ -159,7 +159,7 @@ const BestCourses = () => {
 
                                     A gateway to the best professional courses to work in what you like. A complete catalogue of courses and didactic content.
                                 </Typography>
-                                <Button sx={{ borderRadius: '8px', border: '1px solid', color: '#009FE3', '&:hover': { backgroundColor: '#009FE3', color: 'white', border: '0px' } }}>Discover More</Button>
+                                <Button sx={{ borderRadius: '8px', border: '1px solid', color: '#009FE3', '&:hover': { backgroundColor: '#009FE3', color: 'white', border: '0px' }, width:'183px', height:'51px' }}>Discover More</Button>
                             </Grid>
                             <Grid item xs={12} xl={6}>
                                 <img style={{ width: '100%' }} src={womenLaptop} alt="" />
@@ -176,7 +176,7 @@ const BestCourses = () => {
                             </Grid>
                             <Grid sx={{ display: 'flex', alignItems: 'center', gap:4, flexDirection:{xs: 'column',xl:'row'}}}>
                                 <Grid item xs={12} xl={2} >
-                                    <Paper sx={{ width: '159px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px'}}>
+                                    <Paper sx={{ width: '159px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'20px 20px 50px gray'}, padding:'0px 10px'}}>
                                         <img style={{ width: '100%' }} src={cpd} alt="" />
                                     </Paper>
                                 </Grid>

@@ -98,13 +98,13 @@ const Style = {
 
 
 const Courses = () => {
-    const [courseData, setCourseData] = useContext(DataContext);
+    const [courses, setCourses] = useContext(DataContext);
     useEffect(() => {
-        fetch('coursedata.json')
+        fetch('courses.json')
             .then(data => data.json())
-            .then(data => setCourseData(data))
+            .then(data => setCourses(data))
     }, []);
-    console.log(courseData);
+    console.log(courses);
 
     const sliderRef = React.useRef(null);
 
@@ -120,7 +120,7 @@ const Courses = () => {
                             <ArrowForwardIcon sx={buttonStyles.next} onClick={() => sliderRef?.current?.slickNext()} /></Box>
                     </Box>
                 </Box>
-                <Box sx={{ marginTop: '50px', display: 'flex', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>
+                <Box sx={{ marginTop: '50px', display: 'flex', flexDirection: { xs: 'column', md: 'column', xl: 'row' } }}>
                     <Link sx={Style.Link}>All Categories</Link>
                     <Link sx={Style.Link}>Business</Link>
                     <Link sx={Style.Link}>Accounting</Link>
@@ -134,7 +134,7 @@ const Courses = () => {
 
                 <Box sx={{ marginTop: '62px' }}>
                     <Slider ref={sliderRef} {...settingsOne}>
-                        {courseData.map(course => (
+                        {courses.map(course => (
                             <Box key={course.id} course={course}>
                                 <Card sx={{ maxWidth: 345, margin: '0px 10px', boxShadow: 3, position: 'relative' }}>
                                     <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold' }}>Most Popular</Typography>

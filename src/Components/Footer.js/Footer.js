@@ -52,7 +52,7 @@ const Footer = () => {
             <Container>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
-                        <Grid item xs={12} xl={4}>
+                        <Grid item xs={12} xl={4} md={12}>
                             <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: 'transparent' }}>
                                 <img style={{ marginBottom: '22px' }} src={logo} alt="" />
                                 <Typography sx={{ fontSize: '16px', fontFamily: 'Inter', lineHeight: '28px', fontweight: 'normal', marginBottom: '27px', color: '#4E4848' }}>
@@ -61,7 +61,7 @@ const Footer = () => {
                                 <img style={{ marginRight: '20px' }} src={instagram} alt="" /> <img style={{ marginRight: '20px' }} src={twitter} alt="" /> <img style={{ marginRight: '20px' }} src={facebooktwo} alt="" /> <img style={{ marginRight: '20px' }} src={pinterest} alt="" />
                             </Item>
                         </Grid>
-                        <Grid item xs={12} xl={2}>
+                        <Grid item xs={12} xl={2} md={12}>
                             <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: 'transparent' }}>
                                 <Typography sx={{ fontSize: '28px', color: 'black', fontWeight: 'bold' }}>Extra Link</Typography>
                                 <Link sx={LinkStyle.links}>Became a Teacher</Link>
@@ -70,7 +70,7 @@ const Footer = () => {
                                 <Link sx={LinkStyle.links}>Contact Us</Link>
                             </Item>
                         </Grid>
-                        <Grid item xs={4} xl={2}>
+                        <Grid item xs={4} xl={2} md={12}>
                             <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: 'transparent' }}>
                                 <Typography sx={{ fontSize: '28px', color: 'black', fontWeight: 'bold' }}>Programs</Typography>
                                 <Link sx={LinkStyle.links}>Earn Now</Link>
@@ -79,19 +79,19 @@ const Footer = () => {
                                 <Link sx={LinkStyle.links}>Privacy & Policy</Link>
                             </Item>
                         </Grid>
-                        <Grid item xs={12} xl={4}>
+                        <Grid item xs={12} xl={4} md={12}>
                             <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: 'transparent' }}>
                                 <Typography sx={{ fontSize: '28px', color: 'black', fontWeight: 'bold', marginBottom: '42px' }}>Secure Payment</Typography>
                                 <img style={{ marginRight: '10px' }} src={visa} alt="" /> <img style={{ marginRight: '10px' }} src={master} alt="" /> <img style={{ marginRight: '0px' }} src={paypal} alt="" />
                                 <img style={{ marginTop: '30px', marginRight: '20px' }} src={moneyback} alt="" />
                             </Item>
                         </Grid>
-                        <Grid item xs={12} xl={12}>
+                        <Grid item xs={12} xl={12} md={12}>
                             <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: 'transparent' }}>
                                 <hr style={{ color: '#4E4848' }} />
                             </Item>
                         </Grid>
-                        <Grid item xs={12} xl={12}>
+                        <Grid item xs={12} xl={12} md={12}>
                             <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: 'transparent' }}>
                                 <Typography sx={{ textAlign: 'center', color: '#4E4848' }}>All rights Reserved &copy; Apex Learning</Typography>
                             </Item>

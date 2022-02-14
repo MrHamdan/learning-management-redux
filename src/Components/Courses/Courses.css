@@ -94,3 +94,10 @@
     opacity: .75;
     color: #009FE3;
 }
+
+
+@media (max-width: 767px) {
+  .slick-dots-one li button:before {
+    left: 0px;
+  }
+}

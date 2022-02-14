@@ -105,6 +105,7 @@ const Header = ({ handleOpen }) => {
                                     display: { xs: 'block', md: 'none', fontFamily: 'Inter' },
                                 }}
                             >
+                                <MenuItem ><Link sx={Styles.navLink}>Home</Link></MenuItem>
                                 <MenuItem ><Link sx={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link></MenuItem>
                                 <MenuItem ><Link sx={Styles.navLink}>Regulated Courses</Link></MenuItem>
                                 <MenuItem ><Badge badgeContent="New" color="error">
@@ -121,6 +122,7 @@ const Header = ({ handleOpen }) => {
                             <img src={logo} alt="" />
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center' } }}>
+                            <Link sx={Styles.navLink}>Home</Link>
                             <Link sx={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link>
                             <Link sx={Styles.navLink}>Regulated Courses</Link>
                             <Badge badgeContent="New" color="error">
@@ -136,12 +138,12 @@ const Header = ({ handleOpen }) => {
                                 </InputAdornment>
                             )
                         }}></TextField>
-                        {user?.email ? <Button variant="contained" onClick={logOut} sx={{backgroundColor:'#009FE3 !important    '}}>SignOut</Button>
+                        {user?.email ? <Button variant="contained" onClick={logOut} sx={{ backgroundColor: '#009FE3 !important    ' }}>SignOut</Button>
 
                             :
-                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width:'124px',height:'51px',borderRadius:'8px' }} onClick={handleOpen}>Sign In</Button>}
-                        <Box sx={{ flexGrow: 0, display:'flex', alignItems:'center' }}>
-                            <Typography sx={{color:'#009FE3', marginLeft:'20px', fontWeight:'bold'}}>{user.email}</Typography>
+                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px' }} onClick={handleOpen}>Sign In</Button>}
+                        <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center' }}>
+                            <Typography sx={{ color: '#009FE3', marginLeft: '20px', fontWeight: 'bold' }}>{user.email}</Typography>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenBrowseMenu} sx={{ p: 0 }}>
                                     {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
