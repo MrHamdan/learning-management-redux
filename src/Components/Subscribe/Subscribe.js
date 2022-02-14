@@ -27,7 +27,7 @@ const Subscribe = () => {
                             Are you ready to join us?
                         </Typography>
                         <TextField placeholder='Enter Your Email Address' sx={{ width: {xl:'570px', xs:'345px'}, height: {xl:'55px'}, backgroundColor: 'white', borderRadius: '10px' }}/>
-                        <Button variant='contained' sx={{ position: 'absolute', left:{xl:'384px', xs:'80px'}, top:{xl:'101px',xs:'230px'}, width:'179px', height:'45px', backgroundColor:'#009FE3' }}>Subscribe Now</Button>
+                        <Button variant='contained' sx={{ position: 'absolute', left:{xl:'384px', xs:'80px'}, top:{xl:'101px',xs:'230px'}, width:'179px', height:'45px', backgroundColor:'#009FE3',fontSize:'16px', fontWeight:'bold', fontFamily: 'Inter', textTransform: 'none'}}>Subscribe Now</Button>
                     </Box>
                 </Box>
             </Container>

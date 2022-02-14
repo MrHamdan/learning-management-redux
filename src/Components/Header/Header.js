@@ -138,7 +138,7 @@ const Header = ({ handleOpen }) => {
                                 </InputAdornment>
                             )
                         }}></TextField>
-                        {user?.email ? <Button variant="contained" onClick={logOut} sx={{ backgroundColor: '#009FE3 !important    ' }}>SignOut</Button>
+                        {user?.email ? <Button variant="contained" onClick={logOut} sx={{ backgroundColor: '#009FE3 !important' }}>SignOut</Button>
 
                             :
                             <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px' }} onClick={handleOpen}>Sign In</Button>}
@@ -146,7 +146,6 @@ const Header = ({ handleOpen }) => {
                             <Typography sx={{ color: '#009FE3', marginLeft: '20px', fontWeight: 'bold' }}>{user.email}</Typography>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenBrowseMenu} sx={{ p: 0 }}>
-                                    {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
                                 </IconButton>
                             </Tooltip>
                             <Menu

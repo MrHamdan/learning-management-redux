@@ -159,7 +159,7 @@ const BestCourses = () => {
 
                                     A gateway to the best professional courses to work in what you like. A complete catalogue of courses and didactic content.
                                 </Typography>
-                                <Button sx={{ borderRadius: '8px', border: '1px solid', color: '#009FE3', '&:hover': { backgroundColor: '#009FE3', color: 'white', border: '0px' }, width:'183px', height:'51px' }}>Discover More</Button>
+                                <Button sx={{ borderRadius: '8px', border: '1px solid', color: '#009FE3', '&:hover': { backgroundColor: '#009FE3', color: 'white', border: '0px' }, width:'183px', height:'51px', textTransform: 'none', fontSize:'16px', fontWeight:'bold', fontFamily:'Inter'}}>Discover More</Button>
                             </Grid>
                             <Grid item xs={12} xl={6}>
                                 <img style={{ width: '100%' }} src={womenLaptop} alt="" />
@@ -181,27 +181,27 @@ const BestCourses = () => {
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} xl={2}>
-                                    <Paper sx={{ width: '208px', height: '111.6px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px' }}>
+                                    <Paper sx={{ width: '208px', height: '111.6px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'20px 20px 50px gray'}, padding:'0px 10px' }}>
                                         <img style={{ width: '100%' }} src={nsc} alt="" />
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} xl={2}>
-                                    <Paper sx={{ width: '237px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px' }}>
+                                    <Paper sx={{ width: '237px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'20px 20px 50px gray'}, padding:'0px 10px' }}>
                                         <img style={{ width: '100%' }} src={focus} alt="" />
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} xl={2}>
-                                    <Paper sx={{ width: '181px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px' }}>
+                                    <Paper sx={{ width: '181px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'20px 20px 50px gray'}, padding:'0px 10px' }}>
                                         <img style={{ width: '100%' }} src={training} alt="" />
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} xl={2}>
-                                    <Paper sx={{ width: '236px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px' }}>
+                                    <Paper sx={{ width: '236px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'20px 20px 50px gray'}, padding:'0px 10px' }}>
                                         <img style={{ width: '100%' }} src={ukrlp} alt="" />
                                     </Paper>
                                 </Grid>
                                 <Grid item xs={12} xl={2}>
-                                    <Paper sx={{ width: '129px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'1'}, padding:'0px 10px' }}>
+                                    <Paper sx={{ width: '129px', height: '107px',display: 'flex', alignItems: 'center', boxShadow: '0', '&:hover':{boxShadow:'20px 20px 50px gray'}, padding:'0px 10px' }}>
                                         <img style={{ width: '100%' }} src={iao} alt="" />
                                     </Paper>
                                 </Grid>
