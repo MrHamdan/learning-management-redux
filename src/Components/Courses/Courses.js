@@ -99,13 +99,13 @@ const Style = {
 
 
 const Courses = () => {
-    const [courses, setCourses] = useContext(DataContext);
+    const [courseList, setCourseList] = useContext(DataContext);
     useEffect(() => {
-        fetch('courses.json')
+        fetch('courselist.json')
             .then(data => data.json())
-            .then(data => setCourses(data))
+            .then(data => setCourseList(data))
     }, []);
-    console.log(courses);
+    console.log(courseList);
 
     const sliderRef = React.useRef(null);
 
@@ -135,7 +135,7 @@ const Courses = () => {
 
                 <Box sx={{ marginTop: '62px' }}>
                     <Slider ref={sliderRef} {...settingsOne}>
-                        {courses.map(course => (
+                        {courseList.map(course => (
                             <Box key={course.id} course={course}>
                                 <Card sx={{ maxWidth: 345, margin: '0px 10px', boxShadow: 3, position: 'relative' }}>
                                     <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold' }}>Most Popular</Typography>
@@ -155,7 +155,7 @@ const Courses = () => {
                                             <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter', }}>{course.discountPrice}</Typography>
                                         </Box>
                                         <Box>
-                                            <Link to="/coursedetail/id" style={{ textDecoration: 'none' }}><Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button></Link>
+                                            <Link to={`/coursedetail/${course.id}`} style={{ textDecoration: 'none' }}><Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button></Link>
                                         </Box>
                                     </Box>
                                 </Card>

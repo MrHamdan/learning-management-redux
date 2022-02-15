@@ -7,17 +7,22 @@ import Home from './Components/Home/Home';
 import AuthProvider from './Contexts/AuthProvider';
 import DataProvider from './Contexts/DataProvider';
 import CourseDetail from './Components/CourseDetail/CourseDetail';
+import Quiz from './Components/Quiz/Quiz';
+import ScrollToTop from './Hooks/ScrollToTop';
 
 function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
         <DataProvider>
+          <ScrollToTop>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path= "/coursedetail/id" element={<CourseDetail />} />
+            <Route path="home" element={<Home />} />
+            <Route path="coursedetail/:id" element={<CourseDetail />} />
+            <Route path="quiz" element={<Quiz />} />
           </Routes>
+          </ScrollToTop>
         </DataProvider>
       </AuthProvider>
     </BrowserRouter>

@@ -25,7 +25,6 @@ const Styles = {
         backgroundColor: '#F6F9FF',
         white: '100%',
         height: {xl:'450px',xs:'1250px'},
-        paddingTop: '389px',
     }
 }
 
@@ -46,9 +45,9 @@ const LinkStyle = {
     }
 }
 
-const Footer = () => {
+const Footer = ({paddingTop}) => {
     return (
-        <Box sx={Styles.footerBg}>
+        <Box sx={{...Styles.footerBg, paddingTop:paddingTop}}>
             <Container>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>

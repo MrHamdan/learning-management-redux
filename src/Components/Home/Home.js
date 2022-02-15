@@ -17,17 +17,17 @@ const Home = () => {
     const handleClose = () => setOpen(false);
     return (
         <div>
-            <Header handleOpen={handleOpen} />
+            <Header handleOpen={handleOpen} color='white' />
             <Banner />
             <Form open={open} handleClose={handleClose} />
             <Courses />
             <Stunning />
             <BestCourses />
             <Details />
-            <Download/>
-            <StudentSaying/>
-            <Subscribe/>
-            <Footer/>
+            <Download />
+            <StudentSaying />
+            <Subscribe />
+            <Footer paddingTop='389px' />
         </div>
     );
 };

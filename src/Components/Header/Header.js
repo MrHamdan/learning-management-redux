@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -18,6 +18,7 @@ import { Badge, InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import useAuth from '../../Hooks/useAuth';
 import { Link } from 'react-router-dom';
+import { DataContext } from '../../Contexts/DataProvider';
 
 
 
@@ -40,7 +41,7 @@ const Styles = {
 
 
 
-const Header = ({ handleOpen }) => {
+const Header = ({ handleOpen, color }) => {
     const { user, logOut } = useAuth();
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -62,9 +63,17 @@ const Header = ({ handleOpen }) => {
     };
 
 
+    const [courseList, setCourseList] = useContext(DataContext);
+    useEffect(() => {
+        fetch('courselist.json')
+            .then(data => data.json())
+            .then(data => setCourseList(data))
+    }, []);
+    console.log(courseList);
+
     return (
         <div>
-            <AppBar position="static" sx={{ backgroundColor: 'white', padding: '15px', boxShadow: '0' }}>
+            <AppBar position="static" sx={{ backgroundColor: color, padding: '15px', boxShadow: '0' }}>
                 <Container maxWidth='xl'>
                     <Toolbar disableGutters>
                         <Typography
@@ -128,6 +137,7 @@ const Header = ({ handleOpen }) => {
                             <Badge badgeContent="New" color="error">
                                 <Link to='' style={Styles.navLink}>Today's Deal</Link>
                             </Badge>
+                            <Link to='/quiz' style={Styles.navLink}>Free Quiz</Link>
                         </Box>
                         <TextField id="outlined-basic" placeholder="Search" variant="outlined" sx={{ marginRight: '50px', width: '300px', display: { xs: 'none', md: 'flex' } }} InputProps={{
                             startAdornment: (
@@ -164,7 +174,9 @@ const Header = ({ handleOpen }) => {
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                <MenuItem ><Link to='' style={Styles.navLink}>Courses</Link></MenuItem>
+                                {courseList.map(course => (
+                                    <MenuItem key={course.id}><Link to={`/coursedetail/${course.id}`} style={Styles.navLink}>{course.title}</Link></MenuItem>
+                                ))}
 
                             </Menu>
                         </Box>
