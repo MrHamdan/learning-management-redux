@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Footer from '../Footer.js/Footer';
 import Header from '../Header/Header';
 import { styled } from '@mui/material/styles';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { DataContext } from '../../Contexts/DataProvider';
 import ReactPlayer from 'react-player';
 import bars from '../../Images/bars.png';
@@ -356,7 +356,7 @@ const CourseDetail = () => {
                             <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter', }}>{relatedCourse.discountPrice}</Typography>
                           </Box>
                           <Box>
-                            <Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button>
+                          <Link to={`/coursedetail/${relatedCourse.id}`} style={{ textDecoration: 'none' }}><Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button></Link>
                           </Box>
                         </Box>
                       </Card>

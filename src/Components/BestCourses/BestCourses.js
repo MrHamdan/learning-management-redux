@@ -14,6 +14,7 @@ import ukrlp from '../../Images/ukrlp.png';
 import iao from '../../Images/iao.png';
 import rope from '../../Images/rope.png';
 import './BestCourses.css';
+import { Link } from 'react-router-dom';
 
 
 
@@ -137,7 +138,7 @@ const BestCourses = () => {
                                                     <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter',}}>{bestCourse.discountPrice}</Typography>
                                                 </Box>
                                                 <Box>
-                                                    <Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3',width:'123px',height:'40px',borderRadius:'4px',fontFamily: 'Inter', textTransform: 'none'}}>Buy Now</Button>
+                                                <Link to={`/coursedetail/${bestCourse.id}`} style={{ textDecoration: 'none' }}><Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button></Link>
                                                 </Box>
                                             </Box>
                                         </Card>
