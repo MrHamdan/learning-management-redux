@@ -5,6 +5,8 @@ import Footer from '../Footer.js/Footer';
 import { DataContext } from '../../Contexts/DataProvider';
 import { styled } from '@mui/material/styles';
 import ClearIcon from '@mui/icons-material/Clear';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -18,8 +20,30 @@ const Item = styled(Paper)(({ theme }) => ({
 const Cart = () => {
     const [cart, setCart] = useContext(DataContext);
 
-    const removeItem = (item) => {
-        const newCart = cart.filter(cart => (cart.id !== item.id))
+    const deleteItem = (item) => {
+        const newCart = cart.filter(cart => (cart.id !== item.id));
+        setCart(newCart);
+    }
+
+    const increaseQuantity = (item) => {
+        const newCart = cart.map(cart => {
+            if (cart.id === item.id) {
+                cart.quantity += 1;
+            }
+            return cart;
+        });
+        setCart(newCart);
+    }
+
+    const decreaseQuantity = (item) => {
+        const newCart = cart.map(cart => {
+            if (cart.id === item.id) {
+                if(item.quantity> 0){
+                    item.quantity -= 1;
+                }
+            }
+            return cart;
+        });
         setCart(newCart);
     }
 
@@ -102,9 +126,10 @@ const Cart = () => {
                                             {cart.map((item) => (
                                             <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                                                 <TableCell align="left" sx={{display:'flex', alignItems:'center'}}> <img style={{width:'60px',height:'60px',borderRadius:'6px',marginRight:'20px'}} src={item.coverImage} alt="" /> {item.title}</TableCell>
-                                                <TableCell align="center">{item.regularPrice}</TableCell>
-                                                <TableCell align="center">{item.quantity}</TableCell>
-                                                <TableCell align="center">{item.regularPrice}</TableCell>
+                                                <TableCell align="center">{item.discountPrice}</TableCell>
+                                                <TableCell align="center"><RemoveIcon onClick={()=>decreaseQuantity(item)}></RemoveIcon>{item.quantity}<AddIcon onClick={()=>increaseQuantity(item)}></AddIcon></TableCell>
+                                                <TableCell align="center">{item.discountPrice}</TableCell>
+                                                <TableCell align="center"><ClearIcon onClick={()=>deleteItem(item)}></ClearIcon></TableCell>
                                             </TableRow>
                                              ))}
                                         </TableBody>
