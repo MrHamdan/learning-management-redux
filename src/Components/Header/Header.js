@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -19,6 +19,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import useAuth from '../../Hooks/useAuth';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../../Contexts/DataProvider';
+import { FaShoppingCart } from "react-icons/fa";
 
 
 
@@ -63,13 +64,13 @@ const Header = ({ handleOpen, color }) => {
     };
 
 
-    const [courseList, setCourseList] = useContext(DataContext);
+    const [courseList, setCourseList] = useState([]);
     useEffect(() => {
-        fetch('courselist.json')
+        fetch('/courselist.json')
             .then(data => data.json())
             .then(data => setCourseList(data))
     }, []);
-    console.log(courseList);
+    
 
     return (
         <div>
@@ -130,7 +131,7 @@ const Header = ({ handleOpen, color }) => {
                         >
                             <img src={logo} alt="" />
                         </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center' } }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center', alignItems: 'center'} }}>
                             <Link to='/home' style={Styles.navLink}>Home</Link>
                             <Link to='' style={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link>
                             <Link to='' style={Styles.navLink}>Regulated Courses</Link>
@@ -138,6 +139,9 @@ const Header = ({ handleOpen, color }) => {
                                 <Link to='' style={Styles.navLink}>Today's Deal</Link>
                             </Badge>
                             <Link to='/quiz' style={Styles.navLink}>Free Quiz</Link>
+                            <Link to='/cart' style={{ textDecoration: 'none' }}>
+                                        < FaShoppingCart /> Cart
+                                    </Link>
                         </Box>
                         <TextField id="outlined-basic" placeholder="Search" variant="outlined" sx={{ marginRight: '50px', width: '300px', display: { xs: 'none', md: 'flex' } }} InputProps={{
                             startAdornment: (

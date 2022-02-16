@@ -94,7 +94,7 @@ const Stunning = () => {
             .then(res => res.json())
             .then(data => setStunning(data))
     }, [])
-    console.log(stunnings)
+    
 
     const sliderRef = React.useRef(null);
 

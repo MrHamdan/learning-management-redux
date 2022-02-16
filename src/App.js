@@ -9,6 +9,7 @@ import DataProvider from './Contexts/DataProvider';
 import CourseDetail from './Components/CourseDetail/CourseDetail';
 import Quiz from './Components/Quiz/Quiz';
 import ScrollToTop from './Hooks/ScrollToTop';
+import Cart from './Components/Cart/Cart';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="home" element={<Home />} />
             <Route path="coursedetail/:id" element={<CourseDetail />} />
             <Route path="quiz" element={<Quiz />} />
+            <Route path="cart" element={<Cart/>}/>
           </Routes>
           </ScrollToTop>
         </DataProvider>

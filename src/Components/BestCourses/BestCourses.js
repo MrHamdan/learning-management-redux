@@ -99,7 +99,7 @@ const BestCourses = () => {
             .then(data => data.json())
             .then(data => setBestCourses(data))
     }, []);
-    console.log(bestCourses);
+    
 
     const sliderRef = React.useRef(null);
 

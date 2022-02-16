@@ -31,9 +31,28 @@ const CourseDetail = () => {
 
   const { id } = useParams();
 
-  const [courseList, setCourseList] = useContext(DataContext);
+  const [courseList, setCourseList] = useState([]);
 
   const [course, setCourse] = useState({});
+
+  const [cart,setCart] = useContext(DataContext);
+
+  const handleAddToCart = (course) => {
+    const added = cart.find((item) => (item.id === course.id))
+    if (added) {
+        added.quantity = added.quantity + 1
+    }
+    else {
+        course = {
+            ...course,
+            quantity: 1
+        }
+        const newCart = [...cart, course];
+        setCart(newCart);
+    }
+    console.log(cart);
+}
+
 
 
   useEffect(() => {
@@ -54,7 +73,7 @@ const CourseDetail = () => {
       .then(data => data.json())
       .then(data => setRelatedCourses(data))
   }, []);
-  console.log(relatedCourses);
+  
 
   const sliderRef = React.useRef(null);
 
@@ -134,7 +153,7 @@ const CourseDetail = () => {
                 </Item>
               </Grid>
               <Grid item xs={12} xl={4}>
-                <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}><Button sx={{ width: {xl:'350px',xs:'250px'}, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }}>Take This Course</Button> <br />
+                <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}><Button sx={{ width: {xl:'350px',xs:'250px'}, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={()=> handleAddToCart(course)}>Take This Course</Button> <br />
                   <Button sx={{ width: {xl:'350px',xs:'250px'}, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }}>Gift This Course</Button></Item>
               </Grid>
               <Grid item xs={12} xl={8}>

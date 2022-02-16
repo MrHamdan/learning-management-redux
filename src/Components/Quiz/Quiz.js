@@ -11,7 +11,7 @@ const Quiz = () => {
             .then(res => res.json())
             .then(data => setQuizes(data))
     }, []);
-    console.log(quizes);
+    
     return (
         <Box>
             <Header color='white'/>
