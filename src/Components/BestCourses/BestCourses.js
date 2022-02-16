@@ -96,7 +96,7 @@ const BestCourses = () => {
 
     const [bestCourses, setBestCourses] = useState([]);
     useEffect(() => {
-        fetch('bestcourses.json')
+        fetch('/bestcourses.json')
             .then(data => data.json())
             .then(data => setBestCourses(data))
     }, []);
@@ -134,8 +134,8 @@ const BestCourses = () => {
                                             </CardContent>
                                             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px' }}>
                                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                                    <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter'}}>{bestCourse.regularPrice}</del>
-                                                    <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter',}}>{bestCourse.discountPrice}</Typography>
+                                                    <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter'}}>£{bestCourse.regularPrice}</del>
+                                                    <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter',}}>£{bestCourse.discountPrice}</Typography>
                                                 </Box>
                                                 <Box>
                                                 <Link to={`/coursedetail/${bestCourse.id}`} style={{ textDecoration: 'none' }}><Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button></Link>

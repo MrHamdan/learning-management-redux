@@ -90,7 +90,7 @@ const Stunning = () => {
 
     const [stunnings, setStunning] = useState([]);
     useEffect(() => {
-        fetch('stunning.json')
+        fetch('/stunning.json')
             .then(res => res.json())
             .then(data => setStunning(data))
     }, [])
