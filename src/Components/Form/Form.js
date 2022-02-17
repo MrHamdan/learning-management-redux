@@ -23,7 +23,7 @@ const style = {
 };
 
 const Form = ({ open, handleClose }) => {
-    const { handleEmailChange, handlePasswordChange, error, toggleLogin, isLogin, handleNameChange, createUserWithEmailAndPassword, signInWithEmailAndPassword, password, setError, email, auth, setUser, verifyEmail, setUserName, handleResetPassword, handleGoogleSignIn,handleFacebookSignIn } = useAuth();
+    const { handleEmailChange, handlePasswordChange, error, toggleLogin, isLogin, handleNameChange, createUserWithEmailAndPassword, signInWithEmailAndPassword, password, setError, email, auth, setUser, verifyEmail, setUserName, handleResetPassword, handleGoogleSignIn, handleFacebookSignIn } = useAuth();
     const location = useLocation();
 
     const navigate = useNavigate();
@@ -107,7 +107,7 @@ const Form = ({ open, handleClose }) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                        <CloseIcon onClick={handleClose}
+                    <CloseIcon onClick={handleClose}
                         sx={{
                             position: 'absolute',
                             left: { xs: '320px', md: '0px', xl: '420px' },

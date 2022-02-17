@@ -23,8 +23,8 @@ const Item = styled(Paper)(({ theme }) => ({
 const Styles = {
     footerBg: {
         backgroundColor: '#F6F9FF',
-        white: '100%',
-        height: {xl:'450px',xs:'1250px'},
+        width: '100%',
+        height: {xl:'530px',xs:'1290px'},
     }
 }
 
@@ -48,7 +48,7 @@ const LinkStyle = {
 const Footer = ({paddingTop}) => {
     return (
         <Box sx={{...Styles.footerBg, paddingTop:paddingTop}}>
-            <Container>
+            <Container maxWidth='xl'>
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={2}>
                         <Grid item xs={12} xl={4} md={12}>
@@ -73,7 +73,7 @@ const Footer = ({paddingTop}) => {
                             <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: 'transparent' }}>
                                 <Typography sx={{ fontSize: '28px', color: 'black', fontWeight: 'bold' }}>Programs</Typography>
                                 <Link sx={LinkStyle.links}>Earn Now</Link>
-                                <Link sx={LinkStyle.links}>Redeen Voucher</Link>
+                                <Link sx={LinkStyle.links}>Redeem Voucher</Link>
                                 <Link sx={LinkStyle.links}>Terms & Conditions</Link>
                                 <Link sx={LinkStyle.links}>Privacy & Policy</Link>
                             </Item>
@@ -81,8 +81,8 @@ const Footer = ({paddingTop}) => {
                         <Grid item xs={12} xl={4} md={12}>
                             <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: 'transparent' }}>
                                 <Typography sx={{ fontSize: '28px', color: 'black', fontWeight: 'bold', marginBottom: '42px' }}>Secure Payment</Typography>
-                                <img style={{ marginRight: '10px' }} src={visa} alt="" /> <img style={{ marginRight: '10px' }} src={master} alt="" /> <img style={{ marginRight: '0px' }} src={paypal} alt="" />
-                                <img style={{ marginTop: '30px', marginRight: '20px' }} src={moneyback} alt="" />
+                                <img style={{ marginRight: '10px', width:'63.93px', height:'40px' }} src={visa} alt="" /> <img style={{ marginRight: '10px', width:'63.69px', height:'40px' }} src={master} alt="" /> <img style={{ marginRight: '0px', width:'150.11px', height:'40px' }} src={paypal} alt="" />
+                                <img style={{ marginTop: '30px', marginRight: '20px', width:'100%' }} src={moneyback} alt="" />
                             </Item>
                         </Grid>
                         <Grid item xs={12} xl={12} md={12}>

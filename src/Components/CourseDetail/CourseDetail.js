@@ -152,7 +152,7 @@ const CourseDetail = () => {
       <Header color="white" />
       <Box sx={{ height: { xl: '450px', xs: '450px' }, backgroundColor: '#0D2A62' }}></Box>
       <Box sx={{ position: 'relative', top: { xl: '-300px', xs: '-420px' } }}>
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} xl={8}>
@@ -160,7 +160,7 @@ const CourseDetail = () => {
                   <Typography sx={{ fontSize: '36px', fontFamily: 'Inter', fontWeight: 'bold', color: 'white', textAlign: 'left', marginBottom: '66px' }}>{course?.title}</Typography>
                 </Item>
               </Grid>
-              <Grid item xs={12} xl={4}>
+              <Grid item xs={12} xl={4} sx={{marginTop:{xs:'-70px', xl:'0px'}}}>
                 <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}><Button sx={{ width: { xl: '350px', xs: '250px' }, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={() => handleAddToCart(course)}>Take This Course</Button> <br />
                   <Button sx={{ width: { xl: '350px', xs: '250px' }, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }}>Gift This Course</Button></Item>
               </Grid>
@@ -210,47 +210,19 @@ const CourseDetail = () => {
                       >
                         <Typography >Section 1: Introduction <br /> <span style={{ fontSize: '14px', color: '' }}>3 Videos | 15 minutes</span> </Typography>
                       </AccordionSummary>
-                      <AccordionDetails sx={{ borderLeft: '5px solid #009FE3' }}>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
                         <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
                           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lock} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
-                      <AccordionDetails>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
                         <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
                           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
-                      <AccordionDetails>
-                        <Typography sx={{ textAlign: 'left' }}>
-                          1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
-                        </Typography>
-                      </AccordionDetails>
-                    </Accordion>
-                    <Accordion >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                        sx={{ backgroundColor: '#FAFAFA' }}
-                      >
-                        <Typography >Section 1: Introduction <br /> <span style={{ fontSize: '14px', color: '' }}>3 Videos | 15 minutes</span> </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                        <Typography sx={{ textAlign: 'left' }}>
-                          1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
-                        </Typography>
-                      </AccordionDetails>
-                      <AccordionDetails>
-                        <Typography sx={{ textAlign: 'left' }}>
-                          1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
-                        </Typography>
-                      </AccordionDetails>
-                      <AccordionDetails>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
                         <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
                           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
@@ -266,19 +238,19 @@ const CourseDetail = () => {
                       >
                         <Typography >Section 1: Introduction <br /> <span style={{ fontSize: '14px', color: '' }}>3 Videos | 15 minutes</span> </Typography>
                       </AccordionSummary>
-                      <AccordionDetails>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
                         <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
                           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
-                      <AccordionDetails>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
                         <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
                           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
-                      <AccordionDetails>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
                         <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
                           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
@@ -294,19 +266,47 @@ const CourseDetail = () => {
                       >
                         <Typography >Section 1: Introduction <br /> <span style={{ fontSize: '14px', color: '' }}>3 Videos | 15 minutes</span> </Typography>
                       </AccordionSummary>
-                      <AccordionDetails>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
                         <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
                           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
-                      <AccordionDetails>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
                         <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
                           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
-                      <AccordionDetails>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
+                        <Typography sx={{ textAlign: 'left' }}>
+                          1. 	SAD Course Introduction <br />
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                        sx={{ backgroundColor: '#FAFAFA' }}
+                      >
+                        <Typography >Section 1: Introduction <br /> <span style={{ fontSize: '14px', color: '' }}>3 Videos | 15 minutes</span> </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
+                        <Typography sx={{ textAlign: 'left' }}>
+                          1. 	SAD Course Introduction <br />
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                        </Typography>
+                      </AccordionDetails>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
+                        <Typography sx={{ textAlign: 'left' }}>
+                          1. 	SAD Course Introduction <br />
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                        </Typography>
+                      </AccordionDetails>
+                      <AccordionDetails sx={{ '&:hover': { borderLeft: '5px solid #009FE3', backgroundColor: '' } }}>
                         <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
                           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
@@ -322,7 +322,7 @@ const CourseDetail = () => {
                   <Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '28px', color: '#201E1E', marginBottom: '20px' }}>
                     Overview
                   </Typography>
-                  <Typography sx={{ fontSize: '15px', fontFamily: 'Inter', fontWeight: 'normal', color: '#4E4848', lineHeight: '28px' }}>
+                  <Typography sx={{ fontSize: '15px', fontFamily: 'Inter', fontWeight: 'normal', color: '#4E4848', lineHeight: '38px' }}>
                     {course?.description}
                   </Typography>
                 </Item>
@@ -360,8 +360,8 @@ const CourseDetail = () => {
                         </CardContent>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px' }}>
                           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter' }}>{relatedCourse.regularPrice}</del>
-                            <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter', }}>{relatedCourse.discountPrice}</Typography>
+                            <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter' }}>£{relatedCourse.regularPrice}</del>
+                            <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter', }}>£{relatedCourse.discountPrice}</Typography>
                           </Box>
                           <Box>
                             <Link to={`/coursedetail/${relatedCourse.id}`} style={{ textDecoration: 'none' }}><Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button></Link>

@@ -87,6 +87,40 @@ const Header = ({ handleOpen, color }) => {
                             <img src={logo} alt="" />
                         </Typography>
 
+
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                        >
+                            <img src={logo} alt="" />
+                        </Typography>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center', alignItems: 'center' } }}>
+                            <Link to='/home' style={Styles.navLink}>Home</Link>
+                            <Link to='' style={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link>
+                            <Link to='' style={Styles.navLink}>Regulated Courses</Link>
+                            <Badge badgeContent="New" color="error">
+                                <Link to='/allcategories' style={Styles.navLink}>Today's Deal</Link>
+                            </Badge>
+                            <Link to='/quiz' style={Styles.navLink}>Free Quiz</Link>
+                            <Badge badgeContent={cart.length} color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={{ textDecoration: 'none' }}>
+                                < FaShoppingCart />
+                            </Link></Badge>
+                        </Box>
+                        <TextField id="outlined-basic" placeholder="Search" variant="outlined" sx={{ marginRight: '50px', width: '300px', display: { xs: 'none', md: 'flex' } }} InputProps={{
+                            startAdornment: (
+                                <InputAdornment position="start">
+                                    <IconButton>
+                                        <SearchIcon />
+                                    </IconButton>
+                                </InputAdornment>
+                            )
+                        }}></TextField>
+                        {user?.email ? <Button variant="contained" onClick={logOut} sx={{ backgroundColor: '#009FE3 !important' }}>SignOut</Button>
+
+                            :
+                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={handleOpen}>Sign In</Button>}
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
                                 size="large"
@@ -120,45 +154,12 @@ const Header = ({ handleOpen, color }) => {
                                 <MenuItem ><Link to='' style={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link></MenuItem>
                                 <MenuItem ><Link to='' style={Styles.navLink}>Regulated Courses</Link></MenuItem>
                                 <MenuItem ><Badge badgeContent="New" color="error">
-                                    <Link to='' style={Styles.navLink}>Today's Deal</Link>
+                                    <Link to='/allcategories' style={Styles.navLink}>Today's Deal</Link>
                                 </Badge></MenuItem>
                             </Menu>
                         </Box>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-                        >
-                            <img src={logo} alt="" />
-                        </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', justifyContent: 'center', alignItems: 'center' } }}>
-                            <Link to='/home' style={Styles.navLink}>Home</Link>
-                            <Link to='' style={Styles.navLink} onClick={handleOpenBrowseMenu}>Browse <KeyboardArrowDownIcon></KeyboardArrowDownIcon></Link>
-                            <Link to='' style={Styles.navLink}>Regulated Courses</Link>
-                            <Badge badgeContent="New" color="error">
-                                <Link to='' style={Styles.navLink}>Today's Deal</Link>
-                            </Badge>
-                            <Link to='/quiz' style={Styles.navLink}>Free Quiz</Link>
-                            <Badge badgeContent={cart.length} color='error' sx={{fontSize:'20px'}}><Link to='/cart' style={{ textDecoration: 'none' }}>
-                                < FaShoppingCart />
-                            </Link></Badge>
-                        </Box>
-                        <TextField id="outlined-basic" placeholder="Search" variant="outlined" sx={{ marginRight: '50px', width: '300px', display: { xs: 'none', md: 'flex' } }} InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start">
-                                    <IconButton>
-                                        <SearchIcon />
-                                    </IconButton>
-                                </InputAdornment>
-                            )
-                        }}></TextField>
-                        {user?.email ? <Button variant="contained" onClick={logOut} sx={{ backgroundColor: '#009FE3 !important' }}>SignOut</Button>
-
-                            :
-                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize:'16px', fontFamily:'Inter', fontWeight:'bold' }} onClick={handleOpen}>Sign In</Button>}
                         <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center' }}>
-                            <Typography sx={{ color: '#009FE3', marginLeft: '20px', fontWeight: 'bold' }}>{user.email}</Typography>
+                            <Typography sx={{ color: '#009FE3', marginLeft: '0px', fontWeight: 'bold' }}>{user.email}</Typography>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenBrowseMenu} sx={{ p: 0 }}>
                                 </IconButton>
