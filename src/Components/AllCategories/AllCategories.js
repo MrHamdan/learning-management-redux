@@ -17,6 +17,15 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
+const Style = {
+    bgImage: {
+        backgroundImage: `url(${allcategories})`,
+        backgroundSize: 'cover',
+        height: '280px',
+        width: '100%',
+        backgroundRepeat: 'no-repeat',
+    }
+}
 
 
 
@@ -31,7 +40,7 @@ const AllCategories = () => {
 
     return (
         <Box>
-            <Header  color='white' />
+            <Header color='white' />
             <Box sx={{ marginTop: '100px', height: { xl: '2000px', xs: '4900px' } }}>
                 <Container maxWidth='xl'>
                     <Box sx={{ flexGrow: 1 }}>
@@ -61,8 +70,17 @@ const AllCategories = () => {
                                 </Item>
                             </Grid>
                             <Grid item xs={12} xl={8}>
-                                <Item sx={{ boxShadow: '0' }}>
-                                    <img style={{ width: '100%' }} src={allcategories} alt="" />
+                                <Item sx={{ ...Style.bgImage, boxShadow: '0', textAlign: 'left', display: 'flex', alignItems: 'center' }}>
+                                    <Box sx={{ marginLeft: '42px' }}>
+                                        <Typography sx={{ color: 'white', fontSize: '36px', fontFamily: 'Inter', fontWeight: 'bold', marginBottom: '15px' }}>
+                                            Online Personal <br />
+                                            Development Courses
+                                        </Typography>
+                                        <Typography sx={{ color: 'white', fontSize: '16px', fontFamily: 'Inter', fontWeight: '500', marginBottom: '20px' }}>
+                                            The expert in anything was once a beginner
+                                        </Typography>
+                                        <Button variant='contained' sx={{ width: '161px', height: '51px', backgroundColor: '#009FE3', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold', textTransform: 'none' }}>Get Started</Button>
+                                    </Box>
                                 </Item>
                                 <Item sx={{ boxShadow: '0' }}>
 
@@ -70,7 +88,8 @@ const AllCategories = () => {
                                         {courseList.map((course) => (
                                             <Grid key={course.id} item xs={12} sm={4} md={4}>
                                                 <Item sx={{ boxShadow: '0' }}>
-                                                    <Card sx={{ maxWidth: 345 }}>
+                                                    <Card sx={{ maxWidth: 345, position: 'relative' }}>
+                                                        <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold',fontFamily:'Inter' }}>Most Popular</Typography>
                                                         <CardMedia
                                                             component="img"
                                                             height="140"
@@ -81,7 +100,7 @@ const AllCategories = () => {
                                                             <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'left' }}>
                                                                 {course.title}
                                                             </Typography>
-                                                            <Typography variant="body2" color="text.secondary" sx={{display: 'flex', alignItems: 'center', justifyContent:'center'}}>
+                                                            <Typography variant="body2" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                                                 <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter' }}>£{course.regularPrice}</del>
                                                                 <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter', }}>£{course.discountPrice}</Typography>
                                                             </Typography>

@@ -117,7 +117,7 @@ const Courses = () => {
                 <Box>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>
                         <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '50px' }, fontWeight: '800', fontFamily: 'Inter' }}>Find What Fascinates You</Typography>
-                        <Box><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px' }} onClick={() => sliderRef?.current?.slickPrev()} />
+                        <Box sx={{marginTop:{xs:'50px',xl:'0px'}}}><ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px' }} onClick={() => sliderRef?.current?.slickPrev()} />
                             <ArrowForwardIcon sx={buttonStyles.next} onClick={() => sliderRef?.current?.slickNext()} /></Box>
                     </Box>
                 </Box>
@@ -138,7 +138,7 @@ const Courses = () => {
                         {courseList.map(course => (
                             <Box key={course.id} course={course}>
                                 <Card sx={{ maxWidth: 345, margin: '0px 10px', boxShadow: 3, position: 'relative' }}>
-                                    <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold' }}>Most Popular</Typography>
+                                    <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold',fontFamily:'Inter' }}>Most Popular</Typography>
                                     <CardMedia
                                         component="img"
                                         height="194"
