@@ -15,6 +15,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import play from '../../Images/play.png';
 import lock from '../../Images/lock.png';
 import lockdark from '../../Images/lockdark.png';
+import Swal from 'sweetalert2';
 
 
 
@@ -35,23 +36,30 @@ const CourseDetail = () => {
 
   const [course, setCourse] = useState({});
 
-  const [cart,setCart] = useContext(DataContext);
+  const [cart, setCart] = useContext(DataContext);
 
   const handleAddToCart = (course) => {
     const added = cart.find((item) => (item.id === course.id))
     if (added) {
-        added.quantity = added.quantity + 1
+      added.quantity = added.quantity + 1
+      Swal.fire({
+        position: 'middle',
+        icon: 'success',
+        title: 'Course Has Been Added',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
     else {
-        course = {
-            ...course,
-            quantity: 1
-        }
-        const newCart = [...cart, course];
-        setCart(newCart);
+      course = {
+        ...course,
+        quantity: 1
+      }
+      const newCart = [...cart, course];
+      setCart(newCart);
     }
     console.log(cart);
-}
+  }
 
 
 
@@ -73,7 +81,7 @@ const CourseDetail = () => {
       .then(data => data.json())
       .then(data => setRelatedCourses(data))
   }, []);
-  
+
 
   const sliderRef = React.useRef(null);
 
@@ -142,8 +150,8 @@ const CourseDetail = () => {
   return (
     <div>
       <Header color="white" />
-      <Box sx={{ height: {xl:'450px', xs:'450px'}, backgroundColor: '#0D2A62' }}></Box>
-      <Box sx={{position: 'relative',top:{xl:'-300px',xs:'-420px'}}}>
+      <Box sx={{ height: { xl: '450px', xs: '450px' }, backgroundColor: '#0D2A62' }}></Box>
+      <Box sx={{ position: 'relative', top: { xl: '-300px', xs: '-420px' } }}>
         <Container maxWidth="lg">
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
@@ -153,8 +161,8 @@ const CourseDetail = () => {
                 </Item>
               </Grid>
               <Grid item xs={12} xl={4}>
-                <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}><Button sx={{ width: {xl:'350px',xs:'250px'}, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={()=> handleAddToCart(course)}>Take This Course</Button> <br />
-                  <Button sx={{ width: {xl:'350px',xs:'250px'}, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }}>Gift This Course</Button></Item>
+                <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}><Button sx={{ width: { xl: '350px', xs: '250px' }, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={() => handleAddToCart(course)}>Take This Course</Button> <br />
+                  <Button sx={{ width: { xl: '350px', xs: '250px' }, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }}>Gift This Course</Button></Item>
               </Grid>
               <Grid item xs={12} xl={8}>
                 <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
@@ -190,62 +198,34 @@ const CourseDetail = () => {
                 </Item>
               </Grid>
               <Grid item xs={12} xl={4}>
-                <Item sx={{ backgroundColor: 'transparent', boxShadow: 0,height:'631px',overflow: 'auto'}}>
+                <Item sx={{ backgroundColor: 'transparent', boxShadow: 0, height: '631px', overflow: 'auto' }}>
                   <Box sx={{ backgroundColor: 'white', padding: '10px 0px' }}>
                     <Typography sx={{ textAlign: 'left', fontFamily: 'Inter', fontSize: '24px', fontWeight: 'bold', color: '#0D2A62', marginLeft: '20px' }}>Course Lessons <br /> <span style={{ fontSize: '14px' }}>8 Sections | 42 Videos</span> </Typography>
-                    <Accordion sx={{marginTop:'20px'}}>
+                    <Accordion sx={{ marginTop: '20px' }}>
                       <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
-                        sx={{backgroundColor:'#FAFAFA'}}
+                        sx={{ backgroundColor: '#FAFAFA' }}
                       >
                         <Typography >Section 1: Introduction <br /> <span style={{ fontSize: '14px', color: '' }}>3 Videos | 15 minutes</span> </Typography>
                       </AccordionSummary>
-                      <AccordionDetails sx={{borderLeft:'5px solid #009FE3'}}>
+                      <AccordionDetails sx={{ borderLeft: '5px solid #009FE3' }}>
                         <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lock} alt="" /> </Box> </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lock} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
                       <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
+                        <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
                       <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
+                        <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
-                        </Typography>
-                      </AccordionDetails>
-                    </Accordion>
-                    <Accordion >
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                        sx={{backgroundColor:'#FAFAFA'}}
-                      >
-                        <Typography >Section 1: Introduction <br /> <span style={{ fontSize: '14px', color: '' }}>3 Videos | 15 minutes</span> </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
-                          1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
-                        </Typography>
-                      </AccordionDetails>
-                      <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
-                          1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
-                        </Typography>
-                      </AccordionDetails>
-                      <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
-                          1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
                     </Accordion>
@@ -254,26 +234,26 @@ const CourseDetail = () => {
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
-                        sx={{backgroundColor:'#FAFAFA'}}
+                        sx={{ backgroundColor: '#FAFAFA' }}
                       >
                         <Typography >Section 1: Introduction <br /> <span style={{ fontSize: '14px', color: '' }}>3 Videos | 15 minutes</span> </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
+                        <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
                       <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
+                        <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
                       <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
+                        <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
                     </Accordion>
@@ -282,26 +262,54 @@ const CourseDetail = () => {
                         expandIcon={<ExpandMoreIcon />}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
-                        sx={{backgroundColor:'#FAFAFA'}}
+                        sx={{ backgroundColor: '#FAFAFA' }}
                       >
                         <Typography >Section 1: Introduction <br /> <span style={{ fontSize: '14px', color: '' }}>3 Videos | 15 minutes</span> </Typography>
                       </AccordionSummary>
                       <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
+                        <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
                       <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
+                        <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
                       <AccordionDetails>
-                      <Typography sx={{ textAlign: 'left' }}>
+                        <Typography sx={{ textAlign: 'left' }}>
                           1. 	SAD Course Introduction <br />
-                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}> <Box sx={{ display: 'flex', alignItems: 'center'}}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{color:'#9D9D9D'}}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                        </Typography>
+                      </AccordionDetails>
+                    </Accordion>
+                    <Accordion >
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                        sx={{ backgroundColor: '#FAFAFA' }}
+                      >
+                        <Typography >Section 1: Introduction <br /> <span style={{ fontSize: '14px', color: '' }}>3 Videos | 15 minutes</span> </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Typography sx={{ textAlign: 'left' }}>
+                          1. 	SAD Course Introduction <br />
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                        </Typography>
+                      </AccordionDetails>
+                      <AccordionDetails>
+                        <Typography sx={{ textAlign: 'left' }}>
+                          1. 	SAD Course Introduction <br />
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
+                        </Typography>
+                      </AccordionDetails>
+                      <AccordionDetails>
+                        <Typography sx={{ textAlign: 'left' }}>
+                          1. 	SAD Course Introduction <br />
+                          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}> <Box sx={{ display: 'flex', alignItems: 'center' }}><img style={{ marginRight: '5px' }} src={play} alt="" /> <Typography sx={{ color: '#9D9D9D' }}>3 Mins</Typography></Box> <Box> <img src={lockdark} alt="" /> </Box> </Box>
                         </Typography>
                       </AccordionDetails>
                     </Accordion>
@@ -323,10 +331,10 @@ const CourseDetail = () => {
           </Box>
         </Container>
       </Box>
-      <Box sx={{ height: {xl:'775px', xs:'700px'}, backgroundColor: '#FAFAFA', position: 'relative', top: {xl:'0px', xs:'0px'} }}>
+      <Box sx={{ height: { xl: '775px', xs: '700px' }, backgroundColor: '#FAFAFA', position: 'relative', top: { xl: '0px', xs: '0px' } }}>
         <Container maxWidth='xl'>
           <Box>
-            <Box sx={{paddingTop:'100px'}}>
+            <Box sx={{ paddingTop: '100px' }}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>
                 <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '48px' }, fontWeight: '800', fontFamily: 'Inter', marginTop: '0px' }}>Related Courses</Typography>
                 <Box sx={{ mt: '0px' }}>
@@ -356,7 +364,7 @@ const CourseDetail = () => {
                             <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter', }}>{relatedCourse.discountPrice}</Typography>
                           </Box>
                           <Box>
-                          <Link to={`/coursedetail/${relatedCourse.id}`} style={{ textDecoration: 'none' }}><Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button></Link>
+                            <Link to={`/coursedetail/${relatedCourse.id}`} style={{ textDecoration: 'none' }}><Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button></Link>
                           </Box>
                         </Box>
                       </Card>

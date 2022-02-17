@@ -8,7 +8,6 @@ const DataProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [subTotal, setSubTotal] = useState(0);
     const [total, setTotal] = useState(0);
-    const vat = 0.15;
 
     
     return (
@@ -21,7 +20,8 @@ const DataProvider = ({ children }) => {
                     setSubTotal,
                     total,
                     setTotal,
-                    vat
+                    total,
+                    setTotal,
                 ]}
             >
                 {children}
