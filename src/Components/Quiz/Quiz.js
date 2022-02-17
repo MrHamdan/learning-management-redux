@@ -11,6 +11,10 @@ const Quiz = () => {
             .then(res => res.json())
             .then(data => setQuizes(data))
     }, []);
+
+
+    
+
     
     return (
         <Box>

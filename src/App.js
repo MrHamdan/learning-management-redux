@@ -10,6 +10,7 @@ import CourseDetail from './Components/CourseDetail/CourseDetail';
 import Quiz from './Components/Quiz/Quiz';
 import ScrollToTop from './Hooks/ScrollToTop';
 import Cart from './Components/Cart/Cart';
+import AllCategories from './Components/AllCategories/AllCategories';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="coursedetail/:id" element={<CourseDetail />} />
             <Route path="quiz" element={<Quiz />} />
             <Route path="cart" element={<Cart/>}/>
+            <Route path="allcategories" element={<AllCategories  />} />
           </Routes>
           </ScrollToTop>
         </DataProvider>

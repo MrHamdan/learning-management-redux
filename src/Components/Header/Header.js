@@ -156,7 +156,7 @@ const Header = ({ handleOpen, color }) => {
                         {user?.email ? <Button variant="contained" onClick={logOut} sx={{ backgroundColor: '#009FE3 !important' }}>SignOut</Button>
 
                             :
-                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px' }} onClick={handleOpen}>Sign In</Button>}
+                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize:'16px', fontFamily:'Inter', fontWeight:'bold' }} onClick={handleOpen}>Sign In</Button>}
                         <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center' }}>
                             <Typography sx={{ color: '#009FE3', marginLeft: '20px', fontWeight: 'bold' }}>{user.email}</Typography>
                             <Tooltip title="Open settings">

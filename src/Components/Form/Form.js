@@ -1,4 +1,4 @@
-import { Box, Button, Modal, TextField, Typography } from '@mui/material';
+import { Box, Button, Modal, Typography } from '@mui/material';
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -9,7 +9,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 const style = {
-    position: 'absolute',
+    position: 'relative',
     textAlign: 'center',
     top: { xs: '330px', md: '60%', xl: '46%' },
     left: { xs: '45%', md: '48%', xl: '74%' },
@@ -107,24 +107,20 @@ const Form = ({ open, handleClose }) => {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography
-                        onClick={handleClose}
+                        <CloseIcon onClick={handleClose}
                         sx={{
-                            position: 'relative',
-                            left: { xs: '0px', md: '0px', xl: '380px' },
-                            top: { xs: '0px', md: '0px', xl: '-70px' },
+                            position: 'absolute',
+                            left: { xs: '320px', md: '0px', xl: '420px' },
+                            top: { xs: '-40px', md: '0px', xl: '-40px' },
                             padding: "10px 20px",
                             width: "fit-content",
                             borderRadius: "50%",
                             color: "white",
                             fontWeight: "bold",
                             cursor: "pointer",
-                            fontSize: '20px',
+                            fontSize: '30px',
 
-                        }}
-                    >
-                        <CloseIcon></CloseIcon>
-                    </Typography>
+                        }}></CloseIcon>
                     <Box>
                         <Box>
                             <Box>
