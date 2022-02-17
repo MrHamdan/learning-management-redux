@@ -114,13 +114,13 @@ const StudentSaying = () => {
             <Grid item xs={12} xl={7}>
               <Item sx={{ position: 'relative', boxShadow: '0' }}>
                 <img style={{ position: 'absolute', left: '0px', top: '0px', zIndex: '-1' }} src={line} alt="" />
-                <img src={quote} style={{ position: 'absolute', top: '60px', width: '39.47px', height: '30px', left: '20px' }} alt="" />
+                <img src={quote} style={{ position: 'absolute', top: '40px', width: '39.47px', height: '30px', left: '50px' }} alt="" />
               </Item>
               <Item sx={{ position: 'relative', boxShadow: 0, marginTop: '90px', marginLeft: '10px' }}>
                 <Slider ref={sliderRef} {...settingsFour} >
                   {reviews.map(review => (
                     <Box key={review.id} review={review} >
-                      <Box sx={{ textAlign: 'left' }}>
+                      <Box sx={{ textAlign: 'left', marginLeft:'30px' }}>
                         <Typography>{review.review}</Typography>
                         <Typography sx={{ fontSize: '18px', fontWeight: 'bold', color: 'black' }}>{review.name}</Typography>
                         <Rating

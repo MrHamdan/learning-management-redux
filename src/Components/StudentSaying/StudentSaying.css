@@ -86,7 +86,7 @@
 @media screen and (max-width: 768px)
 {
     .vertical-dots li button:before{
-        left: -315px;
+        left: -285px;
 
     }
 }
