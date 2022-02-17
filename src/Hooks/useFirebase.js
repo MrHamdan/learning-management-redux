@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, updateProfile } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, updateProfile,FacebookAuthProvider } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../Components/Firebase/firebase.init";
 
@@ -26,6 +26,18 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
+
+
+    const handleFacebookSignIn = () => {
+        setIsLoading(true);
+        const facebookProvider = new FacebookAuthProvider();
+        return signInWithPopup(auth, facebookProvider)
+            .catch((error) => {
+                setError("Firebase Popup Closed By User Try Again!");
+            })
+            .finally(() => setIsLoading(false));
+    }
+
 
     const toggleLogin = e => {
         setIsLogin(e.target.checked)
@@ -107,6 +119,7 @@ const useFirebase = () => {
         handleGoogleSignIn,
         handleResetPassword,
         handlePasswordChange,
+        handleFacebookSignIn,
         signInWithEmailAndPassword,
         createUserWithEmailAndPassword,
         logOut

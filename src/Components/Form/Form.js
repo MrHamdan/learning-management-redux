@@ -23,7 +23,7 @@ const style = {
 };
 
 const Form = ({ open, handleClose }) => {
-    const { handleEmailChange, handlePasswordChange, error, toggleLogin, isLogin, handleNameChange, createUserWithEmailAndPassword, signInWithEmailAndPassword, password, setError, email, auth, setUser, verifyEmail, setUserName, handleResetPassword, handleGoogleSignIn } = useAuth();
+    const { handleEmailChange, handlePasswordChange, error, toggleLogin, isLogin, handleNameChange, createUserWithEmailAndPassword, signInWithEmailAndPassword, password, setError, email, auth, setUser, verifyEmail, setUserName, handleResetPassword, handleGoogleSignIn,handleFacebookSignIn } = useAuth();
     const location = useLocation();
 
     const navigate = useNavigate();
@@ -176,7 +176,7 @@ const Form = ({ open, handleClose }) => {
                         </Box>
                     </Box>
 
-                    <Button sx={{
+                    <Button onClick={handleFacebookSignIn} sx={{
                         border: '1px solid #000', width: '300px', marginBottom: '20px', color: 'black', fontWeight: '600', '&:hover': {
                             backgroundColor: '#009FE3 !important',
                             color: 'white'
