@@ -12,14 +12,12 @@ import Subscribe from '../Subscribe/Subscribe';
 import Footer from '../Footer.js/Footer';
 
 const Home = () => {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+
     return (
         <div>
-            <Header handleOpen={handleOpen} color='white' />
+            <Header color='white' />
             <Banner />
-            <Form open={open} handleClose={handleClose} />
+            <Form />
             <Courses />
             <Stunning />
             <BestCourses />

@@ -16,6 +16,7 @@ import play from '../../Images/play.png';
 import lock from '../../Images/lock.png';
 import lockdark from '../../Images/lockdark.png';
 import Swal from 'sweetalert2';
+import Form from '../Form/Form';
 
 
 
@@ -149,7 +150,7 @@ const CourseDetail = () => {
 
   return (
     <div>
-      <Header color="white" />
+      <Header  color="white" />
       <Box sx={{ height: { xl: '450px', xs: '450px' }, backgroundColor: '#0D2A62' }}></Box>
       <Box sx={{ position: 'relative', top: { xl: '-300px', xs: '-420px' } }}>
         <Container maxWidth="xl">

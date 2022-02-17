@@ -20,6 +20,7 @@ import useAuth from '../../Hooks/useAuth';
 import { Link } from 'react-router-dom';
 import { DataContext } from '../../Contexts/DataProvider';
 import { FaShoppingCart } from "react-icons/fa";
+import Form from '../Form/Form';
 
 
 
@@ -42,7 +43,12 @@ const Styles = {
 
 
 
-const Header = ({ handleOpen, color }) => {
+const Header = ({ color }) => {
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+
     const { user, logOut } = useAuth();
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -121,6 +127,8 @@ const Header = ({ handleOpen, color }) => {
 
                             :
                             <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={handleOpen}>Sign In</Button>}
+
+                        <Form open={open} handleClose={handleClose} />
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton
                                 size="large"
