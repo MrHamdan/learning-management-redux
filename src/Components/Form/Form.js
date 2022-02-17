@@ -1,4 +1,4 @@
-import { Box, Button, Modal, Typography } from '@mui/material';
+import { Box, Button, Modal, Typography, Link, TextField } from '@mui/material';
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -23,7 +23,32 @@ const style = {
 };
 
 const Form = ({ open, handleClose }) => {
-    const { handleEmailChange, handlePasswordChange, error, toggleLogin, isLogin, handleNameChange, createUserWithEmailAndPassword, signInWithEmailAndPassword, password, setError, email, auth, setUser, verifyEmail, setUserName, handleResetPassword, handleGoogleSignIn, handleFacebookSignIn } = useAuth();
+    const { auth,
+        user,
+        name,
+        error,
+        email,
+        isLogin,
+        password,
+        isLoading,
+        setUser,
+        setName,
+        setError,
+        toggleLogin,
+        verifyEmail,
+        setUserName,
+        handleNameChange,
+        handleEmailChange,
+        handleGoogleSignIn,
+        handleResetPassword,
+        handlePasswordChange,
+        handleFacebookSignIn,
+        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
+        logOut,
+        logIn,
+        signUp,
+        forgotPassword } = useAuth();
     const location = useLocation();
 
     const navigate = useNavigate();
@@ -31,70 +56,7 @@ const Form = ({ open, handleClose }) => {
         navigate('/');
     }
 
-    const handleRegistration = e => {
-        e.preventDefault();
 
-        if (password.length < 6) {
-            setError('Password Must be at least 6 characters long.')
-            return;
-        }
-        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
-            setError('Password Must contain 2 upper case letter');
-            return;
-        }
-
-        if (isLogin) {
-            processLogin(email, password);
-            Swal.fire({
-                position: 'middle',
-                icon: 'success',
-                title: 'Login Successfull',
-                showConfirmButton: false,
-                timer: 1500
-            })
-            navigate('/');
-        }
-        else {
-            registerNewUser(email, password);
-            Swal.fire({
-                position: 'middle',
-                icon: 'success',
-                title: 'You Have Been Registered',
-                showConfirmButton: false,
-                timer: 1500
-            })
-            navigate('/');
-        }
-
-    }
-
-    const processLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                setUser(user);
-                setError('');
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-
-    }
-
-    const registerNewUser = (email, password) => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                const user = result.user;
-                setUser(user);
-                setError('');
-                verifyEmail();
-                setUserName();
-            })
-            .catch(error => {
-                setError(error.message);
-            })
-
-    }
 
 
 
@@ -125,46 +87,44 @@ const Form = ({ open, handleClose }) => {
                         <Box>
                             <Box>
                                 <Box>
-                                    <form onSubmit={handleRegistration}>
-                                        <Typography sx={{ fontSize: '30px', marginBottom: '30px', fontWeight: 'bold' }}>{isLogin ? 'Log In' : 'Sign Up'}</Typography>
-                                        {!isLogin && <Box >
-                                            <Box >
-                                                <input style={{ width: '300px', height: '30px', marginBottom: '20px' }} placeholder="Name" type="text" onBlur={handleNameChange} id="inputName" required />
-                                            </Box>
-                                        </Box>}
-                                        <Box >
-                                            <Box>
-                                                <input placeholder="Email" style={{ width: '300px', height: '30px', marginBottom: '20px' }} onBlur={handleEmailChange} type="email" id="inputEmail3" required />
-                                            </Box>
+                                    <Box >
+                                        <Box>
+                                            <Typography sx={{ fontFamily: 'Inter', fontWeight: '600', fontSize: '36px', marginBottom: '19px' }}>Log In</Typography>
                                         </Box>
-                                        <Box >
-                                            <Box >
-                                                <input placeholder="Password" style={{ width: '300px', height: '30px', marginBottom: '20px' }} type="password" onBlur={handlePasswordChange} id="inputPassword3" required />
-                                            </Box>
-                                        </Box>
-                                        <Box >
-                                            <Box >
-                                                <Box sx={{ marginBottom: '30px' }}>
-                                                    <input onChange={toggleLogin} type="checkbox" id="gridCheck1" />
-                                                    <label htmlFor="gridCheck1">
-                                                        Already Registered ?
-                                                    </label>
+                                        <form onSubmit={logIn}>
+
+                                            <TextField placeholder="Email" sx={{ width: '300px', height: '30px', marginBottom: '40px' }} id="email" type="text" required />
+
+
+
+                                            <TextField placeholder="Password" sx={{ width: '300px', height: '30px', marginBottom: '40px' }} id="password" type="password" required />
+
+                                            <Typography id="error" style={{ color: 'red' }}></Typography>
+
+                                            <Box sx={{ marginBottom: '20px' }}>
+                                                <Button sx={{
+                                                    fontWeight: '600', marginRight: '12px', border: '1px solid #000', padding: '10px 50px', color: 'black', '&:hover': {
+                                                        backgroundColor: '#009FE3 !important',
+                                                        color: 'white',
+                                                        border: '0px'
+                                                    }, width: '157.5', height: '51px'
+                                                }} type="submit">Login
+                                                </Button>
+                                                <Button sx={{
+                                                    fontWeight: '600', marginRight: '0px', border: '1px solid #000', padding: '10px 40px', color: 'black', '&:hover': {
+                                                        backgroundColor: '#009FE3 !important',
+                                                        color: 'white',
+                                                        border: '0px'
+                                                    }, width: '157.5', height: '51px'
+                                                }} onClick={signUp} >Sign Up</Button> <br />
+                                                <Box sx={{ marginTop: '20px' }}>
+                                                    <Link onClick={forgotPassword}>Forgot Password</Link>
                                                 </Box>
                                             </Box>
-                                        </Box>
-                                        <Box >{error}</Box>
-                                        <Button sx={{
-                                            fontWeight: '600', marginRight: '12px', border: '1px solid #000', padding: '10px 40px', color: 'black', '&:hover': {
-                                                backgroundColor: '#009FE3 !important',
-                                                color: 'white',
-                                                border: '0px'
-                                            }
-                                        }} type="submit"  >
-                                            {isLogin ? 'Login' : 'Sign Up'}
-                                        </Button>
-                                        <Button type="button" onClick={handleResetPassword} >Reset Password</Button>
 
-                                    </form>
+
+                                        </form>
+                                    </Box>
                                 </Box>
                                 <br />
                                 <br />
