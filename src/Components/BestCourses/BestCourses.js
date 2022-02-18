@@ -121,7 +121,7 @@ const BestCourses = () => {
                                 {bestCourses.map(bestCourse => (
                                     <Box key={bestCourse.id} bestCourse={bestCourse} >
                                         <Card sx={{ height: '400px', margin: '0px 10px', boxShadow: 3, position: 'relative', marginTop: '70px', marginBottom: '40px' }}>
-                                            <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold' }}>Most Popular</Typography>
+                                            <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '8px 15px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold' }}>Most Popular</Typography>
                                             <CardMedia
                                                 component="img"
                                                 height="194"

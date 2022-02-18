@@ -232,8 +232,8 @@ const Cart = () => {
 											width: "116px",
 											height: "45px",
 											position: "absolute",
-											left: { xl: "218px", xs: "185px" },
-											top: "6px",
+											left: { xl: "218px", xs: "185px", md:'30px' },
+											top: {xl:"6px", md:'300px'},
 											textTransform: "none",
 											"&:hover": {
 												bgcolor: "#0F588D",
@@ -285,7 +285,7 @@ const Cart = () => {
 							<Grid container spacing={2}>
 								<Grid item xs={12} xl={12}>
 									<Item sx={{ boxShadow: 0}}>
-										<Typography sx={{ textAlign: 'left', fontSize:'48px', fontWeight:'800', fontFamily: 'Inter'}}>PEOPLE ARE ALSO LEARNING</Typography>
+										<Typography sx={{ textAlign: 'left', fontSize:'48px', fontWeight:'800', fontFamily: 'Inter', color:'#0D2A62'}}>PEOPLE ARE ALSO LEARNING</Typography>
 									</Item>
 								</Grid>
 								<Grid item xs={12} xl={12}>
@@ -294,7 +294,7 @@ const Cart = () => {
 										{courseList.slice(0,3).map(course => (
                             <Box key={course.id} course={course}>
                                 <Card sx={{ maxWidth: 345, margin: '0px 10px', boxShadow: 3, position: 'relative' }}>
-                                    <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold',fontFamily:'Inter' }}>Most Popular</Typography>
+                                    <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '8px 15px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold',fontFamily:'Inter' }}>Most Popular</Typography>
                                     <CardMedia
                                         component="img"
                                         height="194"
