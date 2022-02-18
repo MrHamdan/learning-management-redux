@@ -34,6 +34,7 @@ const Styles = {
         display: 'flex',
         alignItems: 'center',
         margin: '0px 20px',
+        whiteSpace: 'normal',
         '&:hover': {
             color: '#0D2A62',
             cursor: 'pointer'
