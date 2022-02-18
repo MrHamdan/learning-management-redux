@@ -16,7 +16,6 @@ import play from '../../Images/play.png';
 import lock from '../../Images/lock.png';
 import lockdark from '../../Images/lockdark.png';
 import Swal from 'sweetalert2';
-import Form from '../Form/Form';
 
 
 

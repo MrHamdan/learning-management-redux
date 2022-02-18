@@ -23,7 +23,7 @@ const Cart = () => {
 	] = useContext(CourseDataContext);
 
 
-	const [cupon, setCupon] = useState('');
+	const [promoCode, setPromoCode] = useState('');
 
 	const deleteItem = (item) => {
 		const newCart = cart.filter(cart => (cart.id !== item.id));
@@ -65,19 +65,19 @@ const Cart = () => {
 	});
 
 
-	const handleCuponChange = (e) => {
-		setCupon(e.target.value)
+	const handlePromoCodeChange = (e) => {
+		setPromoCode(e.target.value)
 	}
 
 	const handleDiscount = () => {
-		if (cupon === 'discount') {
+		if (promoCode === 'discount') {
 			const newTotal = finalTotal / 2;
 			setTotalPrice(newTotal);
 			console.log(newTotal, totalPrice);
 			alert('You have got 50% discount!');
 		}
-		else if (cupon === '') {
-			alert('Please enter a Cupon code');
+		else if (promoCode === '') {
+			alert('Please enter a promoCode code');
 		}
 		else {
 
@@ -203,7 +203,7 @@ const Cart = () => {
 											border: "none",
 										}}
 										placeholder="Coupon Code"
-										onChange={handleCuponChange}
+										onChange={handlePromoCodeChange}
 									></input>
 									<Button
 										onClick={handleDiscount}
