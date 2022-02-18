@@ -83,9 +83,9 @@ const AllCategories = () => {
                                 </Item>
                                 <Item sx={{ boxShadow: '0' }}>
 
-                                    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                                    <Grid container spacing={{ xs: 2, md: 3, xl:1 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                                         {courseList.map((course) => (
-                                            <Grid key={course.id} item xs={12} sm={4} md={4}>
+                                            <Grid key={course.id} item xs={12} sm={4} md={4} xl={4}>
                                                 <Item sx={{ boxShadow: '0' }}>
                                                     <Card sx={{ maxWidth: 345, position: 'relative' }}>
                                                         <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold', fontFamily: 'Inter' }}>Most Popular</Typography>
