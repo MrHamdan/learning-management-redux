@@ -122,8 +122,8 @@ const CourseDetail = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
           dots: true
         }
@@ -149,7 +149,7 @@ const CourseDetail = () => {
 
   return (
     <div>
-      <Header  color="white" />
+      <Header color="white" />
       <Box sx={{ height: { xl: '450px', xs: '450px' }, backgroundColor: '#0D2A62' }}></Box>
       <Box sx={{ position: 'relative', top: { xl: '-300px', xs: '-420px' } }}>
         <Container maxWidth="xl">
@@ -160,7 +160,7 @@ const CourseDetail = () => {
                   <Typography sx={{ fontSize: '36px', fontFamily: 'Inter', fontWeight: 'bold', color: 'white', textAlign: 'left', marginBottom: '66px' }}>{course?.title}</Typography>
                 </Item>
               </Grid>
-              <Grid item xs={12} xl={4} sx={{marginTop:{xs:'-70px', xl:'0px'}}}>
+              <Grid item xs={12} xl={4} sx={{ marginTop: { xs: '-70px', xl: '0px' } }}>
                 <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}><Button sx={{ width: { xl: '350px', xs: '250px' }, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={() => handleAddToCart(course)}>Take This Course</Button> <br />
                   <Button sx={{ width: { xl: '350px', xs: '250px' }, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }}>Gift This Course</Button></Item>
               </Grid>

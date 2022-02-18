@@ -11,7 +11,7 @@ import Rating from 'react-rating';
 const Styles = {
   Student: {
     width: '100%',
-    height: '681px'
+    height: {xl:'681px', md:'800px'}
   }
 }
 const Item = styled(Paper)(({ theme }) => ({
@@ -26,31 +26,31 @@ const Item = styled(Paper)(({ theme }) => ({
 const reviews = [
   {
     id: "1",
-    review: "Nunc eu tempus ultrices vitae, a suspendisse porta magna suscipit. Blandit consequat arcu quam sed mauris tempus. Neque, massa aliquam vitae, facilisis ut vel risus vitae gravida.",
+    reviews: "Nunc eu tempus ultrices vitae, a suspendisse porta magna suscipit. Blandit consequat arcu quam sed mauris tempus. Neque, massa aliquam vitae, facilisis ut vel risus vitae gravida.",
     name: "Jenifer Smith",
     ratings: "4.5"
   },
   {
     id: "2",
-    review: "Nunc eu tempus ultrices vitae, a suspendisse porta magna suscipit. Blandit consequat arcu quam sed mauris tempus. Neque, massa aliquam vitae, facilisis ut vel risus vitae gravida.",
+    reviews: "Nunc eu tempus ultrices vitae, a suspendisse porta magna suscipit. Blandit consequat arcu quam sed mauris tempus. Neque, massa aliquam vitae, facilisis ut vel risus vitae gravida.",
     name: "Jenifer Smith",
     ratings: "3.5"
   },
   {
     id: "3",
-    review: "Nunc eu tempus ultrices vitae, a suspendisse porta magna suscipit. Blandit consequat arcu quam sed mauris tempus. Neque, massa aliquam vitae, facilisis ut vel risus vitae gravida.",
+    reviews: "Nunc eu tempus ultrices vitae, a suspendisse porta magna suscipit. Blandit consequat arcu quam sed mauris tempus. Neque, massa aliquam vitae, facilisis ut vel risus vitae gravida.",
     name: "Jenifer Smith",
     ratings: "2.5"
   },
   {
     id: "4",
-    review: "Nunc eu tempus ultrices vitae, a suspendisse porta magna suscipit. Blandit consequat arcu quam sed mauris tempus. Neque, massa aliquam vitae, facilisis ut vel risus vitae gravida.",
+    reviews: "Nunc eu tempus ultrices vitae, a suspendisse porta magna suscipit. Blandit consequat arcu quam sed mauris tempus. Neque, massa aliquam vitae, facilisis ut vel risus vitae gravida.",
     name: "Jenifer Smith",
     ratings: "1.5"
   },
   {
     id: "5",
-    review: "Nunc eu tempus ultrices vitae, a suspendisse porta magna suscipit. Blandit consequat arcu quam sed mauris tempus. Neque, massa aliquam vitae, facilisis ut vel risus vitae gravida.",
+    reviews: "Nunc eu tempus ultrices vitae, a suspendisse porta magna suscipit. Blandit consequat arcu quam sed mauris tempus. Neque, massa aliquam vitae, facilisis ut vel risus vitae gravida.",
     name: "Jenifer Smith",
     ratings: ".5"
   },
@@ -121,7 +121,7 @@ const StudentSaying = () => {
                   {reviews.map(review => (
                     <Box key={review.id} review={review} >
                       <Box sx={{ textAlign: 'left', marginLeft:'30px' }}>
-                        <Typography>{review.review}</Typography>
+                        <Typography>{review.reviews}</Typography>
                         <Typography sx={{ fontSize: '18px', fontWeight: 'bold', color: 'black' }}>{review.name}</Typography>
                         <Rating
                           className="fs-4"

@@ -90,3 +90,12 @@
 
     }
 }
+
+@media screen and (max-width: 1074px)
+{
+    .vertical-dots li button:before{
+        left: -836px;
+
+    }
+}
+    

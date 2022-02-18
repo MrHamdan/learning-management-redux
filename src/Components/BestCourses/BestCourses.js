@@ -26,7 +26,6 @@ const Styles = {
         backgroundRepeat: 'no-repeat',
         width: '100%',
         height: {xs:'3039px',xl:'2300px'},
-        // position: 'relative',
     }
 }
 
@@ -67,8 +66,8 @@ const settingsThree = {
         {
             breakpoint: 1024,
             settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 2,
+                slidesToScroll: 2,
                 infinite: true,
                 dots: true
             }

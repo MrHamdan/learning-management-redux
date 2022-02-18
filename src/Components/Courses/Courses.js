@@ -52,8 +52,8 @@ const settingsOne = {
         {
             breakpoint: 1024,
             settings: {
-                slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToShow: 2,
+                slidesToScroll: 2,
                 infinite: true,
                 dots: true
             }
@@ -136,7 +136,7 @@ const Courses = () => {
                 <Box sx={{ marginTop: '62px' }}>
                     <Slider ref={sliderRef} {...settingsOne}>
                         {courseList.map(course => (
-                            <Box key={course.id} course={course}>
+                            <Box key={course.id} course={course} sx={{display:'flex', flexDirection:{xs:'column', xl:'row'}}}>
                                 <Card sx={{ maxWidth: 345, margin: '0px 10px', boxShadow: 3, position: 'relative' }}>
                                     <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '8px 15px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold',fontFamily:'Inter' }}>Most Popular</Typography>
                                     <CardMedia
