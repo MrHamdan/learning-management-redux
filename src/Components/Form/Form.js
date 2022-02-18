@@ -16,7 +16,7 @@ const style = {
     transform: 'translate(-50%, -50%)',
     width: { xs: 300, md: 400, xl: 400 },
     bgcolor: 'background.paper',
-    borderRadius:'15px',
+    borderRadius: '15px',
 
     boxShadow: 24,
     p: 4,
@@ -44,13 +44,12 @@ const Form = ({ open, handleClose }) => {
         handleResetPassword,
         handlePasswordChange,
         handleFacebookSignIn,
+        sendPasswordResetEmail,
         signInWithEmailAndPassword,
         createUserWithEmailAndPassword,
         logOut,
-        logIn,
-        signUp,
-        forgotPassword } = useAuth();
-    const location = useLocation();
+    } = useAuth();
+
 
     const navigate = useNavigate();
     const navigateRoute = () => {
@@ -58,7 +57,42 @@ const Form = ({ open, handleClose }) => {
     }
 
 
+    const logIn = (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value
+        const password = document.getElementById("password").value
+        signInWithEmailAndPassword(auth, email, password)
+            .catch((error) => {
+                document.getElementById("error").innerHTML = error.message
+            })
+        navigateRoute()
+    }
 
+
+
+    const signUp = (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value
+        const password = document.getElementById("password").value
+        createUserWithEmailAndPassword(auth, email, password)
+            .catch((error) => {
+                document.getElementById("error").innerHTML = error.message
+            });
+        navigateRoute()
+    }
+
+
+    const forgotPassword = (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert("Reset link sent to your email id")
+            })
+            .catch((error) => {
+                document.getElementById("error").innerHTML = error.message
+            });
+    }
 
 
     return (
@@ -102,13 +136,13 @@ const Form = ({ open, handleClose }) => {
 
                                             <Typography id="error" style={{ color: 'red' }}></Typography>
 
-                                            <Box sx={{ marginBottom: '20px', display:'flex', flexDirection: {xs:'column', xl:'row'}, justifyContent:'center'}}>
+                                            <Box sx={{ marginBottom: '20px', display: 'flex', flexDirection: { xs: 'column', xl: 'row' }, justifyContent: 'center' }}>
                                                 <Button sx={{
-                                                    fontWeight: '600', marginRight: {xl:'10px', xs:'0px'}, border: '1px solid #000', padding: '10px 50px', color: 'black', '&:hover': {
+                                                    fontWeight: '600', marginRight: { xl: '10px', xs: '0px' }, border: '1px solid #000', padding: '10px 50px', color: 'black', '&:hover': {
                                                         backgroundColor: '#009FE3 !important',
                                                         color: 'white',
                                                         border: '0px'
-                                                    }, width: '157.5', height: '51px', textTransform: 'none',marginBottom:{xs:'20px'}
+                                                    }, width: '157.5', height: '51px', textTransform: 'none', marginBottom: { xs: '20px' }
                                                 }} type="submit">Login
                                                 </Button>
                                                 <Button sx={{
@@ -118,11 +152,11 @@ const Form = ({ open, handleClose }) => {
                                                         border: '0px'
                                                     }, width: '157.5', height: '51px', textTransform: 'none'
                                                 }} onClick={signUp} >Sign Up</Button> <br />
-                                                
+
                                             </Box>
-                                            <Box sx={{ marginTop: '20px', cursor:'pointer' }}>
-                                                    <Link onClick={forgotPassword}>Forgot Password</Link>
-                                                </Box>
+                                            <Box sx={{ marginTop: '20px', cursor: 'pointer' }}>
+                                                <Link onClick={forgotPassword}>Forgot Password</Link>
+                                            </Box>
 
 
                                         </form>

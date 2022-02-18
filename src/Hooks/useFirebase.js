@@ -39,40 +39,7 @@ const useFirebase = () => {
     }
 
 
-    const logIn = (e) => {
-        e.preventDefault();
-        const email = document.getElementById("email").value
-        const password = document.getElementById("password").value
-        signInWithEmailAndPassword(auth, email, password)
-            .catch((error) => {
-                document.getElementById("error").innerHTML = error.message
-            })
-    }
-
-
-
-    const signUp = (e) => {
-        e.preventDefault();
-        const email = document.getElementById("email").value
-        const password = document.getElementById("password").value
-        createUserWithEmailAndPassword(auth, email, password)
-            .catch((error) => {
-                document.getElementById("error").innerHTML = error.message
-            });
-    }
-
-
-    const forgotPassword = (e) => {
-        e.preventDefault();
-        const email = document.getElementById("email").value
-        sendPasswordResetEmail(auth, email)
-            .then(() => {
-                alert("Reset link sent to your email id")
-            })
-            .catch((error) => {
-                document.getElementById("error").innerHTML = error.message
-            });
-    }
+    
 
 
     const toggleLogin = e => {
@@ -157,11 +124,9 @@ const useFirebase = () => {
         handlePasswordChange,
         handleFacebookSignIn,
         signInWithEmailAndPassword,
+        sendPasswordResetEmail,
         createUserWithEmailAndPassword,
         logOut,
-        logIn,
-        signUp,
-        forgotPassword
     }
 }
 
