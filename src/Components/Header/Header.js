@@ -114,7 +114,7 @@ const Header = ({ color }) => {
                                 < FaShoppingCart />
                             </Link></Badge>
                         </Box>
-                        <TextField id="outlined-basic" placeholder="Search" variant="outlined" sx={{ marginRight: '50px', width: '300px', display: { xs: 'none', md: 'flex' } }} InputProps={{
+                        <TextField id="outlined-basic" placeholder="Search" variant="outlined" sx={{ marginRight: '10px', width: '350px', display: { xs: 'none', md: 'flex' } }} InputProps={{
                             startAdornment: (
                                 <InputAdornment position="start">
                                     <IconButton>
@@ -123,7 +123,7 @@ const Header = ({ color }) => {
                                 </InputAdornment>
                             )
                         }}></TextField>
-                        {user?.email ? <Button variant="contained" onClick={logOut} sx={{ backgroundColor: '#009FE3 !important' }}>SignOut</Button>
+                        {user?.email ? <Button variant="contained" onClick={logOut} sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none'}}>SignOut</Button>
 
                             :
                             <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold', display: { xs: 'none', xl: 'block', md: 'block' } }} onClick={handleOpen}>Sign In</Button>}
@@ -168,7 +168,7 @@ const Header = ({ color }) => {
                             </Menu>
                         </Box>
                         <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center' }}>
-                            <Typography sx={{ color: '#009FE3', marginLeft: '0px', fontWeight: 'bold' }}>{user.email}</Typography>
+                            <Typography sx={{ color: '#009FE3', marginLeft: '10px', fontWeight: 'bold' }}>{user.email}</Typography>
                             <Tooltip title="Open settings">
                                 <IconButton onClick={handleOpenBrowseMenu} sx={{ p: 0 }}>
                                 </IconButton>
