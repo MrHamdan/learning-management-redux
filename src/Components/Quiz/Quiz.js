@@ -68,7 +68,7 @@ const Quiz = () => {
     
     return (
         <Box>
-            <Header color='white'/>
+        <Header color='white'/>
             
         <Footer/>
         </Box>

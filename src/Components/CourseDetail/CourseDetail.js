@@ -152,7 +152,7 @@ const CourseDetail = () => {
       <Header color="white" />
       <Box sx={{ height: { xl: '450px', xs: '450px' }, backgroundColor: '#0D2A62' }}></Box>
       <Box sx={{ position: 'relative', top: { xl: '-300px', xs: '-420px' } }}>
-        <Container maxWidth="xl">
+        <Container>
           <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} xl={8}>
@@ -332,7 +332,7 @@ const CourseDetail = () => {
         </Container>
       </Box>
       <Box sx={{ height: { xl: '775px', xs: '700px' }, backgroundColor: '#FAFAFA', position: 'relative', top: { xl: '0px', xs: '0px' } }}>
-        <Container maxWidth='xl'>
+        <Container >
           <Box>
             <Box sx={{ paddingTop: '100px' }}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>

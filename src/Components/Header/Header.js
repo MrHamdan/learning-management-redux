@@ -28,7 +28,7 @@ const Styles = {
     navLink: {
         color: 'black',
         fontFamily: 'Inter',
-        fontSize: '16px',
+        fontSize: { xl: '16px', xs: '10px' },
         fontWeight: '600',
         textDecoration: 'none',
         display: 'flex',
@@ -126,10 +126,10 @@ const Header = ({ color }) => {
                         {user?.email ? <Button variant="contained" onClick={logOut} sx={{ backgroundColor: '#009FE3 !important' }}>SignOut</Button>
 
                             :
-                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold', display:{xs:'none', xl:'block', md:'block'} }} onClick={handleOpen}>Sign In</Button>}
+                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold', display: { xs: 'none', xl: 'block', md: 'block' } }} onClick={handleOpen}>Sign In</Button>}
 
                         <Form open={open} handleClose={handleClose} />
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', justifyContent: 'flex-end'} }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', justifyContent: 'flex-end' } }}>
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -174,7 +174,7 @@ const Header = ({ color }) => {
                                 </IconButton>
                             </Tooltip>
                             <Menu
-                                sx={{ mt: '45px' }}
+                                sx={{ mt: '45px', overflow: 'auto' }}
                                 id="menu-appbar"
                                 anchorEl={anchorElUser}
                                 anchorOrigin={{
@@ -192,6 +192,8 @@ const Header = ({ color }) => {
                                 {courseList.map(course => (
                                     <MenuItem key={course.id}><Link to={`/coursedetail/${course.id}`} style={Styles.navLink}>{course.title}</Link></MenuItem>
                                 ))}
+
+                                <MenuItem> <Link style={Styles.navLink} to='/allcategories'><Button variant='contained' sx={{ fontSize: '16px', fontWeight: 'bold', fontFamily: 'Inter', textTransform: 'none', backgroundColor: '#009FE3' }}>Browse All Courses</Button></Link> </MenuItem>
 
                             </Menu>
                         </Box>
