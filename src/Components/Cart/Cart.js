@@ -1,12 +1,14 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import Header from '../Header/Header';
-import { Box, Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Button } from '@mui/material';
+import { Box, Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Button, Paper, Card, CardMedia, CardActions,CardContent } from '@mui/material';
 import Footer from '../Footer.js/Footer';
 import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import ClearIcon from '@mui/icons-material/Clear';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
-import Form from '../Form/Form';
+import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -86,7 +88,21 @@ const Cart = () => {
 		console.log(totalPrice);
 	}
 
+	const Item = styled(Paper)(({ theme }) => ({
+		backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+		...theme.typography.body2,
+		padding: theme.spacing(1),
+		textAlign: 'center',
+		color: theme.palette.text.secondary,
+	}));
 
+
+	const [courseList, setCourseList] = useState([]);
+    useEffect(() => {
+        fetch('/coursedata.json')
+            .then(data => data.json())
+            .then(data => setCourseList(data))
+    }, []);
 
 	return (
 		<Box>
@@ -263,6 +279,51 @@ const Cart = () => {
 						</Grid>
 					</Box>
 				</Container>
+				<Box sx={{ height: '798px', backgroundColor: 'white', display: 'flex', alignItems: 'center' }}>
+					<Container >
+						<Box sx={{ flexGrow: 1 }}>
+							<Grid container spacing={2}>
+								<Grid item xs={8} xl={12}>
+									<Item sx={{ boxShadow: 0}}>
+										<Typography sx={{ textAlign: 'left', fontSize:'48px', fontWeight:'800', fontFamily: 'Inter'}}>PEOPLE ARE ALSO LEARNING</Typography>
+									</Item>
+								</Grid>
+								<Grid item xs={4} xl={12}>
+									<Item sx={{boxShadow: 0}}>
+										<Box sx={{display:'flex', justifyContent: 'left', gap: 5}}>
+										{courseList.slice(0,3).map(course => (
+                            <Box key={course.id} course={course}>
+                                <Card sx={{ maxWidth: 345, margin: '0px 10px', boxShadow: 3, position: 'relative' }}>
+                                    <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold',fontFamily:'Inter' }}>Most Popular</Typography>
+                                    <CardMedia
+                                        component="img"
+                                        height="194"
+                                        image={course.coverImage}
+                                    />
+                                    <CardContent>
+                                        <Typography sx={{ fontSize: '22px', textAlign:'left' }}>
+                                            {course.title}
+                                        </Typography>
+                                    </CardContent>
+                                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px' }}>
+                                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                            <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter' }}>£{course.regularPrice}</del>
+                                            <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter', }}>£{course.discountPrice}</Typography>
+                                        </Box>
+                                        <Box>
+                                            <Link to={`/coursedetail/${course.id}`} style={{ textDecoration: 'none' }}><Button variant='contained' sx={{ padding: '5px 10px', backgroundColor: '#009FE3', width: '123px', height: '40px', borderRadius: '4px', fontFamily: 'Inter', textTransform: 'none' }}>Buy Now</Button></Link>
+                                        </Box>
+                                    </Box>
+                                </Card>
+                            </Box>
+                        ))}
+										</Box>
+									</Item>
+								</Grid>
+							</Grid>
+						</Box>
+					</Container>
+				</Box>
 			</Box>
 			<Footer />
 		</Box>
