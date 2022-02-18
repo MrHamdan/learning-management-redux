@@ -111,7 +111,7 @@ const Header = ({ color }) => {
                                 <Link to='/allcategories' style={Styles.navLink}>Today's Deal</Link>
                             </Badge>
                             <Link to='/quiz' style={Styles.navLink}>Free Quiz</Link>
-                            <Badge badgeContent={cart.length} color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={{ textDecoration: 'none' }}>
+                            <Badge badgeContent={cart.length} color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={Styles.navLink}>
                                 < FaShoppingCart />
                             </Link></Badge>
                         </Box>
@@ -165,7 +165,7 @@ const Header = ({ color }) => {
                                 <MenuItem ><Badge badgeContent="New" color="error">
                                     <Link to='/allcategories' style={Styles.navLink}>Today's Deal</Link>
                                 </Badge></MenuItem>
-                                <MenuItem><Badge badgeContent={cart.length} color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={{ textDecoration: 'none',marginLeft:'20px' }}>
+                                <MenuItem><Badge badgeContent={cart.length} color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={Styles.navLink}>
                                 < FaShoppingCart />
                             </Link></Badge></MenuItem>
                                 <MenuItem><Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={handleOpen}>Sign In</Button></MenuItem>
