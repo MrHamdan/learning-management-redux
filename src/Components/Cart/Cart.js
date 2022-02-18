@@ -279,18 +279,18 @@ const Cart = () => {
 						</Grid>
 					</Box>
 				</Container>
-				<Box sx={{ height: '798px', backgroundColor: 'white', display: 'flex', alignItems: 'center' }}>
+				<Box sx={{ height: {xl:'798px', xs:'1600px'}, backgroundColor: 'white', display: 'flex', alignItems: 'center', flexDicrection:{xl:'row', xs:'column'} }}>
 					<Container >
 						<Box sx={{ flexGrow: 1 }}>
 							<Grid container spacing={2}>
-								<Grid item xs={8} xl={12}>
+								<Grid item xs={12} xl={12}>
 									<Item sx={{ boxShadow: 0}}>
 										<Typography sx={{ textAlign: 'left', fontSize:'48px', fontWeight:'800', fontFamily: 'Inter'}}>PEOPLE ARE ALSO LEARNING</Typography>
 									</Item>
 								</Grid>
-								<Grid item xs={4} xl={12}>
+								<Grid item xs={12} xl={12}>
 									<Item sx={{boxShadow: 0}}>
-										<Box sx={{display:'flex', justifyContent: 'left', gap: 5}}>
+										<Box sx={{display:'flex', justifyContent: 'left', gap: 5, flexDirection:{xl:'row', xs:'column'}}}>
 										{courseList.slice(0,3).map(course => (
                             <Box key={course.id} course={course}>
                                 <Card sx={{ maxWidth: 345, margin: '0px 10px', boxShadow: 3, position: 'relative' }}>
