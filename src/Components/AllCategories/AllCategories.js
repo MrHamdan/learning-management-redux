@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Paper, Stack, Typography } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Pagination, Paper, Stack, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Footer from '../Footer.js/Footer';
 import Header from '../Header/Header';
@@ -89,7 +89,7 @@ const AllCategories = () => {
                                             <Grid key={course.id} item xs={12} sm={4} md={4}>
                                                 <Item sx={{ boxShadow: '0' }}>
                                                     <Card sx={{ maxWidth: 345, position: 'relative' }}>
-                                                        <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold',fontFamily:'Inter' }}>Most Popular</Typography>
+                                                        <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '4px 10px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold', fontFamily: 'Inter' }}>Most Popular</Typography>
                                                         <CardMedia
                                                             component="img"
                                                             height="140"
@@ -112,8 +112,13 @@ const AllCategories = () => {
                                                 </Item>
                                             </Grid>
                                         ))}
-                                    </Grid>
 
+                                    </Grid>
+                                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent:'center'}}>
+                                        <Stack spacing={2}>
+                                            <Pagination count={10} color="primary" />
+                                        </Stack>
+                                    </Box>
                                 </Item>
                             </Grid>
                         </Grid>
