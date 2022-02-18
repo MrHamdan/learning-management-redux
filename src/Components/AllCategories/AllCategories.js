@@ -5,7 +5,6 @@ import Header from '../Header/Header';
 import { styled } from '@mui/material/styles';
 import allcategories from '../../Images/allcategories.png';
 import { Link } from 'react-router-dom';
-import Form from '../Form/Form';
 
 
 const Item = styled(Paper)(({ theme }) => ({

@@ -1,6 +1,6 @@
 import { Box, Button, Modal, Typography, Link, TextField } from '@mui/material';
 import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/useAuth';
 import facebookIcon from '../../Images/facebook.png';
@@ -25,29 +25,11 @@ const style = {
 
 const Form = ({ open, handleClose }) => {
     const { auth,
-        user,
-        name,
-        error,
-        email,
-        isLogin,
-        password,
-        isLoading,
-        setUser,
-        setName,
-        setError,
-        toggleLogin,
-        verifyEmail,
-        setUserName,
-        handleNameChange,
-        handleEmailChange,
         handleGoogleSignIn,
-        handleResetPassword,
-        handlePasswordChange,
         handleFacebookSignIn,
         sendPasswordResetEmail,
         signInWithEmailAndPassword,
         createUserWithEmailAndPassword,
-        logOut,
     } = useAuth();
 
 
