@@ -33,7 +33,7 @@ const AllCategories = () => {
 
     const [courseList, setCourseList] = useState([]);
     useEffect(() => {
-        fetch('/courselist.json')
+        fetch('/coursedata.json')
             .then(data => data.json())
             .then(data => setCourseList(data))
     }, []);

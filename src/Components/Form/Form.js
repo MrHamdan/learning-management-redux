@@ -101,13 +101,13 @@ const Form = ({ open, handleClose }) => {
 
                                             <Typography id="error" style={{ color: 'red' }}></Typography>
 
-                                            <Box sx={{ marginBottom: '20px' }}>
+                                            <Box sx={{ marginBottom: '20px', display:'flex', flexDirection: {xs:'column', xl:'row'}, justifyContent:'center'}}>
                                                 <Button sx={{
-                                                    fontWeight: '600', marginRight: '12px', border: '1px solid #000', padding: '10px 50px', color: 'black', '&:hover': {
+                                                    fontWeight: '600', marginRight: {xl:'10px', xs:'0px'}, border: '1px solid #000', padding: '10px 50px', color: 'black', '&:hover': {
                                                         backgroundColor: '#009FE3 !important',
                                                         color: 'white',
                                                         border: '0px'
-                                                    }, width: '157.5', height: '51px'
+                                                    }, width: '157.5', height: '51px', textTransform: 'none',marginBottom:{xs:'20px'}
                                                 }} type="submit">Login
                                                 </Button>
                                                 <Button sx={{
@@ -115,12 +115,13 @@ const Form = ({ open, handleClose }) => {
                                                         backgroundColor: '#009FE3 !important',
                                                         color: 'white',
                                                         border: '0px'
-                                                    }, width: '157.5', height: '51px'
+                                                    }, width: '157.5', height: '51px', textTransform: 'none'
                                                 }} onClick={signUp} >Sign Up</Button> <br />
-                                                <Box sx={{ marginTop: '20px' }}>
+                                                
+                                            </Box>
+                                            <Box sx={{ marginTop: '20px', cursor:'pointer' }}>
                                                     <Link onClick={forgotPassword}>Forgot Password</Link>
                                                 </Box>
-                                            </Box>
 
 
                                         </form>

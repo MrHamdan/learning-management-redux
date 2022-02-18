@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Box } from '@mui/system';
 import { Button, Card, CardContent, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
-import { DataContext } from '../../Contexts/DataProvider';
+import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import Slider from 'react-slick';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';

@@ -1,6 +1,6 @@
 import { Avatar, Box, Button, Card, CardHeader, Container, Typography } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
-import { DataContext } from '../../Contexts/DataProvider';
+import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -101,7 +101,7 @@ const Style = {
 const Courses = () => {
     const [courseList, setCourseList] = useState([]);
     useEffect(() => {
-        fetch('/courselist.json')
+        fetch('/coursedata.json')
             .then(data => data.json())
             .then(data => setCourseList(data))
     }, []);

@@ -18,7 +18,7 @@ import { Badge, InputAdornment, TextField } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import useAuth from '../../Hooks/useAuth';
 import { Link } from 'react-router-dom';
-import { DataContext } from '../../Contexts/DataProvider';
+import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import { FaShoppingCart } from "react-icons/fa";
 import Form from '../Form/Form';
 
@@ -72,12 +72,12 @@ const Header = ({ color }) => {
 
     const [courseList, setCourseList] = useState([]);
     useEffect(() => {
-        fetch('/courselist.json')
+        fetch('/coursedata.json')
             .then(data => data.json())
             .then(data => setCourseList(data))
     }, []);
 
-    const [cart] = useContext(DataContext)
+    const [cart] = useContext(CourseDataContext)
 
     return (
         <div>
@@ -126,10 +126,10 @@ const Header = ({ color }) => {
                         {user?.email ? <Button variant="contained" onClick={logOut} sx={{ backgroundColor: '#009FE3 !important' }}>SignOut</Button>
 
                             :
-                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={handleOpen}>Sign In</Button>}
+                            <Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold', display:{xs:'none', xl:'block', md:'block'} }} onClick={handleOpen}>Sign In</Button>}
 
                         <Form open={open} handleClose={handleClose} />
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none', justifyContent: 'flex-end'} }}>
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -164,6 +164,7 @@ const Header = ({ color }) => {
                                 <MenuItem ><Badge badgeContent="New" color="error">
                                     <Link to='/allcategories' style={Styles.navLink}>Today's Deal</Link>
                                 </Badge></MenuItem>
+                                <MenuItem><Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={handleOpen}>Sign In</Button></MenuItem>
                             </Menu>
                         </Box>
                         <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center' }}>

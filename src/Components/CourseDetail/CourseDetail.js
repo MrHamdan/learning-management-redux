@@ -4,7 +4,7 @@ import Footer from '../Footer.js/Footer';
 import Header from '../Header/Header';
 import { styled } from '@mui/material/styles';
 import { Link, useParams } from 'react-router-dom';
-import { DataContext } from '../../Contexts/DataProvider';
+import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import ReactPlayer from 'react-player';
 import bars from '../../Images/bars.png';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -37,7 +37,7 @@ const CourseDetail = () => {
 
   const [course, setCourse] = useState({});
 
-  const [cart, setCart] = useContext(DataContext);
+  const [cart, setCart] = useContext(CourseDataContext);
 
   const handleAddToCart = (course) => {
     const added = cart.find((item) => (item.id === course.id))
@@ -70,7 +70,7 @@ const CourseDetail = () => {
   }, [courseList, id]);
 
   useEffect(() => {
-    fetch('/courselist.json')
+    fetch('/coursedata.json')
       .then(res => res.json())
       .then(data => setCourseList(data))
   }, [])

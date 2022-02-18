@@ -114,7 +114,7 @@ const Stunning = () => {
                                     <Button variant='contained' sx={{ backgroundColor: '#0D2A62', marginTop: '20px', textTransform: 'none', width: '155px', height: '51px', fontWeight: 'bold', fontFamily: 'Inter', fontSize: '14px' }}>Join Today</Button>
                                 </Box>
                                 <Box>
-                                    <img style={{ width: '100%' }} src={photo} alt="" />
+                                    <img style={{ width: '100%' }} src={stunning.image} alt="" />
                                 </Box>
                             </Box>
                         </Box>

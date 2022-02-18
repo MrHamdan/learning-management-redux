@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Header from '../Header/Header';
 import { Box, Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Button } from '@mui/material';
 import Footer from '../Footer.js/Footer';
-import { DataContext } from '../../Contexts/DataProvider';
+import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import ClearIcon from '@mui/icons-material/Clear';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -20,7 +20,7 @@ const Cart = () => {
 		setTotalPrice,
 		subTotal,
 		setSubTotal,
-	] = useContext(DataContext);
+	] = useContext(CourseDataContext);
 
 
 	const [cupon, setCupon] = useState('');

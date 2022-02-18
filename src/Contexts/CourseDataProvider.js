@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 
 
-export const DataContext = createContext();
+export const CourseDataContext = createContext();
 
 const DataProvider = ({ children }) => {
 
@@ -12,7 +12,7 @@ const DataProvider = ({ children }) => {
     
     return (
         <div>
-            <DataContext.Provider
+            <CourseDataContext.Provider
                 value={[
                     cart,
                     setCart,
@@ -25,7 +25,7 @@ const DataProvider = ({ children }) => {
                 ]}
             >
                 {children}
-            </DataContext.Provider>
+            </CourseDataContext.Provider>
         </div >
     );
 };

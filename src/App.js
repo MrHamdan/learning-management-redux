@@ -5,7 +5,7 @@ import Banner from './Components/Banner/Banner';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import AuthProvider from './Contexts/AuthProvider';
-import DataProvider from './Contexts/DataProvider';
+import CourseDataProvider from './Contexts/CourseDataProvider';
 import CourseDetail from './Components/CourseDetail/CourseDetail';
 import Quiz from './Components/Quiz/Quiz';
 import ScrollToTop from './Hooks/ScrollToTop';
@@ -16,7 +16,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <DataProvider>
+        <CourseDataProvider>
           <ScrollToTop>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -27,7 +27,7 @@ function App() {
             <Route path="allcategories" element={<AllCategories  />} />
           </Routes>
           </ScrollToTop>
-        </DataProvider>
+        </CourseDataProvider>
       </AuthProvider>
     </BrowserRouter>
   );
