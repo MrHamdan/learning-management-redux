@@ -119,7 +119,7 @@ const BestCourses = () => {
                             <Slider ref={sliderRef} {...settingsThree}>
                                 {bestCourses.map(bestCourse => (
                                     <Box key={bestCourse.id} bestCourse={bestCourse} >
-                                        <Card sx={{ height: '400px',  boxShadow: 3, position: 'relative', marginTop: '70px', marginBottom: '40px' }}>
+                                        <Card sx={{ height: '400px',  boxShadow: 3, position: 'relative', marginTop: '70px', marginBottom: '40px', margin:'0px 10px' }}>
                                             <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '8px 15px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold' }}>Most Popular</Typography>
                                             <CardMedia
                                                 component="img"
@@ -131,7 +131,7 @@ const BestCourses = () => {
                                                     {bestCourse.title}
                                                 </Typography>
                                             </CardContent>
-                                            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px' }}>
+                                            <Box sx={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', padding: '20px' }}>
                                                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                                                     <del style={{ color: 'gray', fontSize: '15px', marginRight: '4px', fontWeight: 'bold', fontFamily: 'Inter'}}>£{bestCourse.regularPrice}</del>
                                                     <Typography sx={{ color: '#009FE3', fontSize: '24px', fontWeight: 'bold', fontFamily: 'Inter',}}>£{bestCourse.discountPrice}</Typography>
