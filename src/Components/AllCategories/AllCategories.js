@@ -76,7 +76,7 @@ const AllCategories = () => {
     return (
         <Box>
             <Header color='white' />
-            <Box sx={{ marginTop: '100px', height: { xl: '1200px', xs: '4900px' } }}>
+            <Box sx={{ marginTop: '100px', height: { xl: '1200px', xs: '3600px' } }}>
                 <Container maxWidth='xl'>
                     <Box sx={{ flexGrow: 1 }}>
                         <Grid container spacing={2}>
