@@ -28,14 +28,50 @@ const Style = {
 
 
 
+
+
+
+
 const AllCategories = () => {
+
+
+    const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [coursesPerPage, setCoursesPerPage] = useState(6);
 
     const [courseList, setCourseList] = useState([]);
     useEffect(() => {
+        setLoading(true);
         fetch('/coursedata.json')
             .then(data => data.json())
             .then(data => setCourseList(data))
+        setLoading(false);
     }, []);
+
+    console.log(courseList);
+
+
+    const pageNumbers = [];
+
+    for (let i = 1; i <= Math.ceil(courseList.length / coursesPerPage); i++) {
+        pageNumbers.push(i);
+    }
+
+
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
+
+
+    // Get current courses
+    const indexOfLastCourse = currentPage * coursesPerPage;
+    const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
+    const currentCourses = courseList.slice(indexOfFirstCourse, indexOfLastCourse);
 
     return (
         <Box>
@@ -83,8 +119,8 @@ const AllCategories = () => {
                                 </Item>
                                 <Item sx={{ boxShadow: '0' }}>
 
-                                    <Grid container spacing={{ xs: 2, md: 3, xl:1 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                                        {courseList.map((course) => (
+                                    <Grid container spacing={{ xs: 2, md: 3, xl: 1 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+                                        {currentCourses.map((course) => (
                                             <Grid key={course.id} item xs={12} sm={4} md={4} xl={4}>
                                                 <Item sx={{ boxShadow: '0' }}>
                                                     <Card sx={{ maxWidth: 345, position: 'relative' }}>
@@ -113,11 +149,17 @@ const AllCategories = () => {
                                         ))}
 
                                     </Grid>
-                                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent:'center'}}>
-                                        <Stack spacing={2}>
-                                            <Pagination count={10} color="primary" />
-                                        </Stack>
-                                    </Box>
+
+                                    <Stack spacing={2}>
+
+                                        <Pagination
+                                            sx={{ display: "flex", justifyContent: "center", pt: 5 }}
+                                            count={pageNumbers.length}
+                                            onChange={(e, value) => paginate(value)}
+                                            color="primary"
+                                        />
+                                    </Stack>
+
                                 </Item>
                             </Grid>
                         </Grid>
