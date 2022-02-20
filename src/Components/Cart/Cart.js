@@ -259,7 +259,7 @@ const Cart = () => {
 									<Typography>Total</Typography>
 									<Typography>£ {totalPrice}</Typography>
 								</Box>
-								<Button
+								<Link to="/checkout" style={{ textDecoration: 'none' }}><Button
 									sx={{
 										backgroundColor: "#009FE3",
 										color: "#fff",
@@ -276,7 +276,7 @@ const Cart = () => {
 									}}
 								>
 									Proceed to Checkout
-								</Button>
+								</Button></Link>
 							</Grid>
 						</Grid>
 					</Box>

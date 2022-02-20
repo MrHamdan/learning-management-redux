@@ -11,6 +11,7 @@ import Quiz from './Components/Quiz/Quiz';
 import ScrollToTop from './Hooks/ScrollToTop';
 import Cart from './Components/Cart/Cart';
 import AllCategories from './Components/AllCategories/AllCategories';
+import Checkout from './Components/Checkout/Checkout';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="quiz" element={<Quiz />} />
             <Route path="cart" element={<Cart/>}/>
             <Route path="allcategories" element={<AllCategories  />} />
+            <Route path="checkout" element={<Checkout />} />
           </Routes>
           </ScrollToTop>
         </CourseDataProvider>
