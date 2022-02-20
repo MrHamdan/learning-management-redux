@@ -31,24 +31,30 @@ const Checkout = () => {
         <Box>
             <Header color='white' />
             <Box sx={Styles.checkoutBg}>
-                <Box sx={{ display: 'flex', justifyContent: 'center',alignItems:'center' }}>
-                    <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px',display: 'flex', justifyContent: 'center',alignItems:'center' }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={8} xl={6}>
-                                    <Item sx={{textAlign: 'left'}}><Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom:'30px' }}>
+                                    <Item sx={{ textAlign: 'left' }}><Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom: '30px', color: '#201E1E' }}>
                                         Billing Details
                                     </Typography>
-                                    <Typography >First Name</Typography>
-                                    <TextField sx={{marginBottom:'20px'}} fullWidth  id="fullWidth" />
-                                    <Typography>Address</Typography>
-                                    <TextField sx={{marginBottom:'20px'}} fullWidth  id="fullWidth" />
-                                    <Typography>Phone</Typography>
-                                    <TextField fullWidth  id="fullWidth" />
+                                        <Typography >First Name</Typography>
+                                        <TextField sx={{ marginBottom: '20px' }} fullWidth id="fullWidth" />
+                                        <Typography>Address</Typography>
+                                        <TextField sx={{ marginBottom: '20px' }} fullWidth id="fullWidth" />
+                                        <Typography>Phone</Typography>
+                                        <TextField fullWidth id="fullWidth" />
                                     </Item>
                                 </Grid>
                                 <Grid item xs={4} xl={6}>
-                                    <Item>xs=4</Item>
+                                    <Item sx={{ textAlign: 'left' }}>
+                                        <Typography sx={{marginTop:'85px'}}>Last Name</Typography>
+                                        <TextField sx={{ marginBottom: '20px' }} fullWidth id="fullWidth" />
+                                        <Typography>Country / Region</Typography>
+                                        <TextField sx={{ marginBottom: '20px' }} fullWidth id="fullWidth" />
+                                        <Typography>Email Address</Typography>
+                                        <TextField fullWidth id="fullWidth" /></Item>
                                 </Grid>
                             </Grid>
                         </Box>
