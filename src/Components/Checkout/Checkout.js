@@ -1,12 +1,13 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
-import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+
 
 const Checkout = () => {
     return (
         <Box>
-            <Header/>
+            <Header color='white'/>
             <Box>
                 
             </Box>
