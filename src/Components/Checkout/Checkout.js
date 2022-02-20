@@ -31,18 +31,18 @@ const Checkout = () => {
         <Box>
             <Header color='white' />
             <Box sx={Styles.checkoutBg}>
-                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-                    <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px' }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center',alignItems:'center' }}>
+                    <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px',display: 'flex', justifyContent: 'center',alignItems:'center' }}>
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={8} xl={6}>
-                                    <Item sx={{textAlign: 'left'}}><Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px' }}>
+                                    <Item sx={{textAlign: 'left'}}><Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom:'30px' }}>
                                         Billing Details
                                     </Typography>
-                                    <Typography>First Name</Typography>
-                                    <TextField fullWidth  id="fullWidth" />
+                                    <Typography >First Name</Typography>
+                                    <TextField sx={{marginBottom:'20px'}} fullWidth  id="fullWidth" />
                                     <Typography>Address</Typography>
-                                    <TextField fullWidth  id="fullWidth" />
+                                    <TextField sx={{marginBottom:'20px'}} fullWidth  id="fullWidth" />
                                     <Typography>Phone</Typography>
                                     <TextField fullWidth  id="fullWidth" />
                                     </Item>
