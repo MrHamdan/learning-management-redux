@@ -1,7 +1,7 @@
 import { Button, Container, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
-import bannerImage from '../../Images/bannerimage.png';
+import bannerImage from '../../Images/Banner.png';
 
 const Banner = () => {
 
@@ -13,9 +13,23 @@ const Banner = () => {
             backgroundRepeat: 'no-repeat',
             height: '100vh',
             width: '100%',
+            position: 'relative',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
+            flexDirection: 'column',
+            zIndex: '1',
+            '&:before': {
+                content: '""',
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                width: '100%',
+                height: '100%',
+                backgroundColor: '#009FE3',
+                opacity: '0.6',
+                zIndex: '-1',
+            }
         }
     }
 
