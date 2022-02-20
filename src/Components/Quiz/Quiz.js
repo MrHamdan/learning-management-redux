@@ -1,6 +1,6 @@
 import { Box, Button, Checkbox, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import Footer from '../Footer.js/Footer';
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
 const Quiz = () => {

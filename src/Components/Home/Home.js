@@ -9,7 +9,7 @@ import Details from '../Details/Details';
 import Download from '../Download/Download';
 import StudentSaying from '../StudentSaying/StudentSaying';
 import Subscribe from '../Subscribe/Subscribe';
-import Footer from '../Footer.js/Footer';
+import Footer from '../Footer/Footer';
 
 const Home = () => {
 

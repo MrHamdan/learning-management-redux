@@ -1,6 +1,6 @@
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Card, CardContent, CardMedia, Container, Grid, Paper, Typography } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
-import Footer from '../Footer.js/Footer';
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { styled } from '@mui/material/styles';
 import { Link, useParams } from 'react-router-dom';

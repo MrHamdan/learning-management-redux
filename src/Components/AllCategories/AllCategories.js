@@ -1,6 +1,6 @@
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Container, Grid, Pagination, Paper, Stack, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import Footer from '../Footer.js/Footer';
+import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import { styled } from '@mui/material/styles';
 import allcategories from '../../Images/allcategories.png';

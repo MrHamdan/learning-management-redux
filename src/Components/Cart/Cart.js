@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Header from '../Header/Header';
 import { Box, Container, Grid, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography, Button, Paper, Card, CardMedia, CardActions, CardContent } from '@mui/material';
-import Footer from '../Footer.js/Footer';
+import Footer from '../Footer/Footer';
 import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import ClearIcon from '@mui/icons-material/Clear';
 import AddIcon from '@mui/icons-material/Add';
@@ -186,7 +186,7 @@ const Cart = () => {
 												<TableRow item={item.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
 													<TableCell align="left" sx={{ display: 'flex', alignItems: 'center' }}> <img style={{ width: '60px', height: '60px', borderRadius: '6px', marginRight: '20px' }} src={item.coverImage} alt="" /> {item.title}</TableCell>
 													<TableCell align="center">£ {item.discountPrice}</TableCell>
-													<TableCell align="center"><Box sx={{display:'flex', alignItems:'center', justifyContent:'center'}}><RemoveIcon onClick={() => decreaseQuantity(item)}></RemoveIcon>{item.quantity}<AddIcon onClick={() => increaseQuantity(item)}></AddIcon></Box></TableCell>
+													<TableCell align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><RemoveIcon onClick={() => decreaseQuantity(item)}></RemoveIcon>{item.quantity}<AddIcon onClick={() => increaseQuantity(item)}></AddIcon></Box></TableCell>
 													<TableCell align="center">£ {item.discountPrice * item.quantity}</TableCell>
 													<TableCell align="center"><ClearIcon onClick={() => deleteItem(item)}></ClearIcon></TableCell>
 												</TableRow>
