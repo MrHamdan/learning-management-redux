@@ -22,10 +22,13 @@ const Cart = () => {
 		setTotalPrice,
 		subTotal,
 		setSubTotal,
+		discount,
+		setDiscount
 	] = useContext(CourseDataContext);
 
 
 	const [promoCode, setPromoCode] = useState('');
+	const [cuponUsed, setCuponUsed] = useState(false);
 
 	const deleteItem = (item) => {
 		const newCart = cart.filter(cart => (cart.id !== item.id));
