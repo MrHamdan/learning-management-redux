@@ -15,7 +15,7 @@ const Styles = {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100%',
-        height: { xl: '1970px', xs: '2300px' },
+        height: { xl: '2100px', xs: '2300px' },
     }
 }
 
