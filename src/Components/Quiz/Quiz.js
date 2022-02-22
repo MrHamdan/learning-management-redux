@@ -106,7 +106,7 @@ const Quiz = () => {
                         <Typography
                             sx={{ fontWeight: "bold", fontSize: "2rem", color: "gray" }}
                         >
-                            Question {currentQuestion + 1}/10{" "}
+                            Question {currentQuestion + 1}/10
                         </Typography>
                         <Button sx={buttonStyles} onClick={handleNextQuestion}>
                             NEXT
