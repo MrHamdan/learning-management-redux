@@ -15,10 +15,10 @@ const Quiz = () => {
         borderRadius: "5px",
     };
     const buttonStyles = {
-        bgcolor: "#FF4958",
+        bgcolor: "#43B97E",
         color: "#fff",
         padding: ".5em 2em",
-        border: "1px solid #FF4958",
+        border: "1px solid #43B97E",
         borderRadius: "3px",
         fontFamily: "Manrope",
         "&:hover": {
@@ -73,7 +73,7 @@ const Quiz = () => {
                         <Typography
                             component="span"
                             sx={{
-                                bgcolor: "#FF4958",
+                                bgcolor: "#43B97E",
                                 color: "#fff",
                                 padding: "0.2em 0.5em",
                                 borderRadius: "5px",
@@ -104,19 +104,13 @@ const Quiz = () => {
                         }}
                     >
                         <Typography
-                            sx={{ fontWeight: "bold", fontSize: "2rem", color: "#10375C" }}
+                            sx={{ fontWeight: "bold", fontSize: "2rem", color: "gray" }}
                         >
                             Question {currentQuestion + 1}/10{" "}
                         </Typography>
                         <Button sx={buttonStyles} onClick={handleNextQuestion}>
                             NEXT
                         </Button>
-                    </Box>
-
-                    {/* Final Results */}
-                    <Box>
-                        THis is final results
-                        <Typography variant="h2">score: {score}</Typography>
                     </Box>
                 </Box>
             </Container>
