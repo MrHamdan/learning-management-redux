@@ -174,7 +174,7 @@ const Checkout = () => {
                                                         <TableCell align="right">£ {subTotal}</TableCell>
                                                     </TableRow>
                                                     <TableRow>
-                                                        <TableCell>Tax</TableCell>
+                                                        <TableCell>Vat</TableCell>
                                                         <TableCell align="right"></TableCell>
                                                         <TableCell align="right">£ {subTotal * vat}</TableCell>
                                                     </TableRow>
