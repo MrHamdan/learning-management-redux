@@ -141,7 +141,7 @@ const Checkout = () => {
                     </Box>
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box sx={{ width: { xl: '1170px' }, height: '455px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} xl={12}>
@@ -199,7 +199,7 @@ const Checkout = () => {
                                     <Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom: '30px', color: '#201E1E' }}>
                                         Payment Method
                                     </Typography>
-                                    <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: '#FAFAFA', width: {xl:'1070px'}, height: '339px' }}>
+                                    <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: '#FAFAFA', width: { xl: '1070px' }, height: '339px' }}>
                                         <form onSubmit={handleSubmit}>
                                             <label
                                                 htmlFor="cardNumber"
@@ -210,7 +210,7 @@ const Checkout = () => {
                                                 }}
                                             >
                                                 Card Number
-                                            </label>{" "}
+                                            </label>
                                             <Box
                                                 sx={{
                                                     background: "#FFFFFF",
@@ -293,7 +293,7 @@ const Checkout = () => {
                                                     },
                                                 }} />
                                             </Box>
-                                            <Button variant="contained" type="submit" disabled={!stripe} sx={{ textTransform: 'none', width: '224px', height: '51px', padding: '16px 35px', backgroundColor: '#009FE3', borderRadius: '8px', marginTop: '10px', fontSize: '16px', fontWeight: 'bold', fontFamily: 'Inter' }}>
+                                            <Button variant="contained" type="submit" disabled={!stripe} sx={{ textTransform: 'none', width: '224px', height: '51px', padding: '16px 35px', backgroundColor: '#009FE3', borderRadius: '8px', marginTop: {xl:'110px'}, fontSize: '16px', fontWeight: 'bold', fontFamily: 'Inter' }}>
                                                 Place Order
                                             </Button>
                                         </form>
