@@ -142,7 +142,7 @@ const Checkout = () => {
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Box sx={{ width: { xl: '1170px' }, height: '455px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Box sx={{ flexGrow: 1 }}>
+                        <Box sx={{ flexGrow: 1, padding: '42px 50px' }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} xl={12}>
                                     <Item sx={{ textAlign: 'left', boxShadow: 0 }}><Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom: '30px', color: '#201E1E' }}>
