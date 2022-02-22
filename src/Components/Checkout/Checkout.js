@@ -15,7 +15,7 @@ const Styles = {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100%',
-        height: '1970px',
+        height: {xl:'1970px', xs:'2300px'},
     }
 }
 
@@ -126,10 +126,10 @@ const Checkout = () => {
             <Header color='white' />
             <Box sx={Styles.checkoutBg}>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box sx={{ width: '1170px', height: {xl:'455px'}, backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ flexGrow: 1, padding: '42px 50px' }}>
                             <Grid container spacing={2}>
-                                <Grid item xs={8} xl={6}>
+                                <Grid item xs={12} xl={6}>
                                     <Item sx={{ textAlign: 'left', boxShadow: 0 }}><Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom: '30px', color: '#201E1E' }}>
                                         Billing Details
                                     </Typography>
@@ -141,7 +141,7 @@ const Checkout = () => {
                                         <TextField fullWidth id="fullWidth" />
                                     </Item>
                                 </Grid>
-                                <Grid item xs={4} xl={6}>
+                                <Grid item xs={12} xl={6}>
                                     <Item sx={{ textAlign: 'left', boxShadow: 0 }}>
                                         <Typography sx={{ marginTop: '85px' }}>Last Name</Typography>
                                         <TextField sx={{ marginBottom: '20px' }} fullWidth id="fullWidth" />
@@ -171,7 +171,7 @@ const Checkout = () => {
                     <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={2}>
-                                <Grid item xs={8} xl={12}>
+                                <Grid item xs={12} xl={12}>
                                     <Item sx={{ textAlign: 'left', boxShadow: 0 }}><Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom: '30px', color: '#201E1E' }}>
                                         Your Order
                                     </Typography>
@@ -222,7 +222,7 @@ const Checkout = () => {
                     <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ flexGrow: 1, padding: '42px 50px' }}>
                             <Grid container spacing={2}>
-                                <Grid item xs={8} xl={12}>
+                                <Grid item xs={12} xl={12}>
                                     <Item sx={{ textAlign: 'left', boxShadow: 0 }}>
                                         <form onSubmit={handleSubmit}>
                                             <CardElement
