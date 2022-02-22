@@ -15,7 +15,7 @@ const Styles = {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100%',
-        height: {xl:'1970px', xs:'2300px'},
+        height: { xl: '1970px', xs: '2300px' },
     }
 }
 
@@ -28,43 +28,16 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-// const TAX_RATE = 0.07;
 
-// function ccyFormat(num) {
-//     return `${num.toFixed(2)}`;
-// }
-
-// function priceRow(qty, unit) {
-//     return qty * unit;
-// }
-
-// function createRow(desc, qty, unit) {
-//     const price = priceRow(qty, unit);
-//     return { desc, qty, unit, price };
-// }
-
-// function subtotal(items) {
-//     return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
-// }
-
-// const rows = [
-//     createRow('Paperclips (Box)', 100, 1.15),
-//     createRow('Paper (Case)', 10, 45.99),
-//     createRow('Waste Basket', 2, 17.99),
-// ];
-
-// const invoiceSubtotal = subtotal(rows);
-// const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-// const invoiceTotal = invoiceTaxes + invoiceSubtotal;
 
 
 
 const Checkout = () => {
 
-    const [age, setAge] = React.useState('');
+    const [country, setCountry] = React.useState('');
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setCountry(event.target.value);
     };
 
 
@@ -126,7 +99,7 @@ const Checkout = () => {
             <Header color='white' />
             <Box sx={Styles.checkoutBg}>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Box sx={{ width: '1170px', height: {xl:'455px'}, backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box sx={{ width: '1170px', height: { xl: '455px' }, backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ flexGrow: 1, padding: '42px 50px' }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} xl={6}>
@@ -147,17 +120,17 @@ const Checkout = () => {
                                         <TextField sx={{ marginBottom: '20px' }} fullWidth id="fullWidth" />
                                         <Typography>Country / Region</Typography>
                                         <FormControl fullWidth sx={{ marginBottom: '20px' }}>
-                                            <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                                            {/* <InputLabel id="demo-simple-select-label">Country</InputLabel> */}
                                             <Select
                                                 labelId="demo-simple-select-label"
                                                 id="demo-simple-select"
-                                                value={age}
-                                                label="Age"
+                                                value={country}
+                                                // label="Age"
                                                 onChange={handleChange}
                                             >
-                                                <MenuItem value={10}>Ten</MenuItem>
-                                                <MenuItem value={20}>Twenty</MenuItem>
-                                                <MenuItem value={30}>Thirty</MenuItem>
+                                                <MenuItem value={10}>Bangladesh</MenuItem>
+                                                <MenuItem value={20}>United States</MenuItem>
+                                                <MenuItem value={30}>Canada</MenuItem>
                                             </Select>
                                         </FormControl>
                                         <Typography>Email Address</Typography>
