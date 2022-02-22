@@ -19,15 +19,15 @@ function App() {
       <AuthProvider>
         <CourseDataProvider>
           <ScrollToTop>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="home" element={<Home />} />
-            <Route path="coursedetail/:id" element={<CourseDetail />} />
-            <Route path="quiz" element={<Quiz />} />
-            <Route path="cart" element={<Cart/>}/>
-            <Route path="allcategories" element={<AllCategories  />} />
-            <Route path="checkout" element={<Checkout />} />
-          </Routes>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="home" element={<Home />} />
+              <Route path="coursedetail/:id" element={<CourseDetail />} />
+              <Route path="quiz" element={<Quiz />} />
+              <Route path="cart" element={<Cart />} />
+              <Route path="allcategories" element={<AllCategories />} />
+              <Route path="checkout" element={<Checkout />} />
+            </Routes>
           </ScrollToTop>
         </CourseDataProvider>
       </AuthProvider>
