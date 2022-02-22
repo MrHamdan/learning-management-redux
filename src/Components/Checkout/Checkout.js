@@ -6,7 +6,7 @@ import checkoutBg from '../../Images/checkout.png';
 import { styled } from '@mui/material/styles';
 import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import { loadStripe } from '@stripe/stripe-js';
-import { CardElement, Elements, useElements, useStripe } from '@stripe/react-stripe-js';
+import { CardElement, Elements, useElements, useStripe, CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js';
 
 
 const Styles = {
@@ -74,7 +74,7 @@ const Checkout = () => {
         // Get a reference to a mounted CardElement. Elements knows how
         // to find your CardElement because there can only ever be one of
         // each type of element.
-        const card = elements.getElement(CardElement);
+        const card = elements.getElement(CardNumberElement);
 
         if (card == null) {
             return;
@@ -192,14 +192,93 @@ const Checkout = () => {
                     </Box>
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <Box sx={{ width: '1170px', height: '686px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         <Box sx={{ flexGrow: 1, padding: '42px 50px' }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} xl={12}>
-                                    <Item sx={{ textAlign: 'left', boxShadow: 0 }}>
+                                    <Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom: '30px', color: '#201E1E' }}>
+                                        Payment Method
+                                    </Typography>
+                                    <Item sx={{ textAlign: 'left', boxShadow: 0, backgroundColor: '#FAFAFA', width: {xl:'1070px'}, height: '339px' }}>
                                         <form onSubmit={handleSubmit}>
-                                            <CardElement
-                                                options={{
+                                            <label
+                                                htmlFor="cardNumber"
+                                                style={{
+                                                    fontFamily: "Inter",
+                                                    fontSize: "16px",
+                                                    color: "#201E1E",
+                                                }}
+                                            >
+                                                Card Number
+                                            </label>{" "}
+                                            <Box
+                                                sx={{
+                                                    background: "#FFFFFF",
+                                                    border: "1px solid #CCCCCC ",
+                                                    p: 2,
+                                                    m: 1,
+                                                    borderRadius: "6px",
+                                                }}
+                                            >
+                                                <CardNumberElement
+                                                    style={{ border: "1px solid #333" }}
+                                                    id="cardNumber"
+                                                    options={{
+                                                        style: {
+                                                            base: {
+                                                                fontSize: '16px',
+                                                                color: '#424770',
+                                                                '::placeholder': {
+                                                                    color: '#aab7c4',
+                                                                },
+                                                            },
+                                                            invalid: {
+                                                                color: '#9e2146',
+                                                            },
+                                                        },
+                                                    }}
+                                                />
+                                            </Box>
+                                            <label htmlFor="expiry">Expiration</label>
+                                            <Box
+                                                sx={{
+                                                    background: "#FFFFFF",
+                                                    border: "1px solid #CCCCCC ",
+                                                    p: 2,
+                                                    m: 1,
+                                                    borderRadius: "6px",
+                                                }}
+                                            >
+                                                <CardExpiryElement
+                                                    style={{ width: "100%" }}
+                                                    id="expiry"
+                                                    options={{
+                                                        style: {
+                                                            base: {
+                                                                fontSize: '16px',
+                                                                color: '#424770',
+                                                                '::placeholder': {
+                                                                    color: '#aab7c4',
+                                                                },
+                                                            },
+                                                            invalid: {
+                                                                color: '#9e2146',
+                                                            },
+                                                        },
+                                                    }}
+                                                />{" "}
+                                            </Box>
+                                            <label htmlFor="cvc">CVC</label>
+                                            <Box
+                                                sx={{
+                                                    background: "#FFFFFF",
+                                                    border: "1px solid #CCCCCC ",
+                                                    p: 2,
+                                                    m: 1,
+                                                    borderRadius: "6px",
+                                                }}
+                                            >
+                                                <CardCvcElement id="cvc" options={{
                                                     style: {
                                                         base: {
                                                             fontSize: '16px',
@@ -212,9 +291,9 @@ const Checkout = () => {
                                                             color: '#9e2146',
                                                         },
                                                     },
-                                                }}
-                                            />
-                                            <Button variant="contained" type="submit" disabled={!stripe} sx={{ textTransform: 'none', width: '224px', height: '51px', padding: '16px 35px', backgroundColor: '#009FE3', borderRadius: '8px', marginTop: '30px', fontSize: '16px', fontWeight: 'bold', fontFamily: 'Inter' }}>
+                                                }} />
+                                            </Box>
+                                            <Button variant="contained" type="submit" disabled={!stripe} sx={{ textTransform: 'none', width: '224px', height: '51px', padding: '16px 35px', backgroundColor: '#009FE3', borderRadius: '8px', marginTop: '10px', fontSize: '16px', fontWeight: 'bold', fontFamily: 'Inter' }}>
                                                 Place Order
                                             </Button>
                                         </form>
