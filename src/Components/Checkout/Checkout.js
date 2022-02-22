@@ -1,9 +1,10 @@
 import { Box, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
-import React from 'react';
+import React, { useContext } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import checkoutBg from '../../Images/checkout.png';
 import { styled } from '@mui/material/styles';
+import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 
 
 const Styles = {
@@ -25,34 +26,34 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
-const TAX_RATE = 0.07;
+// const TAX_RATE = 0.07;
 
-function ccyFormat(num) {
-    return `${num.toFixed(2)}`;
-}
+// function ccyFormat(num) {
+//     return `${num.toFixed(2)}`;
+// }
 
-function priceRow(qty, unit) {
-    return qty * unit;
-}
+// function priceRow(qty, unit) {
+//     return qty * unit;
+// }
 
-function createRow(desc, qty, unit) {
-    const price = priceRow(qty, unit);
-    return { desc, qty, unit, price };
-}
+// function createRow(desc, qty, unit) {
+//     const price = priceRow(qty, unit);
+//     return { desc, qty, unit, price };
+// }
 
-function subtotal(items) {
-    return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
-}
+// function subtotal(items) {
+//     return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
+// }
 
-const rows = [
-    createRow('Paperclips (Box)', 100, 1.15),
-    createRow('Paper (Case)', 10, 45.99),
-    createRow('Waste Basket', 2, 17.99),
-];
+// const rows = [
+//     createRow('Paperclips (Box)', 100, 1.15),
+//     createRow('Paper (Case)', 10, 45.99),
+//     createRow('Waste Basket', 2, 17.99),
+// ];
 
-const invoiceSubtotal = subtotal(rows);
-const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal;
+// const invoiceSubtotal = subtotal(rows);
+// const invoiceTaxes = TAX_RATE * invoiceSubtotal;
+// const invoiceTotal = invoiceTaxes + invoiceSubtotal;
 
 
 
@@ -65,16 +66,33 @@ const Checkout = () => {
     };
 
 
+    const [cart,
+        setCart,
+        totalPrice,
+        setTotalPrice,
+        subTotal,
+        setSubTotal,
+        discount,
+        setDiscount
+    ] = useContext(CourseDataContext);
+
+
+    const vat = 0.15
+
+
+    console.log(cart);
+
+
     return (
         <Box>
             <Header color='white' />
             <Box sx={Styles.checkoutBg}>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Box sx={{ flexGrow: 1, padding:'42px 50px' }}>
+                        <Box sx={{ flexGrow: 1, padding: '42px 50px' }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={8} xl={6}>
-                                    <Item sx={{ textAlign: 'left', boxShadow: 0}}><Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom: '30px', color: '#201E1E' }}>
+                                    <Item sx={{ textAlign: 'left', boxShadow: 0 }}><Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom: '30px', color: '#201E1E' }}>
                                         Billing Details
                                     </Typography>
                                         <Typography >First Name</Typography>
@@ -123,35 +141,35 @@ const Checkout = () => {
                                             <Table sx={{ minWidth: 700 }} aria-label="spanning table">
                                                 <TableHead>
                                                     <TableRow>
-                                                        <TableCell align="left" colSpan={3} sx={{fontFamily: 'Inter', fontWeight: '600', fontSize:'16px'}}>
+                                                        <TableCell align="left" colSpan={3} sx={{ fontFamily: 'Inter', fontWeight: '600', fontSize: '16px' }}>
                                                             Course Name
                                                         </TableCell>
-                                                        <TableCell align="right" sx={{fontFamily: 'Inter', fontWeight: '600', fontSize:'16px'}}>Subtotal</TableCell>
+                                                        <TableCell align="right" sx={{ fontFamily: 'Inter', fontWeight: '600', fontSize: '16px' }}>Subtotal</TableCell>
                                                     </TableRow>
                                                 </TableHead>
                                                 <TableBody>
-                                                    {rows.map((row) => (
-                                                        <TableRow key={row.desc}>
-                                                            <TableCell>{row.desc}</TableCell>
+                                                    {cart.map((item) => (
+                                                        <TableRow key={item.id}>
+                                                            <TableCell>{item.title}</TableCell>
                                                             <TableCell align="right"></TableCell>
                                                             <TableCell align="right"></TableCell>
-                                                            <TableCell align="right">{ccyFormat(row.price)}</TableCell>
+                                                            <TableCell align="right">{item.discountPrice}</TableCell>
                                                         </TableRow>
                                                     ))}
 
                                                     <TableRow>
                                                         <TableCell rowSpan={3} />
                                                         <TableCell colSpan={2}>Subtotal</TableCell>
-                                                        <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
+                                                        <TableCell align="right">£ {subTotal}</TableCell>
                                                     </TableRow>
                                                     <TableRow>
                                                         <TableCell>Tax</TableCell>
                                                         <TableCell align="right"></TableCell>
-                                                        <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
+                                                        <TableCell align="right">£ {subTotal * vat}</TableCell>
                                                     </TableRow>
                                                     <TableRow>
                                                         <TableCell colSpan={2}>Total</TableCell>
-                                                        <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
+                                                        <TableCell align="right">£ {totalPrice}</TableCell>
                                                     </TableRow>
                                                 </TableBody>
                                             </Table>
@@ -164,7 +182,7 @@ const Checkout = () => {
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Box sx={{ width: '1170px', height: '455px', backgroundColor: 'white', marginTop: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Box sx={{ flexGrow: 1, padding:'42px 50px' }}>
+                        <Box sx={{ flexGrow: 1, padding: '42px 50px' }}>
                             <Grid container spacing={2}>
                                 <Grid item xs={8} xl={6}>
                                     <Item sx={{ textAlign: 'left', boxShadow: 0 }}><Typography sx={{ fontFamily: 'Inter', fontWeight: 'bold', fontSize: '36px', marginBottom: '30px', color: '#201E1E' }}>
