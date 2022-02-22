@@ -1,4 +1,4 @@
-import { Box, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
+import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
 import React, { useContext } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
@@ -241,9 +241,9 @@ const Checkout = () => {
                                                     },
                                                 }}
                                             />
-                                            <button type="submit" disabled={!stripe}>
-                                                Pay
-                                            </button>
+                                            <Button variant="contained" type="submit" disabled={!stripe} sx={{ textTransform: 'none', width: '224px', height: '51px', padding: '16px 35px', backgroundColor: '#009FE3', borderRadius: '8px', marginTop: '30px', fontSize: '16px', fontWeight: 'bold', fontFamily: 'Inter' }}>
+                                                Place Order
+                                            </Button>
                                         </form>
                                     </Item>
                                 </Grid>
