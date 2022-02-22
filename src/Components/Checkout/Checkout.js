@@ -15,7 +15,7 @@ const Styles = {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100%',
-        height: { xl: '2100px', xs: '2300px' },
+        height: { xl: '2100px', xs: '2500px' },
     }
 }
 
@@ -149,7 +149,7 @@ const Checkout = () => {
                                         Your Order
                                     </Typography>
                                         <TableContainer component={Paper}>
-                                            <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+                                            <Table  aria-label="spanning table">
                                                 <TableHead>
                                                     <TableRow>
                                                         <TableCell align="left" colSpan={3} sx={{ fontFamily: 'Inter', fontWeight: '600', fontSize: '16px' }}>
