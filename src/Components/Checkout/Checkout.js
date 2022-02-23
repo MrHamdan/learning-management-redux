@@ -207,6 +207,7 @@ const Checkout = () => {
                                                     fontFamily: "Inter",
                                                     fontSize: "16px",
                                                     color: "#201E1E",
+                                                    marginLeft:'10px'
                                                 }}
                                             >
                                                 Card Number
@@ -239,7 +240,12 @@ const Checkout = () => {
                                                     }}
                                                 />
                                             </Box>
-                                            <label htmlFor="expiry">Expiration</label>
+                                            <label htmlFor="expiry" style={{
+                                                    fontFamily: "Inter",
+                                                    fontSize: "16px",
+                                                    color: "#201E1E",
+                                                    marginLeft:'10px'
+                                                }}>Expiration</label>
                                             <Box
                                                 sx={{
                                                     background: "#FFFFFF",
@@ -268,7 +274,12 @@ const Checkout = () => {
                                                     }}
                                                 />{" "}
                                             </Box>
-                                            <label htmlFor="cvc">CVC</label>
+                                            <label htmlFor="cvc" style={{
+                                                    fontFamily: "Inter",
+                                                    fontSize: "16px",
+                                                    color: "#201E1E",
+                                                    marginLeft:'10px'
+                                                }}>CVC</label>
                                             <Box
                                                 sx={{
                                                     background: "#FFFFFF",
