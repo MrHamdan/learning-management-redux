@@ -110,7 +110,7 @@ const BestCourses = () => {
                     <Box sx={{ height: { xl: '697px', xs: '770px' }, backgroundColor: 'white', padding: { xl: '78px 98px', xs: '20px 20px' }, borderRadius: '10px',position: 'relative' , top:'120px'}}>
                         <Box sx={{ display: 'flex', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row', xl: 'row' } }}>
                             <Typography sx={{ color: '#0D2A62', fontSize: { xs: '20px', md: '40px', xl: '48px' }, fontWeight: '800', fontFamily: 'Inter', marginTop: '30px' }}>Best Selling Courses</Typography>
-                            <Box sx={{ mt: '42px' }}>
+                            <Box sx={{ mt: '42px', marginBottom:'52px' }}>
                                 <ArrowBackIcon sx={{ ...buttonStyles.prev, mr: '20px' }} onClick={() => sliderRef?.current?.slickPrev()} />
                                 <ArrowForwardIcon sx={buttonStyles.next} onClick={() => sliderRef?.current?.slickNext()} />
                             </Box>
