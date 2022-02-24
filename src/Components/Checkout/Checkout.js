@@ -7,6 +7,7 @@ import { styled } from '@mui/material/styles';
 import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import { loadStripe } from '@stripe/stripe-js';
 import { CardElement, Elements, useElements, useStripe, CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js';
+import Swal from 'sweetalert2';
 
 
 const Styles = {
@@ -89,6 +90,13 @@ const Checkout = () => {
         if (error) {
             console.log('[error]', error);
         } else {
+            Swal.fire({
+                position: 'middle',
+                icon: 'success',
+                title: 'Payment SuccessFull',
+                showConfirmButton: false,
+                timer: 1500
+              })
             console.log('[PaymentMethod]', paymentMethod);
         }
     };
