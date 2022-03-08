@@ -197,7 +197,7 @@ const Checkout = () => {
                                                     </TableRow>
                                                     <TableRow>
                                                         <TableCell colSpan={2}>Total</TableCell>
-                                                        <TableCell align="right">£ {totalPrice}</TableCell>
+                                                        <TableCell align="right">£ ${!cuponUsed ? totalPrice : discountPrice}</TableCell>
                                                     </TableRow>
                                                 </TableBody>
                                             </Table>
