@@ -37,7 +37,6 @@ const AllCategories = () => {
 
 
     const courses = useSelector(state => state.courses);
-    const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [coursesPerPage, setCoursesPerPage] = useState(6);
 
