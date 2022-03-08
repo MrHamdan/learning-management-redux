@@ -41,7 +41,7 @@ const Cart = () => {
 
 	useEffect(() => {
         cart.forEach(element => {
-            total = total + element.quantity * parseFloat(element.regularPrice - element.regularPrice * .75)
+            total = total + element.quantity * parseFloat(element.discountPrice);
             dispatch({
                 type: 'ADD_SUBTOTAL',
                 payload: total
@@ -356,7 +356,7 @@ const Cart = () => {
 								<hr />
 								<Box sx={{ display: "flex", justifyContent: "space-between", pt: 2 }}>
 									<Typography>Total</Typography>
-									<Typography>£ {totalPrice}</Typography>
+									<Typography>£ ${!cuponUsed ? totalPrice : discountPrice}</Typography>
 								</Box>
 								<Link to="/checkout" style={{ textDecoration: 'none' }}><Button
 									sx={{
