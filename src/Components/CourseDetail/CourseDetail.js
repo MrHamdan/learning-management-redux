@@ -17,6 +17,7 @@ import lock from '../../Images/lock.png';
 import lockdark from '../../Images/lockdark.png';
 import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, fetchRelatedCourses } from '../../redux/action';
 
 
 
@@ -34,8 +35,14 @@ const CourseDetail = () => {
   const [singleCourse, setSingleCourse] = useState({});
   const { cart } = useSelector(state => state)
   const dispatch = useDispatch();
-    
+  
 
+  const relatedCourses = useSelector(state => state.relatedCourses);
+    // console.log(relatedCourses);
+    useEffect(() => {
+        dispatch(fetchRelatedCourses());
+    }, []);
+    
   const { id } = useParams();
 
   
@@ -50,10 +57,7 @@ const CourseDetail = () => {
             quantity: 1
         }
         const newCart = [...cart, course];
-        dispatch({
-            type: 'ADD_TO_CART',
-            payload: newCart
-        })
+        dispatch(addToCart(newCart));
     }
     
 }
@@ -70,12 +74,12 @@ const CourseDetail = () => {
 
   
 
-  const [relatedCourses, setRelatedCourses] = useState([]);
-  useEffect(() => {
-    fetch('/bestcourses.json')
-      .then(data => data.json())
-      .then(data => setRelatedCourses(data))
-  }, []);
+  // const [relatedCourses, setRelatedCourses] = useState([]);
+  // useEffect(() => {
+  //   fetch('/bestcourses.json')
+  //     .then(data => data.json())
+  //     .then(data => setRelatedCourses(data))
+  // }, []);
 
 
   const sliderRef = React.useRef(null);

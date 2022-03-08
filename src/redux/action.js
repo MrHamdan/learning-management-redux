@@ -31,6 +31,23 @@ export const fetchBestCourses = () => {
 
     }
 }
+export const fetchRelatedCourses = () => {
+
+    return async (dispatch) => {
+        await fetch('https://raw.githubusercontent.com/MrHamdan/learning-management-redux/main/public/relatedcourses.json')
+            .then(res => res.json())
+            .then(
+                data => (
+        
+                    dispatch({
+                        type: 'LOAD_RELATED_COURSES',
+                        payload: data
+                    })
+                )
+            );
+
+    }
+}
 export const addToCart = (payload) => {
     return {
         type: 'ADD_TO_CART',

@@ -13,6 +13,12 @@ export const reducer = (state = initialState, action) => {
             bestCourses: action.payload
         }
     }
+    else if (action.type === 'LOAD_RELATED_COURSES'){
+        return {
+            ...state,
+            relatedCourses: action.payload
+        }
+    }
     else if (action.type === 'ADD_TO_CART') {
         return {
             ...state,
