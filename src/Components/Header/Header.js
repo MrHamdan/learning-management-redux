@@ -55,6 +55,8 @@ const Header = ({ color }) => {
     // const { courses } = state;
     const sliderRef = useRef(null);
 
+    const { cart } = useSelector(state => state)
+
     useEffect(() => {
         dispatch(fetchCourse());
     }, [dispatch]);
@@ -124,7 +126,7 @@ const Header = ({ color }) => {
                                 <Link to='/allcategories' style={Styles.navLink}>Today's Deal</Link>
                             </Badge>
                             <Link to='/quiz' style={Styles.navLink}>Free Quiz</Link>
-                            <Badge  color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={Styles.navLink}>
+                            <Badge badgeContent={cart.length}  color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={Styles.navLink}>
                                 < FaShoppingCart />
                             </Link></Badge>
                         </Box>
@@ -178,7 +180,7 @@ const Header = ({ color }) => {
                                 <MenuItem ><Badge badgeContent="New" color="error">
                                     <Link to='/allcategories' style={Styles.navLink}>Today's Deal</Link>
                                 </Badge></MenuItem>
-                                <MenuItem><Badge  color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={Styles.navLink}>
+                                <MenuItem><Badge badgeContent={cart.length}  color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={Styles.navLink}>
                                 < FaShoppingCart />
                             </Link></Badge></MenuItem>
                                 <MenuItem><Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={handleOpen}>Sign In</Button></MenuItem>

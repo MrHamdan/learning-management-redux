@@ -16,7 +16,7 @@ import play from '../../Images/play.png';
 import lock from '../../Images/lock.png';
 import lockdark from '../../Images/lockdark.png';
 import Swal from 'sweetalert2';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
@@ -32,10 +32,10 @@ const Item = styled(Paper)(({ theme }) => ({
 const CourseDetail = () => {
   const courses = useSelector(state => state.courses);
   const [singleCourse, setSingleCourse] = useState({});
-  const contextData = useContext(CourseDataContext);
-    const { state, dispatch } = contextData;
-    const { cart } = state;
-    const [isAdded, setIsAdded] = useState(false);
+  const { cart } = useSelector(state => state)
+    const dispatch = useDispatch();
+    
+    // const [isAdded, setIsAdded] = useState(false);
 
   const { id } = useParams();
 
@@ -57,7 +57,7 @@ const CourseDetail = () => {
             payload: newCart
         })
     }
-    setIsAdded(true);
+    // setIsAdded(true);
 }
   
 

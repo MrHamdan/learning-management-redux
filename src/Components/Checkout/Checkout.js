@@ -8,6 +8,7 @@ import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import { loadStripe } from '@stripe/stripe-js';
 import { CardElement, Elements, useElements, useStripe, CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js';
 import Swal from 'sweetalert2';
+import { useSelector } from 'react-redux';
 
 
 const Styles = {
@@ -34,9 +35,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const Checkout = () => {
-    const contextData = useContext(CourseDataContext);
-    const { state, dispatch } = contextData;
-    const { cart, subTotal, totalVat, totalPrice, discountPrice, cuponUsed } = state;
+    const { cart, subTotal, totalVat, totalPrice, discountPrice, cuponUsed } = useSelector(state => state);
     // discountPrice
     // console.log(cart, subTotal, totalVat, totalPrice)
     const vat = 0.15;

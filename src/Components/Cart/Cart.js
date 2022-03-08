@@ -8,14 +8,17 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addSubTotal, addVat, addTotal, calculateDiscount, addCupon, increaseQuantity, decreaseQuantity } from "../../redux/action"
+
 
 
 
 
 
 const Cart = () => {
-	const contextData = useContext(CourseDataContext);
-    const { state, dispatch } = contextData;
+	const state = useSelector(state => state);
+    const dispatch = useDispatch();
     const { cart, subTotal, totalVat, totalPrice, discountPrice, cuponUsed } = state;
     // discountPrice
     // console.log(cart, subTotal, totalVat, totalPrice)
@@ -42,19 +45,10 @@ const Cart = () => {
 	useEffect(() => {
         cart.forEach(element => {
             total = total + element.quantity * parseFloat(element.discountPrice);
-            dispatch({
-                type: 'ADD_SUBTOTAL',
-                payload: total
-            })
-            dispatch({
-                type: 'ADD_VAT',
-                payload: subTotal * vat
-            })
+            dispatch(addSubTotal(total));
+            dispatch(addVat(subTotal * vat));
             finalTotal = total + totalVat;
-            dispatch({
-                type: 'ADD_TOTAL',
-                payload: finalTotal
-            })
+            dispatch(addTotal(finalTotal));
         });
     }, [total, finalTotal, cart, totalVat, totalPrice])
 
@@ -75,14 +69,8 @@ const Cart = () => {
     const handleDiscount = () => {
 
         if (cupon === 'discount') {
-            dispatch({
-                type: 'DISCOUNT_PRICE',
-                payload: totalPrice / 2
-            })
-            dispatch({
-                type: 'USE_CUPON',
-                payload: true
-            })
+            dispatch(calculateDiscount(totalPrice / 2));
+            dispatch(addCupon(true));
         }
         else if (cupon === '') {
             alert('Enter a cupon code');
@@ -93,34 +81,15 @@ const Cart = () => {
 
     };
 
-    const increaseQuantity = (item) => {
-        const newCart = cart.map(cartItem => {
-            if (item.id === cartItem.id) {
-                cartItem.quantity += 1
-            }
-            dispatch({
-                type: 'USE_CUPON',
-                payload: false
-            })
-            return cartItem;
-        });
-        dispatch({ type: 'ADD_TO_CART', payload: newCart });
-    }
-    const decreaseQuantity = (item) => {
-
-        const newCart = cart.map(cartItem => {
-            if (item.id === cartItem.id) {
-                if (item.quantity > 0) {
-                    item.quantity = item.quantity - 1
-                }
-            }
-            dispatch({
-                type: 'USE_CUPON',
-                payload: false
-            })
-            return cartItem;
-        });
-        dispatch({ type: 'ADD_TO_CART', payload: newCart });
+    const handleQuantity = (item, type) => {
+        if (type === 'increase') {
+            dispatch(increaseQuantity(item.id))
+            dispatch(addCupon(false));
+        }
+        else {
+            dispatch(decreaseQuantity(item.id))
+            dispatch(addCupon(false));
+        }
     }
 
 
@@ -285,7 +254,7 @@ const Cart = () => {
 												<TableRow item={item.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
 													<TableCell align="left" sx={{ display: 'flex', alignItems: 'center' }}> <img style={{ width: '60px', height: '60px', borderRadius: '6px', marginRight: '20px' }} src={item.coverImage} alt="" /> {item.title}</TableCell>
 													<TableCell align="center">£ {item.discountPrice}</TableCell>
-													<TableCell align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><RemoveIcon onClick={() => decreaseQuantity(item)}></RemoveIcon>{item.quantity}<AddIcon onClick={() => increaseQuantity(item)}></AddIcon></Box></TableCell>
+													<TableCell align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><RemoveIcon onClick={() => handleQuantity(item, 'decrease')}></RemoveIcon>{item.quantity}<AddIcon onClick={() => handleQuantity(item, 'increase')}></AddIcon></Box></TableCell>
 													<TableCell align="center">£ {item.discountPrice * item.quantity}</TableCell>
 													<TableCell align="center"><ClearIcon onClick={() => deleteItem(item)}></ClearIcon></TableCell>
 												</TableRow>
@@ -356,7 +325,7 @@ const Cart = () => {
 								<hr />
 								<Box sx={{ display: "flex", justifyContent: "space-between", pt: 2 }}>
 									<Typography>Total</Typography>
-									<Typography>£ ${!cuponUsed ? totalPrice : discountPrice}</Typography>
+									<Typography>£ {!cuponUsed ? totalPrice : discountPrice}</Typography>
 								</Box>
 								<Link to="/checkout" style={{ textDecoration: 'none' }}><Button
 									sx={{

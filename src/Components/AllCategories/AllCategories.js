@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import { styled } from '@mui/material/styles';
 import allcategories from '../../Images/allcategories.png';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -35,26 +36,17 @@ const Style = {
 const AllCategories = () => {
 
 
-    const [courses, setCourses] = useState([]);
+    const courses = useSelector(state => state.courses);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [coursesPerPage, setCoursesPerPage] = useState(6);
 
-    const [courseList, setCourseList] = useState([]);
-    useEffect(() => {
-        setLoading(true);
-        fetch('/coursedata.json')
-            .then(data => data.json())
-            .then(data => setCourseList(data))
-        setLoading(false);
-    }, []);
-
-    console.log(courseList);
+    
 
 
     const pageNumbers = [];
 
-    for (let i = 1; i <= Math.ceil(courseList.length / coursesPerPage); i++) {
+    for (let i = 1; i <= Math.ceil(courses.length / coursesPerPage); i++) {
         pageNumbers.push(i);
     }
 
@@ -71,7 +63,7 @@ const AllCategories = () => {
     // Get current courses
     const indexOfLastCourse = currentPage * coursesPerPage;
     const indexOfFirstCourse = indexOfLastCourse - coursesPerPage;
-    const currentCourses = courseList.slice(indexOfFirstCourse, indexOfLastCourse);
+    const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse);
 
     return (
         <Box>

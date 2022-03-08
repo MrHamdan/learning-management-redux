@@ -1,7 +1,5 @@
 
 export const initialState = {
-    quizzes: [],
-    finalAnswers: [],
     courses: [],
     cart: [],
     subTotal: 0,

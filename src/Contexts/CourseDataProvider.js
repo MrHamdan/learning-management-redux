@@ -49,23 +49,23 @@ export const CourseDataContext = createContext();
 const DataProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    // useEffect(() => {
-    //     fetch('/coursedata.json')
-    //         .then(res => res.json())
-    //         .then(data => dispatch({
-    //             type: 'LOAD_COURSE',
-    //             payload: data
-    //         }))
-    // }, []);
+    useEffect(() => {
+        fetch('/coursedata.json')
+            .then(res => res.json())
+            .then(data => dispatch({
+                type: 'LOAD_COURSE',
+                payload: data
+            }))
+    }, []);
 
-    // useEffect(() => {
-    //     fetch('quiz.json')
-    //         .then(res => res.json())
-    //         .then(data => dispatch({
-    //             type: 'LOAD_QUIZ',
-    //             payload: data
-    //         }))
-    // }, [])
+    useEffect(() => {
+        fetch('quiz.json')
+            .then(res => res.json())
+            .then(data => dispatch({
+                type: 'LOAD_QUIZ',
+                payload: data
+            }))
+    }, [])
 
 
     return (
