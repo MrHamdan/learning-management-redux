@@ -38,7 +38,7 @@ const CourseDetail = () => {
 
   const { id } = useParams();
 
-  const [courseList, setCourseList] = useState([]);
+  
 
 
   const handleAddToCart = (course) => {
@@ -68,12 +68,7 @@ const CourseDetail = () => {
     setSingleCourse(selectedCourse);
   }, [courses, id]);
 
-  useEffect(() => {
-    fetch('/coursedata.json')
-      .then(res => res.json())
-      .then(data => setCourseList(data))
-  }, [])
-
+  
 
   const [relatedCourses, setRelatedCourses] = useState([]);
   useEffect(() => {
