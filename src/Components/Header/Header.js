@@ -50,9 +50,6 @@ const Header = ({ color }) => {
     const courses  = useSelector(state => state.courses);
     console.log(courses );
     const dispatch = useDispatch();
-    // const contextData = useContext(CourseDataContext);
-    // const { state } = contextData;
-    // const { courses } = state;
     const sliderRef = useRef(null);
 
     const { cart } = useSelector(state => state)
@@ -85,15 +82,6 @@ const Header = ({ color }) => {
         setAnchorElUser(null);
     };
 
-
-    // const [courseList, setCourseList] = useState([]);
-    // useEffect(() => {
-    //     fetch('/coursedata.json')
-    //         .then(data => data.json())
-    //         .then(data => setCourseList(data))
-    // }, []);
-
-    // const [cart] = useContext(CourseDataContext)
 
     return (
         <div>

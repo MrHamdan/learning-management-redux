@@ -33,15 +33,13 @@ const CourseDetail = () => {
   const courses = useSelector(state => state.courses);
   const [singleCourse, setSingleCourse] = useState({});
   const { cart } = useSelector(state => state)
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
     
-    // const [isAdded, setIsAdded] = useState(false);
 
   const { id } = useParams();
 
   const [courseList, setCourseList] = useState([]);
 
-  // const [course, setCourse] = useState({});
 
   const handleAddToCart = (course) => {
     const added = cart?.find(item => (item.id === course.id));
@@ -57,32 +55,11 @@ const CourseDetail = () => {
             payload: newCart
         })
     }
-    // setIsAdded(true);
+    
 }
   
 
-  // const handleAddToCart = (course) => {
-  //   const added = cart.find((item) => (item.id === course.id))
-  //   if (added) {
-  //     added.quantity = added.quantity + 1
-  //     Swal.fire({
-  //       position: 'middle',
-  //       icon: 'success',
-  //       title: 'Course Has Been Added',
-  //       showConfirmButton: false,
-  //       timer: 1500
-  //     })
-  //   }
-  //   else {
-  //     course = {
-  //       ...course,
-  //       quantity: 1
-  //     }
-  //     const newCart = [...cart, course];
-  //     setCart(newCart);
-  //   }
-  //   console.log(cart);
-  // }
+  
 
 
 

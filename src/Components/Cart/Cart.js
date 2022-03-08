@@ -36,6 +36,11 @@ const Cart = () => {
             finalTotal = total + totalVat;
             dispatch(addTotal(finalTotal));
         });
+		if (!cart.length) {
+            dispatch(addSubTotal(0));
+            dispatch(addVat(0));
+            dispatch(addTotal(0));
+        }
     }, [total, finalTotal, cart, totalVat, totalPrice])
 
 
@@ -54,7 +59,7 @@ const Cart = () => {
 
     const handleDiscount = () => {
 
-        if (cupon === 'discount') {
+        if (cupon === 'Discount') {
             dispatch(calculateDiscount(totalPrice / 2));
             dispatch(addCupon(true));
         }

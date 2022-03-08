@@ -2,8 +2,6 @@ import { createContext, useEffect, useReducer, useState } from "react";
 
 
 const initialState = {
-    quizzes: [],
-    finalAnswers: [],
     courses: [],
     cart: [],
     subTotal: 0,
@@ -16,12 +14,6 @@ const initialState = {
 const reducer = (state, action) => {
     if (action.type === 'LOAD_COURSE') {
         return { ...state, courses: action.payload }
-    }
-    if (action.type === 'LOAD_QUIZ') {
-        return { ...state, quizzes: action.payload }
-    }
-    if (action.type === 'SUBMIT_QUIZ') {
-        return { ...state, finalAnswers: action.payload }
     }
     if (action.type === 'ADD_TO_CART') {
         return { ...state, cart: action.payload }
