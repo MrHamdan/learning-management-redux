@@ -16,6 +16,7 @@ import play from '../../Images/play.png';
 import lock from '../../Images/lock.png';
 import lockdark from '../../Images/lockdark.png';
 import Swal from 'sweetalert2';
+import { useSelector } from 'react-redux';
 
 
 
@@ -29,6 +30,8 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const CourseDetail = () => {
+  const courses = useSelector(state => state.courses);
+  const [singleCourse, setSingleCourse] = useState({});
   const contextData = useContext(CourseDataContext);
     const { state, dispatch } = contextData;
     const { cart } = state;
@@ -38,7 +41,7 @@ const CourseDetail = () => {
 
   const [courseList, setCourseList] = useState([]);
 
-  const [course, setCourse] = useState({});
+  // const [course, setCourse] = useState({});
 
   const handleAddToCart = (course) => {
     const added = cart?.find(item => (item.id === course.id));
@@ -84,9 +87,9 @@ const CourseDetail = () => {
 
 
   useEffect(() => {
-    const selectedCourse = courseList.find(course => course.id === id);
-    setCourse(selectedCourse);
-  }, [courseList, id]);
+    const selectedCourse = courses.find(course => course.id === id);
+    setSingleCourse(selectedCourse);
+  }, [courses, id]);
 
   useEffect(() => {
     fetch('/coursedata.json')
@@ -177,16 +180,16 @@ const CourseDetail = () => {
             <Grid container spacing={2}>
               <Grid item xs={12} xl={8}>
                 <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
-                  <Typography sx={{ fontSize: '36px', fontFamily: 'Inter', fontWeight: 'bold', color: 'white', textAlign: 'left', marginBottom: '66px' }}>{course?.title}</Typography>
+                  <Typography sx={{ fontSize: '36px', fontFamily: 'Inter', fontWeight: 'bold', color: 'white', textAlign: 'left', marginBottom: '66px' }}>{singleCourse?.title}</Typography>
                 </Item>
               </Grid>
               <Grid item xs={12} xl={4} sx={{ marginTop: { xs: '-70px', xl: '0px' } }}>
-                <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}><Button sx={{ width: { xl: '350px', xs: '250px' }, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={() => handleAddToCart(course)}>Take This Course</Button> <br />
+                <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}><Button sx={{ width: { xl: '350px', xs: '250px' }, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={() => handleAddToCart(singleCourse)}>Take This Course</Button> <br />
                   <Button sx={{ width: { xl: '350px', xs: '250px' }, height: '51px', border: '1px solid #009FE3', '&:hover': { backgroundColor: '#009FE3', border: '0px' }, color: 'white', marginBottom: '20px', textTransform: 'none', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }}>Gift This Course</Button></Item>
               </Grid>
               <Grid item xs={12} xl={8}>
                 <Item sx={{ backgroundColor: 'transparent', boxShadow: 0 }}>
-                  <ReactPlayer controls width="100%" url={course?.url} />
+                  <ReactPlayer controls width="100%" url={singleCourse?.url} />
                 </Item>
                 <Item sx={{ backgroundColor: 'transparent', boxShadow: 0, display: 'flex', flexDirection: { xl: 'row', md: 'row', xs: 'column' }, alignItems: 'center', marginTop: '31px' }}>
                   <Paper sx={{ width: '140px', height: '100px', marginRight: { xl: '30px' }, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '10px', marginBottom: { xs: '30px' } }}>
@@ -343,7 +346,7 @@ const CourseDetail = () => {
                     Overview
                   </Typography>
                   <Typography sx={{ fontSize: '15px', fontFamily: 'Inter', fontWeight: 'normal', color: '#4E4848', lineHeight: '38px' }}>
-                    {course?.description}
+                    {singleCourse?.description}
                   </Typography>
                 </Item>
               </Grid>
