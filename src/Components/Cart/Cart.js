@@ -20,27 +20,13 @@ const Cart = () => {
 	const state = useSelector(state => state);
     const dispatch = useDispatch();
     const { cart, subTotal, totalVat, totalPrice, discountPrice, cuponUsed } = state;
-    // discountPrice
-    // console.log(cart, subTotal, totalVat, totalPrice)
     const vat = 0.15;
 
     const [cupon, setCupon] = useState('');
 
-
-    // console.log(discount)
     let total = 0;
 
     let finalTotal = 0;
-
-	// const [cart,
-	// 	setCart,
-	// 	totalPrice,
-	// 	setTotalPrice,
-	// 	subTotal,
-	// 	setSubTotal,
-	// 	discount,
-	// 	setDiscount
-	// ] = useContext(CourseDataContext);
 
 	useEffect(() => {
         cart.forEach(element => {
@@ -93,71 +79,7 @@ const Cart = () => {
     }
 
 
-	// const [promoCode, setPromoCode] = useState('');
-
-	// const deleteItem = (item) => {
-	// 	const newCart = cart.filter(cart => (cart.id !== item.id));
-	// 	setCart(newCart);
-	// }
-
-	// const increaseQuantity = (item) => {
-	// 	const newCart = cart.map(cartItem => {
-	// 		if (item.id === cartItem.id) {
-	// 			cartItem.quantity += 1
-	// 		}
-	// 		return cartItem;
-	// 	})
-	// 	setCart(newCart)
-	// }
-
-
-	// const decreaseQuantity = (item) => {
-	// 	const newCart = cart.map(cartItem => {
-	// 		if (item.id === cartItem.id) {
-	// 			if (item.quantity > 0) {
-	// 				item.quantity = item.quantity - 1
-	// 			}
-	// 		}
-	// 		return cartItem;
-	// 	})
-	// 	setCart(newCart)
-	// }
-
-	// // let total = 0;
-	// // let finalTotal = 0;
-	// // const vat = 0.15;
-
-	// cart.forEach(element => {
-	// 	total = total + (element.discountPrice * element.quantity);
-	// 	setSubTotal(total)
-	// 	finalTotal = total + (subTotal * vat)
-	// 	setTotalPrice(finalTotal);
-	// });
-
-
-	// const handlePromoCodeChange = (e) => {
-	// 	setPromoCode(e.target.value)
-	// }
-
-	// const handleDiscount = () => {
-	// 	if (promoCode === 'discount') {
-	// 		const newCart = cart.map(cartItem => {
-	// 			cartItem.discountPrice = cartItem.discountPrice / 2;
-	// 			return cartItem;
-	// 		})
-	// 		setCart(newCart)
-	// 		setPromoCode('')
-	// 	}
-	// 	else if (promoCode === '') {
-	// 		alert('Please enter a promoCode code');
-	// 	}
-	// 	else {
-
-	// 		alert('Wrong code');
-	// 	}
-	// 	console.log(totalPrice);
-	// }
-
+	
 	const Item = styled(Paper)(({ theme }) => ({
 		backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
 		...theme.typography.body2,
