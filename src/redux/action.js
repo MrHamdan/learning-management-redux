@@ -2,7 +2,7 @@
 export const fetchCourse = () => {
 
     return async (dispatch) => {
-        await fetch('/coursedata.json')
+        await fetch('./coursedata.json')
             .then(res => res.json())
             .then(
                 data => (
@@ -15,7 +15,22 @@ export const fetchCourse = () => {
 
     }
 }
+export const fetchBestCourses = () => {
 
+    return async (dispatch) => {
+        await fetch('./bestcourses.json')
+            .then(res => res.json())
+            .then(
+                data => (
+                    dispatch({
+                        type: 'LOAD_BEST_COURSES',
+                        payload: data
+                    })
+                )
+            );
+
+    }
+}
 export const addToCart = (payload) => {
     return {
         type: 'ADD_TO_CART',

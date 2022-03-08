@@ -15,6 +15,8 @@ import iao from '../../Images/iao.png';
 import rope from '../../Images/rope.png';
 import './BestCourses.css';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBestCourses } from '../../redux/action';
 
 
 
@@ -93,14 +95,13 @@ const settingsThree = {
 
 const BestCourses = () => {
 
-    const [bestCourses, setBestCourses] = useState([]);
+    const bestCourses = useSelector(state => state.bestCourses);
+    const dispatch = useDispatch();
+    console.log(bestCourses);
     useEffect(() => {
-        fetch('/bestcourses.json')
-            .then(data => data.json())
-            .then(data => setBestCourses(data))
+        dispatch(fetchBestCourses());
     }, []);
     
-
     const sliderRef = React.useRef(null);
 
     return (

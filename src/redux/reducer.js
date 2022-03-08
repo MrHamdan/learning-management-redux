@@ -7,6 +7,12 @@ export const reducer = (state = initialState, action) => {
             courses: action.payload
         }
     }
+    else if (action.type === 'LOAD_BEST_COURSES'){
+        return {
+            ...state,
+            bestCourses: action.payload
+        }
+    }
     else if (action.type === 'ADD_TO_CART') {
         return {
             ...state,
