@@ -13,8 +13,11 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 
+
 import './Courses.css';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCourse } from '../../redux/action';
 
 const buttonStyles = {
     next: {
@@ -99,13 +102,13 @@ const Style = {
 
 
 const Courses = () => {
-    const [courseList, setCourseList] = useState([]);
+    const courses = useSelector(state => state.courses);
+    console.log(courses)
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        fetch('/coursedata.json')
-            .then(data => data.json())
-            .then(data => setCourseList(data))
-    }, []);
-    
+        dispatch(fetchCourse());
+    }, [dispatch]);
 
     const sliderRef = React.useRef(null);
 
@@ -135,7 +138,7 @@ const Courses = () => {
 
                 <Box sx={{ marginTop: '62px' }}>
                     <Slider ref={sliderRef} {...settingsOne}>
-                        {courseList.map(course => (
+                        {courses.map(course => (
                             <Box key={course.id} course={course} sx={{display:'flex', flexDirection:{xs:'column', xl:'row'}}}>
                                 <Card sx={{ maxWidth: 345, margin: '0px 10px', boxShadow: 3, position: 'relative' }}>
                                     <Typography sx={{ backgroundColor: '#FF8A00', color: 'white', borderRadius: '20px', padding: '8px 15px', top: '10px', position: 'absolute', fontSize: '12px', left: '10px', fontWeight: 'bold',fontFamily:'Inter' }}>Most Popular</Typography>

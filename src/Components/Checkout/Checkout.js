@@ -1,5 +1,5 @@
 import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import checkoutBg from '../../Images/checkout.png';
@@ -34,6 +34,15 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const Checkout = () => {
+    const contextData = useContext(CourseDataContext);
+    const { state, dispatch } = contextData;
+    const { cart, subTotal, totalVat, totalPrice, discountPrice, cuponUsed } = state;
+    // discountPrice
+    // console.log(cart, subTotal, totalVat, totalPrice)
+    const vat = 0.15;
+
+
+
 
     const [country, setCountry] = React.useState('');
 
@@ -42,18 +51,18 @@ const Checkout = () => {
     };
 
 
-    const [cart,
-        setCart,
-        totalPrice,
-        setTotalPrice,
-        subTotal,
-        setSubTotal,
-        discount,
-        setDiscount
-    ] = useContext(CourseDataContext);
+    // const [cart,
+    //     setCart,
+    //     totalPrice,
+    //     setTotalPrice,
+    //     subTotal,
+    //     setSubTotal,
+    //     discount,
+    //     setDiscount
+    // ] = useContext(CourseDataContext);
 
 
-    const vat = 0.15
+    // const vat = 0.15
 
 
     console.log(cart);

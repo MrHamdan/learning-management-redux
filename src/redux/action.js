@@ -1,8 +1,18 @@
 
-export const fetchCourse = (payload) => {
-    return {
-        type: 'LOAD_COURSE',
-        payload
+export const fetchCourse = () => {
+
+    return async (dispatch) => {
+        await fetch('/coursedata.json')
+            .then(res => res.json())
+            .then(
+                data => (
+                    dispatch({
+                        type: 'LOAD_COURSE',
+                        payload: data
+                    })
+                )
+            );
+
     }
 }
 export const fetchQuiz = (payload) => {

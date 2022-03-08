@@ -29,6 +29,10 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const CourseDetail = () => {
+  const contextData = useContext(CourseDataContext);
+    const { state, dispatch } = contextData;
+    const { cart } = state;
+    const [isAdded, setIsAdded] = useState(false);
 
   const { id } = useParams();
 
@@ -36,30 +40,46 @@ const CourseDetail = () => {
 
   const [course, setCourse] = useState({});
 
-  const [cart, setCart] = useContext(CourseDataContext);
-
   const handleAddToCart = (course) => {
-    const added = cart.find((item) => (item.id === course.id))
-    if (added) {
-      added.quantity = added.quantity + 1
-      Swal.fire({
-        position: 'middle',
-        icon: 'success',
-        title: 'Course Has Been Added',
-        showConfirmButton: false,
-        timer: 1500
-      })
+    const added = cart?.find(item => (item.id === course.id));
+
+    if (!added) {
+        course = {
+            ...course,
+            quantity: 1
+        }
+        const newCart = [...cart, course];
+        dispatch({
+            type: 'ADD_TO_CART',
+            payload: newCart
+        })
     }
-    else {
-      course = {
-        ...course,
-        quantity: 1
-      }
-      const newCart = [...cart, course];
-      setCart(newCart);
-    }
-    console.log(cart);
-  }
+    setIsAdded(true);
+}
+  
+
+  // const handleAddToCart = (course) => {
+  //   const added = cart.find((item) => (item.id === course.id))
+  //   if (added) {
+  //     added.quantity = added.quantity + 1
+  //     Swal.fire({
+  //       position: 'middle',
+  //       icon: 'success',
+  //       title: 'Course Has Been Added',
+  //       showConfirmButton: false,
+  //       timer: 1500
+  //     })
+  //   }
+  //   else {
+  //     course = {
+  //       ...course,
+  //       quantity: 1
+  //     }
+  //     const newCart = [...cart, course];
+  //     setCart(newCart);
+  //   }
+  //   console.log(cart);
+  // }
 
 
 

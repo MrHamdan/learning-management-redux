@@ -14,83 +14,180 @@ import { Link } from 'react-router-dom';
 
 
 const Cart = () => {
+	const contextData = useContext(CourseDataContext);
+    const { state, dispatch } = contextData;
+    const { cart, subTotal, totalVat, totalPrice, discountPrice, cuponUsed } = state;
+    // discountPrice
+    // console.log(cart, subTotal, totalVat, totalPrice)
+    const vat = 0.15;
+
+    const [cupon, setCupon] = useState('');
 
 
-	const [cart,
-		setCart,
-		totalPrice,
-		setTotalPrice,
-		subTotal,
-		setSubTotal,
-		discount,
-		setDiscount
-	] = useContext(CourseDataContext);
+    // console.log(discount)
+    let total = 0;
+
+    let finalTotal = 0;
+
+	// const [cart,
+	// 	setCart,
+	// 	totalPrice,
+	// 	setTotalPrice,
+	// 	subTotal,
+	// 	setSubTotal,
+	// 	discount,
+	// 	setDiscount
+	// ] = useContext(CourseDataContext);
+
+	useEffect(() => {
+        cart.forEach(element => {
+            total = total + element.quantity * parseFloat(element.regularPrice - element.regularPrice * .75)
+            dispatch({
+                type: 'ADD_SUBTOTAL',
+                payload: total
+            })
+            dispatch({
+                type: 'ADD_VAT',
+                payload: subTotal * vat
+            })
+            finalTotal = total + totalVat;
+            dispatch({
+                type: 'ADD_TOTAL',
+                payload: finalTotal
+            })
+        });
+    }, [total, finalTotal, cart, totalVat, totalPrice])
 
 
-	const [promoCode, setPromoCode] = useState('');
-
-	const deleteItem = (item) => {
-		const newCart = cart.filter(cart => (cart.id !== item.id));
-		setCart(newCart);
-	}
-
-	const increaseQuantity = (item) => {
-		const newCart = cart.map(cartItem => {
-			if (item.id === cartItem.id) {
-				cartItem.quantity += 1
-			}
-			return cartItem;
+    const deleteItem = (item) => {
+        const newCart = cart.filter(cartItem => cartItem.id !== item.id);
+		dispatch({
+			type: 'ADD_TO_CART',
+			payload: newCart
 		})
-		setCart(newCart)
-	}
+
+    }
+
+    const handleCuponChange = (e) => {
+        setCupon(e.target.value)
+    }
+
+    const handleDiscount = () => {
+
+        if (cupon === 'discount') {
+            dispatch({
+                type: 'DISCOUNT_PRICE',
+                payload: totalPrice / 2
+            })
+            dispatch({
+                type: 'USE_CUPON',
+                payload: true
+            })
+        }
+        else if (cupon === '') {
+            alert('Enter a cupon code');
+        }
+        else {
+            alert('Wrong Code');
+        }
+
+    };
+
+    const increaseQuantity = (item) => {
+        const newCart = cart.map(cartItem => {
+            if (item.id === cartItem.id) {
+                cartItem.quantity += 1
+            }
+            dispatch({
+                type: 'USE_CUPON',
+                payload: false
+            })
+            return cartItem;
+        });
+        dispatch({ type: 'ADD_TO_CART', payload: newCart });
+    }
+    const decreaseQuantity = (item) => {
+
+        const newCart = cart.map(cartItem => {
+            if (item.id === cartItem.id) {
+                if (item.quantity > 0) {
+                    item.quantity = item.quantity - 1
+                }
+            }
+            dispatch({
+                type: 'USE_CUPON',
+                payload: false
+            })
+            return cartItem;
+        });
+        dispatch({ type: 'ADD_TO_CART', payload: newCart });
+    }
 
 
-	const decreaseQuantity = (item) => {
-		const newCart = cart.map(cartItem => {
-			if (item.id === cartItem.id) {
-				if (item.quantity > 0) {
-					item.quantity = item.quantity - 1
-				}
-			}
-			return cartItem;
-		})
-		setCart(newCart)
-	}
+	// const [promoCode, setPromoCode] = useState('');
 
-	let total = 0;
-	let finalTotal = 0;
-	const vat = 0.15;
+	// const deleteItem = (item) => {
+	// 	const newCart = cart.filter(cart => (cart.id !== item.id));
+	// 	setCart(newCart);
+	// }
 
-	cart.forEach(element => {
-		total = total + (element.discountPrice * element.quantity);
-		setSubTotal(total)
-		finalTotal = total + (subTotal * vat)
-		setTotalPrice(finalTotal);
-	});
+	// const increaseQuantity = (item) => {
+	// 	const newCart = cart.map(cartItem => {
+	// 		if (item.id === cartItem.id) {
+	// 			cartItem.quantity += 1
+	// 		}
+	// 		return cartItem;
+	// 	})
+	// 	setCart(newCart)
+	// }
 
 
-	const handlePromoCodeChange = (e) => {
-		setPromoCode(e.target.value)
-	}
+	// const decreaseQuantity = (item) => {
+	// 	const newCart = cart.map(cartItem => {
+	// 		if (item.id === cartItem.id) {
+	// 			if (item.quantity > 0) {
+	// 				item.quantity = item.quantity - 1
+	// 			}
+	// 		}
+	// 		return cartItem;
+	// 	})
+	// 	setCart(newCart)
+	// }
 
-	const handleDiscount = () => {
-		if (promoCode === 'discount') {
-			const newCart = cart.map(cartItem => {
-				cartItem.discountPrice = cartItem.discountPrice / 2;
-				return cartItem;
-			})
-			setCart(newCart)
-			setPromoCode('')
-		}
-		else if (promoCode === '') {
-			alert('Please enter a promoCode code');
-		}
-		else {
+	// // let total = 0;
+	// // let finalTotal = 0;
+	// // const vat = 0.15;
 
-			alert('Wrong code');
-		}
-		console.log(totalPrice);
-	}
+	// cart.forEach(element => {
+	// 	total = total + (element.discountPrice * element.quantity);
+	// 	setSubTotal(total)
+	// 	finalTotal = total + (subTotal * vat)
+	// 	setTotalPrice(finalTotal);
+	// });
+
+
+	// const handlePromoCodeChange = (e) => {
+	// 	setPromoCode(e.target.value)
+	// }
+
+	// const handleDiscount = () => {
+	// 	if (promoCode === 'discount') {
+	// 		const newCart = cart.map(cartItem => {
+	// 			cartItem.discountPrice = cartItem.discountPrice / 2;
+	// 			return cartItem;
+	// 		})
+	// 		setCart(newCart)
+	// 		setPromoCode('')
+	// 	}
+	// 	else if (promoCode === '') {
+	// 		alert('Please enter a promoCode code');
+	// 	}
+	// 	else {
+
+	// 		alert('Wrong code');
+	// 	}
+	// 	console.log(totalPrice);
+	// }
 
 	const Item = styled(Paper)(({ theme }) => ({
 		backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -223,7 +320,7 @@ const Cart = () => {
 											border: "none",
 										}}
 										placeholder="Coupon Code"
-										onChange={handlePromoCodeChange}
+										onChange={handleCuponChange}
 									></input>
 									<Button
 										onClick={handleDiscount}

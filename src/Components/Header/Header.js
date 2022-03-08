@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -21,6 +21,8 @@ import { Link } from 'react-router-dom';
 import { CourseDataContext } from '../../Contexts/CourseDataProvider';
 import { FaShoppingCart } from "react-icons/fa";
 import Form from '../Form/Form';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCourse } from '../../redux/action';
 
 
 
@@ -45,6 +47,17 @@ const Styles = {
 
 
 const Header = ({ color }) => {
+    const courses  = useSelector(state => state.courses);
+    console.log(courses );
+    const dispatch = useDispatch();
+    // const contextData = useContext(CourseDataContext);
+    // const { state } = contextData;
+    // const { courses } = state;
+    const sliderRef = useRef(null);
+
+    useEffect(() => {
+        dispatch(fetchCourse());
+    }, [dispatch]);
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -71,14 +84,14 @@ const Header = ({ color }) => {
     };
 
 
-    const [courseList, setCourseList] = useState([]);
-    useEffect(() => {
-        fetch('/coursedata.json')
-            .then(data => data.json())
-            .then(data => setCourseList(data))
-    }, []);
+    // const [courseList, setCourseList] = useState([]);
+    // useEffect(() => {
+    //     fetch('/coursedata.json')
+    //         .then(data => data.json())
+    //         .then(data => setCourseList(data))
+    // }, []);
 
-    const [cart] = useContext(CourseDataContext)
+    // const [cart] = useContext(CourseDataContext)
 
     return (
         <div>
@@ -111,7 +124,7 @@ const Header = ({ color }) => {
                                 <Link to='/allcategories' style={Styles.navLink}>Today's Deal</Link>
                             </Badge>
                             <Link to='/quiz' style={Styles.navLink}>Free Quiz</Link>
-                            <Badge badgeContent={cart.length} color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={Styles.navLink}>
+                            <Badge  color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={Styles.navLink}>
                                 < FaShoppingCart />
                             </Link></Badge>
                         </Box>
@@ -165,7 +178,7 @@ const Header = ({ color }) => {
                                 <MenuItem ><Badge badgeContent="New" color="error">
                                     <Link to='/allcategories' style={Styles.navLink}>Today's Deal</Link>
                                 </Badge></MenuItem>
-                                <MenuItem><Badge badgeContent={cart.length} color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={Styles.navLink}>
+                                <MenuItem><Badge  color='error' sx={{ fontSize: '20px' }}><Link to='/cart' style={Styles.navLink}>
                                 < FaShoppingCart />
                             </Link></Badge></MenuItem>
                                 <MenuItem><Button variant="contained" sx={{ backgroundColor: '#009FE3 !important', textTransform: 'none', width: '124px', height: '51px', borderRadius: '8px', fontSize: '16px', fontFamily: 'Inter', fontWeight: 'bold' }} onClick={handleOpen}>Sign In</Button></MenuItem>
@@ -193,7 +206,7 @@ const Header = ({ color }) => {
                                 open={Boolean(anchorElUser)}
                                 onClose={handleCloseUserMenu}
                             >
-                                {courseList.map(course => (
+                                {courses.map(course => (
                                     <MenuItem key={course.id}><Link to={`/coursedetail/${course.id}`} style={Styles.navLink}>{course.title}</Link></MenuItem>
                                 ))}
 
