@@ -38,7 +38,6 @@ const CourseDetail = () => {
   
 
   const relatedCourses = useSelector(state => state.relatedCourses);
-    // console.log(relatedCourses);
     useEffect(() => {
         dispatch(fetchRelatedCourses());
     }, []);
@@ -73,13 +72,6 @@ const CourseDetail = () => {
   }, [courses, id]);
 
   
-
-  // const [relatedCourses, setRelatedCourses] = useState([]);
-  // useEffect(() => {
-  //   fetch('/bestcourses.json')
-  //     .then(data => data.json())
-  //     .then(data => setRelatedCourses(data))
-  // }, []);
 
 
   const sliderRef = React.useRef(null);
