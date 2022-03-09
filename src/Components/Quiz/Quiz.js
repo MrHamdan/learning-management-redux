@@ -36,9 +36,6 @@ const Quiz = () => {
     dispatch(fetchQuizes());
 }, [dispatch]);
 
-
-
- const [showFinalResults, setFinalResults] = useState(false);
  const [score, setScore] = useState(0);
 
  const [currentQuestion, setCurrentQuestion] = useState(0);
