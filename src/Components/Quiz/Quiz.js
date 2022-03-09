@@ -1,5 +1,7 @@
 import { Box, Button, Checkbox, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchQuizes } from '../../redux/action';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
@@ -27,6 +29,15 @@ const Quiz = () => {
   },
  };
 
+ const quizes = useSelector(state => state.quizes);
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(fetchQuizes());
+}, [dispatch]);
+
+
+
  const [questions, setQuestions] = useState([]);
  const [showFinalResults, setFinalResults] = useState(false);
  const [score, setScore] = useState(0);
@@ -42,7 +53,7 @@ const Quiz = () => {
  console.log(questions);
 
  const handleNextQuestion = () => {
-  if (currentQuestion + 1 < questions.length) {
+  if (currentQuestion + 1 < quizes.length) {
    setCurrentQuestion(currentQuestion + 1);
   } else {
    alert("final question reached");
@@ -50,7 +61,7 @@ const Quiz = () => {
  };
 
  const handleQuestionCheking = (id) => {
-  if (questions[currentQuestion].right_answer === id) {
+  if (quizes[currentQuestion].right_answer === id) {
    setScore(score + 1);
   }
  };
@@ -83,12 +94,12 @@ const Quiz = () => {
       >
        {currentQuestion + 1}
       </Typography>
-      {questions[currentQuestion]?.question}
+      {quizes[currentQuestion]?.question}
      </Typography>
 
      <Box>
       {/* Question Container */}
-      {questions[currentQuestion]?.options?.map((option) => (
+      {quizes[currentQuestion]?.options?.map((option) => (
        <Box key={option.id} sx={questionLineStyle}>
         <Checkbox onClick={(e) => handleQuestionCheking(option.id)} />
         <Typography sx={{ fontSize: "1.2rem" }}>{option?.option}</Typography>

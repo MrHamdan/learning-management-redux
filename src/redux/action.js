@@ -48,6 +48,18 @@ export const fetchRelatedCourses = () => {
 
     }
 }
+export const fetchQuizes = () => {
+    return async (dispatch) => {
+        await fetch ('https://raw.githubusercontent.com/MrHamdan/learning-management-redux/main/public/quiz.json')
+        .then(res => res.json())
+        .then(data => (
+            dispatch({
+                type:'LOAD_QUIZES',
+                payload:data
+            })
+        ));
+    }
+}
 export const addToCart = (payload) => {
     return {
         type: 'ADD_TO_CART',

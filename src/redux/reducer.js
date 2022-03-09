@@ -19,6 +19,12 @@ export const reducer = (state = initialState, action) => {
             relatedCourses: action.payload
         }
     }
+    else if (action.type === 'LOAD_QUIZES'){
+        return {
+            ...state,
+            quizes: action.payload
+        }
+    }
     else if (action.type === 'ADD_TO_CART') {
         return {
             ...state,
