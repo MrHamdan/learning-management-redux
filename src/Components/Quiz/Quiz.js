@@ -38,19 +38,12 @@ const Quiz = () => {
 
 
 
- const [questions, setQuestions] = useState([]);
  const [showFinalResults, setFinalResults] = useState(false);
  const [score, setScore] = useState(0);
 
  const [currentQuestion, setCurrentQuestion] = useState(0);
 
- useEffect(() => {
-  fetch("/quiz.json")
-   .then((res) => res.json())
-   .then((data) => setQuestions(data));
- }, []);
 
- console.log(questions);
 
  const handleNextQuestion = () => {
   if (currentQuestion + 1 < quizes.length) {
