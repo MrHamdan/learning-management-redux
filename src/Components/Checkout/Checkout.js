@@ -180,7 +180,7 @@ const Checkout = () => {
                                                             <TableCell>{item.title}</TableCell>
                                                             <TableCell align="right"></TableCell>
                                                             <TableCell align="right"></TableCell>
-                                                            <TableCell align="right">{item.discountPrice}</TableCell>
+                                                            <TableCell align="right">£ {item.discountPrice}</TableCell>
                                                         </TableRow>
                                                     ))}
 
