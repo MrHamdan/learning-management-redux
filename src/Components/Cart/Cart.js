@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addSubTotal, addVat, addTotal, calculateDiscount, addCupon, increaseQuantity, decreaseQuantity } from "../../redux/action"
 import Swal from 'sweetalert2';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 
 
@@ -187,15 +188,23 @@ const Cart = () => {
 										<TableBody>
 											{cart.map((item) => (
 												<TableRow item={item.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-													<TableCell align="left" sx={{ display: 'flex', alignItems: 'center',fontSize: '16px',fontFamily: 'Inter',fontWeight: '500' }}> <img style={{ width: '60px', height: '60px', borderRadius: '6px', marginRight: '20px' }} src={item.coverImage} alt="" /> {item.title}</TableCell>
-													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500'}}>£ {item.discountPrice}</TableCell>
-													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500'}}><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', border:'1px solid #9D9D9D', borderRadius: '10px'}}><RemoveIcon sx={{cursor:'pointer'}} onClick={() => handleQuantity(item, 'decrease')}></RemoveIcon>{item.quantity}<AddIcon sx={{cursor:'pointer'}} onClick={() => handleQuantity(item, 'increase')}></AddIcon></Box></TableCell>
-													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500'}}>£ {item.discountPrice * item.quantity}</TableCell>
-													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500'}}><ClearIcon sx={{cursor:'pointer'}} onClick={() => deleteItem(item)}></ClearIcon></TableCell>
+													<TableCell align="left" sx={{ display: 'flex', alignItems: 'center',fontSize: '16px',fontFamily: 'Inter',fontWeight: '500', fontStyle: 'normal'}}> <img style={{ width: '60px', height: '60px', borderRadius: '6px', marginRight: '20px' }} src={item.coverImage} alt="" /> {item.title}</TableCell>
+													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500', fontStyle: 'normal'}}>£ {item.discountPrice}</TableCell>
+													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500', fontStyle: 'normal'}}><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', border:'1px solid #9D9D9D', borderRadius: '10px'}}><RemoveIcon sx={{cursor:'pointer'}} onClick={() => handleQuantity(item, 'decrease')}></RemoveIcon>{item.quantity}<AddIcon sx={{cursor:'pointer'}} onClick={() => handleQuantity(item, 'increase')}></AddIcon></Box></TableCell>
+													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500', fontStyle: 'normal'}}>£ {item.discountPrice * item.quantity}</TableCell>
+													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500', fontStyle: 'normal'}}><ClearIcon sx={{cursor:'pointer'}} onClick={() => deleteItem(item)}></ClearIcon></TableCell>
 												</TableRow>
 											))}
 										</TableBody>
 									</Table>
+									<Box sx={{display: 'flex', justifyContent: 'space-between', marginRight:'20px', marginLeft:'20px'}}>
+											<Box sx={{border: '1px solid #0D2A62', width:'270px', height:'51px',display: 'flex', alignItems: 'center', justifyContent:'center', borderRadius:'8px'}}>
+											<Link style={{textDecoration: 'none' }} to='/allcategories'><Typography sx={{display:'flex', alignItems: 'center',fontFamily: 'Inter', fontStyle:'normal', fontWeight:'700',fontSize:'16px', color:'#0D2A62'}}>Continue Select Course <ArrowForwardIosIcon/></Typography></Link>
+											</Box>
+											<Box sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
+											<Link style={{textDecoration: 'none' }} to='/allcategories'><Button sx={{backgroundColor:'#009FE3 !important', fontSize:'16px', fontWeight:'700', fontStyle:'normal', fontFamily: 'Inter', color:'white', width:'185px', height:'51px'}}>Update Busket</Button></Link>
+											</Box>
+										</Box>
 								</TableContainer>
 							</Grid>
 							<Grid
