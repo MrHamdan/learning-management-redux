@@ -202,7 +202,7 @@ const Cart = () => {
 											<Link style={{textDecoration: 'none' }} to='/allcategories'><Typography sx={{display:'flex', alignItems: 'center',fontFamily: 'Inter', fontStyle:'normal', fontWeight:'700',fontSize:'16px', color:'#0D2A62'}}>Continue Select Course <ArrowForwardIosIcon/></Typography></Link>
 											</Box>
 											<Box sx={{display:'flex', alignItems:'center', justifyContent:'center'}}>
-											<Link style={{textDecoration: 'none' }} to='/allcategories'><Button sx={{backgroundColor:'#009FE3 !important', fontSize:'16px', fontWeight:'700', fontStyle:'normal', fontFamily: 'Inter', color:'white', width:'185px', height:'51px'}}>Update Busket</Button></Link>
+											<Link style={{textDecoration: 'none' }} to='/allcategories'><Button sx={{backgroundColor:'#009FE3 !important', fontSize:'16px', fontWeight:'700', fontStyle:'normal', fontFamily: 'Inter', color:'white', width:'185px', height:'51px', textTransform: 'none'}}>Update Busket</Button></Link>
 											</Box>
 										</Box>
 								</TableContainer>
