@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 import { useSelector } from 'react-redux';
 
 
+
 const Styles = {
     checkoutBg: {
         backgroundImage: `url(${checkoutBg})`,
@@ -177,7 +178,7 @@ const Checkout = () => {
                                                 <TableBody>
                                                     {cart.map((item) => (
                                                         <TableRow key={item.id}>
-                                                            <TableCell>{item.title}</TableCell>
+                                                            <TableCell sx={{display: 'flex',  alignItems: 'center' }}><img style={{ width: '60px', height: '60px', borderRadius: '6px', marginRight: '20px' }} src={item.coverImage} alt="" /> {item.title}</TableCell>
                                                             <TableCell align="right"></TableCell>
                                                             <TableCell align="right"></TableCell>
                                                             <TableCell align="right">£ {item.discountPrice}</TableCell>
