@@ -57,6 +57,13 @@ const CourseDetail = () => {
         }
         const newCart = [...cart, course];
         dispatch(addToCart(newCart));
+        Swal.fire({
+          position: 'middle',
+          icon: 'success',
+          title: 'Course Has Been Added',
+          showConfirmButton: false,
+          timer: 1500
+        })
     }
     
 }

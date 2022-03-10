@@ -10,6 +10,7 @@ import { styled } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addSubTotal, addVat, addTotal, calculateDiscount, addCupon, increaseQuantity, decreaseQuantity } from "../../redux/action"
+import Swal from 'sweetalert2';
 
 
 
@@ -62,6 +63,13 @@ const Cart = () => {
         if (cupon === 'Discount') {
             dispatch(calculateDiscount(totalPrice / 2));
             dispatch(addCupon(true));
+			Swal.fire({
+				position: 'middle',
+				icon: 'success',
+				title: 'You Got 50% Discount',
+				showConfirmButton: false,
+				timer: 1500
+			  })
         }
         else if (cupon === '') {
             alert('Enter a cupon code');
@@ -179,11 +187,11 @@ const Cart = () => {
 										<TableBody>
 											{cart.map((item) => (
 												<TableRow item={item.id} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-													<TableCell align="left" sx={{ display: 'flex', alignItems: 'center' }}> <img style={{ width: '60px', height: '60px', borderRadius: '6px', marginRight: '20px' }} src={item.coverImage} alt="" /> {item.title}</TableCell>
-													<TableCell align="center">£ {item.discountPrice}</TableCell>
-													<TableCell align="center"><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><RemoveIcon onClick={() => handleQuantity(item, 'decrease')}></RemoveIcon>{item.quantity}<AddIcon onClick={() => handleQuantity(item, 'increase')}></AddIcon></Box></TableCell>
-													<TableCell align="center">£ {item.discountPrice * item.quantity}</TableCell>
-													<TableCell align="center"><ClearIcon onClick={() => deleteItem(item)}></ClearIcon></TableCell>
+													<TableCell align="left" sx={{ display: 'flex', alignItems: 'center',fontSize: '16px',fontFamily: 'Inter',fontWeight: '500' }}> <img style={{ width: '60px', height: '60px', borderRadius: '6px', marginRight: '20px' }} src={item.coverImage} alt="" /> {item.title}</TableCell>
+													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500'}}>£ {item.discountPrice}</TableCell>
+													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500'}}><Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', border:'1px solid #9D9D9D', borderRadius: '10px'}}><RemoveIcon sx={{cursor:'pointer'}} onClick={() => handleQuantity(item, 'decrease')}></RemoveIcon>{item.quantity}<AddIcon sx={{cursor:'pointer'}} onClick={() => handleQuantity(item, 'increase')}></AddIcon></Box></TableCell>
+													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500'}}>£ {item.discountPrice * item.quantity}</TableCell>
+													<TableCell align="center" sx={{fontSize: '16px',fontFamily: 'Inter',fontWeight: '500'}}><ClearIcon sx={{cursor:'pointer'}} onClick={() => deleteItem(item)}></ClearIcon></TableCell>
 												</TableRow>
 											))}
 										</TableBody>
