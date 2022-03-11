@@ -61,7 +61,7 @@ const Cart = () => {
 
     const handleDiscount = () => {
 
-        if (cupon === 'Discount') {
+        if (cupon === 'discount') {
             dispatch(calculateDiscount(totalPrice / 2));
             dispatch(addCupon(true));
 			Swal.fire({
